@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>مدونة العميل</title>
+    <title>Client Ledger</title>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800;900&family=Tajawal:wght@300;400;500;700&family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800;900&family=Tajawal:wght@300;400;500;700&family=Noto+Sans+SC:wght@400;500;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
             --primary-color: #6366f1;
@@ -118,13 +118,12 @@
         }
         
         body {
-            font-family: 'Cairo', 'Tajawal', 'Noto Sans SC', sans-serif;
+            font-family: 'Cairo', 'Tajawal', 'Noto Sans SC', 'Inter', sans-serif;
             background: var(--bg-secondary);
             color: var(--text-primary);
             min-height: 100vh;
             overflow-x: hidden;
             transition: all 0.4s ease;
-            position: relative;
         }
         
         .custom-bg {
@@ -168,8 +167,6 @@
         .app-container {
             display: flex;
             min-height: 100vh;
-            position: relative;
-            z-index: 1;
         }
         
         .sidebar {
@@ -198,7 +195,6 @@
             padding: 28px 24px;
             background: var(--gradient-hero);
             color: white;
-            position: relative;
         }
         
         .logo {
@@ -945,14 +941,6 @@
             margin-bottom: 6px;
         }
         
-        .client-details {
-            color: var(--text-secondary);
-            font-size: 14px;
-            display: flex;
-            align-items: center;
-            gap: 6px;
-        }
-        
         .client-stats {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -1032,15 +1020,6 @@
             font-size: 32px;
             font-weight: 900;
             margin-bottom: 8px;
-        }
-        
-        .book-client-info {
-            font-size: 14px;
-            opacity: 0.9;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            margin-bottom: 4px;
         }
         
         .book-stats-grid {
@@ -1406,7 +1385,6 @@
             color: var(--text-secondary);
         }
         
-        /* Currency Selector */
         .currency-options {
             display: flex;
             flex-wrap: wrap;
@@ -1478,16 +1456,6 @@
                 grid-template-columns: repeat(2, 1fr);
             }
         }
-        
-        @media print {
-            .sidebar, .top-bar, .btn, .modal-overlay, .bg-pattern {
-                display: none !important;
-            }
-            
-            body {
-                background: white;
-            }
-        }
     </style>
 </head>
 <body>
@@ -1500,64 +1468,64 @@
             <div class="sidebar-header">
                 <div class="logo">
                     <i class="material-icons">account_circle</i>
-                    <h1 data-i18n="appTitle">مدونة العميل</h1>
+                    <h1 id="app-title">مدونة العميل</h1>
                 </div>
-                <p class="logo-subtitle" data-i18n="appSubtitle">نظام إدارة متكامل</p>
+                <p class="logo-subtitle" id="app-subtitle">نظام إدارة متكامل</p>
             </div>
             
             <nav class="sidebar-nav">
                 <div class="nav-item active" data-section="dashboard">
                     <i class="material-icons">dashboard</i>
-                    <span data-i18n="navDashboard">لوحة التحكم</span>
+                    <span class="nav-text">لوحة التحكم</span>
                 </div>
                 
                 <div class="nav-item" data-section="notes">
                     <i class="material-icons">note</i>
-                    <span data-i18n="navNotes">الملاحظات</span>
+                    <span class="nav-text">الملاحظات</span>
                     <span class="nav-badge" id="notes-count">0</span>
                 </div>
                 
                 <div class="nav-item" data-section="repetition">
                     <i class="material-icons">autorenew</i>
-                    <span data-i18n="navRepetition">التكرار المتباعد</span>
+                    <span class="nav-text">التكرار المتباعد</span>
                 </div>
                 
                 <div class="nav-item" data-section="debts">
                     <i class="material-icons">account_balance_wallet</i>
-                    <span data-i18n="navDebts">ديون المحل</span>
+                    <span class="nav-text">ديون المحل</span>
                     <span class="nav-badge" id="debts-count">0</span>
                 </div>
                 
                 <div class="nav-item" data-section="clients">
                     <i class="material-icons">people</i>
-                    <span data-i18n="navClients">إدارة العملاء</span>
+                    <span class="nav-text">إدارة العملاء</span>
                     <span class="nav-badge" id="clients-count">0</span>
                 </div>
                 
                 <div class="nav-item" data-section="settings">
                     <i class="material-icons">settings</i>
-                    <span data-i18n="navSettings">الإعدادات</span>
+                    <span class="nav-text">الإعدادات</span>
                 </div>
             </nav>
             
             <div class="quick-actions">
-                <div class="quick-actions-title" data-i18n="quickActions">إجراءات سريعة</div>
+                <div class="quick-actions-title" id="quick-actions-title">إجراءات سريعة</div>
                 <button class="quick-action-btn" onclick="openNoteModal()">
                     <i class="material-icons">add_circle</i>
-                    <span data-i18n="quickNewNote">ملاحظة جديدة</span>
+                    <span id="quick-new-note">ملاحظة جديدة</span>
                 </button>
                 <button class="quick-action-btn" onclick="openDebtModal()">
                     <i class="material-icons">add_circle</i>
-                    <span data-i18n="quickNewDebt">دين جديد</span>
+                    <span id="quick-new-debt">دين جديد</span>
                 </button>
                 <button class="quick-action-btn" onclick="openClientModal()">
                     <i class="material-icons">add_circle</i>
-                    <span data-i18n="quickNewClient">عميل جديد</span>
+                    <span id="quick-new-client">عميل جديد</span>
                 </button>
             </div>
             
             <div class="lang-selector">
-                <div class="lang-selector-title" data-i18n="language">اللغة</div>
+                <div class="lang-selector-title" id="lang-selector-title">اللغة</div>
                 <div class="lang-options">
                     <button class="lang-btn active" onclick="setLanguage('ar')">العربية</button>
                     <button class="lang-btn" onclick="setLanguage('en')">English</button>
@@ -1568,7 +1536,7 @@
             <div class="sidebar-footer">
                 <button class="btn btn-primary" style="width: 100%;" onclick="exportData()">
                     <i class="material-icons">download</i>
-                    <span data-i18n="exportData">تصدير البيانات</span>
+                    <span id="export-data">تصدير البيانات</span>
                 </button>
             </div>
         </aside>
@@ -1579,12 +1547,12 @@
                     <button class="menu-toggle" onclick="toggleSidebar()">
                         <i class="material-icons">menu</i>
                     </button>
-                    <h2 class="page-title" id="page-title" data-i18n="navDashboard">لوحة التحكم</h2>
+                    <h2 class="page-title" id="page-title">لوحة التحكم</h2>
                 </div>
                 
                 <div class="top-bar-center">
                     <div class="global-search-box">
-                        <input type="text" data-i18n-placeholder="searchPlaceholder" id="global-search" oninput="performGlobalSearch()">
+                        <input type="text" id="global-search" placeholder="البحث في كامل النظام..." oninput="performGlobalSearch()">
                         <i class="material-icons">search</i>
                         <div class="search-results" id="search-results"></div>
                     </div>
@@ -1610,45 +1578,41 @@
                         <div class="stat-card">
                             <div class="stat-icon"><i class="material-icons">note</i></div>
                             <div class="stat-value" id="total-notes">0</div>
-                            <div class="stat-label" data-i18n="totalNotes">إجمالي الملاحظات</div>
+                            <div class="stat-label" id="label-total-notes">إجمالي الملاحظات</div>
                         </div>
                         
                         <div class="stat-card">
                             <div class="stat-icon" style="background: var(--gradient-secondary);"><i class="material-icons">check_circle</i></div>
                             <div class="stat-value" id="review-today">0</div>
-                            <div class="stat-label" data-i18n="reviewsToday">مراجعات اليوم</div>
+                            <div class="stat-label" id="label-review-today">مراجعات اليوم</div>
                         </div>
                         
                         <div class="stat-card">
                             <div class="stat-icon" style="background: var(--gradient-warning);"><i class="material-icons">payments</i></div>
                             <div class="stat-value" id="total-debts">0</div>
-                            <div class="stat-label" data-i18n="totalDebts">إجمالي الديون</div>
+                            <div class="stat-label" id="label-total-debts">إجمالي الديون</div>
                         </div>
                         
                         <div class="stat-card">
                             <div class="stat-icon" style="background: var(--gradient-danger);"><i class="material-icons">people</i></div>
                             <div class="stat-value" id="total-clients">0</div>
-                            <div class="stat-label" data-i18n="totalClients">العملاء</div>
+                            <div class="stat-label" id="label-total-clients">العملاء</div>
                         </div>
                     </div>
                     
                     <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
                         <div class="card">
                             <div class="card-header">
-                                <h3 class="card-title"><i class="material-icons">schedule</i><span data-i18n="upcomingReviews">المراجعات القادمة</span></h3>
+                                <h3 class="card-title"><i class="material-icons">schedule</i><span id="title-upcoming-reviews">المراجعات القادمة</span></h3>
                             </div>
-                            <div id="upcoming-reviews">
-                                <div class="empty-state"><i class="material-icons">event_available</i><h3 data-i18n="noReviews">لا توجد مراجعات اليوم</h3></div>
-                            </div>
+                            <div id="upcoming-reviews"></div>
                         </div>
                         
                         <div class="card">
                             <div class="card-header">
-                                <h3 class="card-title"><i class="material-icons">account_balance_wallet</i><span data-i18n="recentDebts">آخر الديون</span></h3>
+                                <h3 class="card-title"><i class="material-icons">account_balance_wallet</i><span id="title-recent-debts">آخر الديون</span></h3>
                             </div>
-                            <div id="recent-debts">
-                                <div class="empty-state"><i class="material-icons">payments</i><h3 data-i18n="noDebts">لا توجد ديون مسجلة</h3></div>
-                            </div>
+                            <div id="recent-debts"></div>
                         </div>
                     </div>
                 </section>
@@ -1657,20 +1621,18 @@
                 <section class="section" id="notes-section">
                     <div class="card">
                         <div class="card-header">
-                            <h3 class="card-title"><i class="material-icons">note</i><span data-i18n="navNotes">الملاحظات</span></h3>
+                            <h3 class="card-title"><i class="material-icons">note</i><span id="section-title-notes">الملاحظات</span></h3>
                             <button class="btn btn-primary" onclick="openNoteModal()">
-                                <i class="material-icons">add</i><span data-i18n="addNote">إضافة ملاحظة</span>
+                                <i class="material-icons">add</i><span id="btn-add-note">إضافة ملاحظة</span>
                             </button>
                         </div>
                         
                         <div class="search-box">
-                            <input type="text" data-i18n-placeholder="searchNotes" id="notes-search" oninput="filterNotes()">
+                            <input type="text" id="notes-search" placeholder="البحث في الملاحظات..." oninput="filterNotes()">
                             <i class="material-icons">search</i>
                         </div>
                         
-                        <div class="notes-grid" id="notes-container">
-                            <div class="empty-state"><i class="material-icons">note_add</i><h3 data-i18n="noNotesYet">لا توجد ملاحظات</h3></div>
-                        </div>
+                        <div class="notes-grid" id="notes-container"></div>
                     </div>
                 </section>
                 
@@ -1678,14 +1640,12 @@
                 <section class="section" id="repetition-section">
                     <div class="card">
                         <div class="card-header">
-                            <h3 class="card-title"><i class="material-icons">autorenew</i><span data-i18n="navRepetition">التكرار المتباعد</span></h3>
+                            <h3 class="card-title"><i class="material-icons">autorenew</i><span id="section-title-repetition">التكرار المتباعد</span></h3>
                             <button class="btn btn-primary" onclick="startReviewSession()">
-                                <i class="material-icons">play_arrow</i><span data-i18n="startReview">بدء المراجعة</span>
+                                <i class="material-icons">play_arrow</i><span id="btn-start-review">بدء المراجعة</span>
                             </button>
                         </div>
-                        <div id="repetition-container">
-                            <div class="empty-state"><i class="material-icons">school</i><h3 data-i18n="noReviews">لا توجد مراجعات</h3></div>
-                        </div>
+                        <div id="repetition-container"></div>
                     </div>
                 </section>
                 
@@ -1693,33 +1653,33 @@
                 <section class="section" id="debts-section">
                     <div class="card">
                         <div class="card-header">
-                            <h3 class="card-title"><i class="material-icons">account_balance_wallet</i><span data-i18n="navDebts">ديون المحل</span></h3>
+                            <h3 class="card-title"><i class="material-icons">account_balance_wallet</i><span id="section-title-debts">ديون المحل</span></h3>
                             <button class="btn btn-primary" onclick="openDebtModal()">
-                                <i class="material-icons">add</i><span data-i18n="addDebt">إضافة دين</span>
+                                <i class="material-icons">add</i><span id="btn-add-debt">إضافة دين</span>
                             </button>
                         </div>
                         
                         <div class="search-box">
-                            <input type="text" data-i18n-placeholder="searchName" id="debts-search" oninput="filterDebts()">
+                            <input type="text" id="debts-search" placeholder="البحث بالاسم..." oninput="filterDebts()">
                             <i class="material-icons">search</i>
                         </div>
                         
                         <div class="filter-bar">
-                            <button class="filter-btn active" onclick="filterDebtsByStatus('all')"><i class="material-icons">apps</i><span data-i18n="filterAll">الكل</span></button>
-                            <button class="filter-btn" onclick="filterDebtsByStatus('unpaid')"><i class="material-icons">money_off</i><span data-i18n="filterUnpaid">غير مدفوع</span></button>
-                            <button class="filter-btn" onclick="filterDebtsByStatus('paid')"><i class="material-icons">check_circle</i><span data-i18n="filterPaid">مدفوع</span></button>
+                            <button class="filter-btn active" onclick="filterDebtsByStatus('all')"><i class="material-icons">apps</i><span id="filter-all">الكل</span></button>
+                            <button class="filter-btn" onclick="filterDebtsByStatus('unpaid')"><i class="material-icons">money_off</i><span id="filter-unpaid">غير مدفوع</span></button>
+                            <button class="filter-btn" onclick="filterDebtsByStatus('paid')"><i class="material-icons">check_circle</i><span id="filter-paid">مدفوع</span></button>
                         </div>
                         
                         <div class="stats-grid" style="margin-bottom: 20px;">
                             <div class="stat-card">
                                 <div class="stat-icon" style="background: var(--gradient-warning);"><i class="material-icons">pending</i></div>
                                 <div class="stat-value" id="unpaid-debts">0</div>
-                                <div class="stat-label" data-i18n="unpaidDebts">ديون غير مدفوعة</div>
+                                <div class="stat-label" id="label-unpaid-debts">ديون غير مدفوعة</div>
                             </div>
                             <div class="stat-card">
                                 <div class="stat-icon" style="background: var(--gradient-success);"><i class="material-icons">paid</i></div>
                                 <div class="stat-value" id="paid-debts">0</div>
-                                <div class="stat-label" data-i18n="paidDebts">ديون مدفوعة</div>
+                                <div class="stat-label" id="label-paid-debts">ديون مدفوعة</div>
                             </div>
                         </div>
                         
@@ -1727,21 +1687,22 @@
                             <table class="table" id="debts-table">
                                 <thead>
                                     <tr>
-                                        <th data-i18n="tableName">الاسم</th>
-                                        <th data-i18n="tableOriginal">المبلغ الأصلي</th>
-                                        <th data-i18n="tablePaid">المدفوع</th>
-                                        <th data-i18n="tableRemaining">المتبقي</th>
-                                        <th data-i18n="tableDate">التاريخ</th>
-                                        <th data-i18n="tableStatus">الحالة</th>
-                                        <th data-i18n="tableActions">الإجراءات</th>
+                                        <th id="th-name">الاسم</th>
+                                        <th id="th-original">المبلغ الأصلي</th>
+                                        <th id="th-paid">المدفوع</th>
+                                        <th id="th-remaining">المتبقي</th>
+                                        <th id="th-date">التاريخ</th>
+                                        <th id="th-status">الحالة</th>
+                                        <th id="th-actions">الإجراءات</th>
                                     </tr>
                                 </thead>
                                 <tbody id="debts-tbody"></tbody>
                             </table>
                         </div>
                         
-                        <div id="debts-empty" class="empty-state">
-                            <i class="material-icons">payments</i><h3 data-i18n="noDebts">لا توجد ديون مسجلة</h3>
+                        <div id="debts-empty" class="empty-state" style="display: none;">
+                            <i class="material-icons">payments</i>
+                            <h3 id="msg-no-debts">لا توجد ديون مسجلة</h3>
                         </div>
                     </div>
                 </section>
@@ -1750,20 +1711,18 @@
                 <section class="section" id="clients-section">
                     <div class="card">
                         <div class="card-header">
-                            <h3 class="card-title"><i class="material-icons">people</i><span data-i18n="navClients">إدارة العملاء</span></h3>
+                            <h3 class="card-title"><i class="material-icons">people</i><span id="section-title-clients">إدارة العملاء</span></h3>
                             <button class="btn btn-primary" onclick="openClientModal()">
-                                <i class="material-icons">add</i><span data-i18n="addClient">إضافة عميل</span>
+                                <i class="material-icons">add</i><span id="btn-add-client">إضافة عميل</span>
                             </button>
                         </div>
                         
                         <div class="search-box">
-                            <input type="text" data-i18n-placeholder="searchClients" id="clients-search" oninput="filterClients()">
+                            <input type="text" id="clients-search" placeholder="البحث في العملاء..." oninput="filterClients()">
                             <i class="material-icons">search</i>
                         </div>
                         
-                        <div class="clients-grid" id="clients-container">
-                            <div class="empty-state"><i class="material-icons">person_add</i><h3 data-i18n="noClients">لا يوجد عملاء</h3></div>
-                        </div>
+                        <div class="clients-grid" id="clients-container"></div>
                     </div>
                 </section>
                 
@@ -1776,48 +1735,48 @@
                 <section class="section" id="settings-section">
                     <div class="card">
                         <div class="card-header">
-                            <h3 class="card-title"><i class="material-icons">settings</i><span data-i18n="navSettings">الإعدادات</span></h3>
+                            <h3 class="card-title"><i class="material-icons">settings</i><span id="section-title-settings">الإعدادات</span></h3>
                         </div>
                         
                         <!-- Theme Selection -->
                         <div style="margin-bottom: 30px;">
-                            <h4 style="font-size: 18px; font-weight: 700; margin-bottom: 16px;" data-i18n="chooseTheme">اختر التصميم</h4>
+                            <h4 style="font-size: 18px; font-weight: 700; margin-bottom: 16px;" id="title-choose-theme">اختر التصميم</h4>
                             <div class="theme-selector" id="theme-selector">
                                 <div class="theme-option active" onclick="selectColor('')" data-color="">
                                     <div class="theme-color-preview theme-preview-purple"><i class="material-icons">auto_awesome</i></div>
-                                    <div class="theme-option-name" data-i18n="themeDefault">الافتراضي</div>
+                                    <div class="theme-option-name" id="theme-default">الافتراضي</div>
                                 </div>
                                 <div class="theme-option" onclick="selectColor('purple')" data-color="purple">
                                     <div class="theme-color-preview theme-preview-purple"><i class="material-icons">star</i></div>
-                                    <div class="theme-option-name" data-i18n="themePurple">بنفسجي</div>
+                                    <div class="theme-option-name" id="theme-purple">بنفسجي</div>
                                 </div>
                                 <div class="theme-option" onclick="selectColor('blue')" data-color="blue">
                                     <div class="theme-color-preview theme-preview-blue"><i class="material-icons">water_drop</i></div>
-                                    <div class="theme-option-name" data-i18n="themeBlue">أزرق</div>
+                                    <div class="theme-option-name" id="theme-blue">أزرق</div>
                                 </div>
                                 <div class="theme-option" onclick="selectColor('green')" data-color="green">
                                     <div class="theme-color-preview theme-preview-green"><i class="material-icons">eco</i></div>
-                                    <div class="theme-option-name" data-i18n="themeGreen">أخضر</div>
+                                    <div class="theme-option-name" id="theme-green">أخضر</div>
                                 </div>
                                 <div class="theme-option" onclick="selectColor('rose')" data-color="rose">
                                     <div class="theme-color-preview theme-preview-rose"><i class="material-icons">favorite</i></div>
-                                    <div class="theme-option-name" data-i18n="themeRose">وردي</div>
+                                    <div class="theme-option-name" id="theme-rose">وردي</div>
                                 </div>
                                 <div class="theme-option" onclick="selectColor('orange')" data-color="orange">
                                     <div class="theme-color-preview theme-preview-orange"><i class="material-icons">wb_sunny</i></div>
-                                    <div class="theme-option-name" data-i18n="themeOrange">برتقالي</div>
+                                    <div class="theme-option-name" id="theme-orange">برتقالي</div>
                                 </div>
                             </div>
                         </div>
                         
                         <!-- Dark Mode -->
                         <div style="margin-bottom: 30px;">
-                            <h4 style="font-size: 18px; font-weight: 700; margin-bottom: 16px;" data-i18n="appearance">المظهر</h4>
+                            <h4 style="font-size: 18px; font-weight: 700; margin-bottom: 16px;" id="title-appearance">المظهر</h4>
                             
                             <div class="settings-item">
                                 <div class="settings-item-info">
-                                    <h5 data-i18n="darkMode">الوضع المظلم</h5>
-                                    <p data-i18n="darkModeDesc">تفعيل الوضع المظلم</p>
+                                    <h5 id="settings-dark-mode">الوضع المظلم</h5>
+                                    <p id="settings-dark-mode-desc">تفعيل الوضع المظلم</p>
                                 </div>
                                 <label class="toggle">
                                     <input type="checkbox" id="dark-mode-toggle" onchange="toggleDarkMode()">
@@ -1828,12 +1787,12 @@
                         
                         <!-- Currency -->
                         <div style="margin-bottom: 30px;">
-                            <h4 style="font-size: 18px; font-weight: 700; margin-bottom: 16px;" data-i18n="currencySettings">إعدادات العملة</h4>
+                            <h4 style="font-size: 18px; font-weight: 700; margin-bottom: 16px;" id="title-currency-settings">إعدادات العملة</h4>
                             
                             <div class="settings-item" style="flex-direction: column; align-items: flex-start;">
                                 <div class="settings-item-info" style="margin-bottom: 12px;">
-                                    <h5 data-i18n="selectCurrency">اختر العملة</h5>
-                                    <p data-i18n="selectCurrencyDesc">اختر العملة المستخدمة في النظام</p>
+                                    <h5 id="settings-select-currency">اختر العملة</h5>
+                                    <p id="settings-select-currency-desc">اختر العملة المستخدمة في النظام</p>
                                 </div>
                                 <div class="currency-options">
                                     <button class="currency-btn active" onclick="selectCurrency('DZD')" data-currency="DZD">د.ج (DZD)</button>
@@ -1842,27 +1801,25 @@
                                     <button class="currency-btn" onclick="selectCurrency('GBP')" data-currency="GBP">£ (GBP)</button>
                                     <button class="currency-btn" onclick="selectCurrency('CNY')" data-currency="CNY">¥ (CNY)</button>
                                     <button class="currency-btn" onclick="selectCurrency('SAR')" data-currency="SAR">ر.س (SAR)</button>
-                                    <button class="currency-btn" onclick="selectCurrency('AED')" data-currency="AED">د.إ (AED)</button>
-                                    <button class="currency-btn" onclick="selectCurrency('EGP')" data-currency="EGP">ج.م (EGP)</button>
                                 </div>
                             </div>
                         </div>
                         
                         <!-- Background Image -->
                         <div style="margin-bottom: 30px;">
-                            <h4 style="font-size: 18px; font-weight: 700; margin-bottom: 16px;" data-i18n="backgroundImage">خلفية مخصصة</h4>
+                            <h4 style="font-size: 18px; font-weight: 700; margin-bottom: 16px;" id="title-bg-image">خلفية مخصصة</h4>
                             
                             <div class="settings-item">
                                 <div class="settings-item-info">
-                                    <h5 data-i18n="customBg">صورة خلفية</h5>
-                                    <p data-i18n="customBgDesc">اختر صورة كخلفية</p>
+                                    <h5 id="settings-custom-bg">صورة خلفية</h5>
+                                    <p id="settings-custom-bg-desc">اختر صورة كخلفية</p>
                                 </div>
                                 <div style="display: flex; gap: 10px;">
                                     <button class="btn btn-primary btn-sm" onclick="document.getElementById('bg-input').click()">
-                                        <i class="material-icons">image</i><span data-i18n="choose">اختيار</span>
+                                        <i class="material-icons">image</i><span id="btn-choose">اختيار</span>
                                     </button>
                                     <button class="btn btn-secondary btn-sm" onclick="clearBackground()">
-                                        <i class="material-icons">clear</i><span data-i18n="remove">إزالة</span>
+                                        <i class="material-icons">clear</i><span id="btn-remove">إزالة</span>
                                     </button>
                                 </div>
                             </div>
@@ -1871,35 +1828,35 @@
                         
                         <!-- Data -->
                         <div>
-                            <h4 style="font-size: 18px; font-weight: 700; margin-bottom: 16px;" data-i18n="data">البيانات</h4>
+                            <h4 style="font-size: 18px; font-weight: 700; margin-bottom: 16px;" id="title-data">البيانات</h4>
                             
                             <div class="settings-item">
                                 <div class="settings-item-info">
-                                    <h5 data-i18n="exportData">تصدير البيانات</h5>
-                                    <p data-i18n="exportDesc">تحميل نسخة احتياطية</p>
+                                    <h5 id="settings-export">تصدير البيانات</h5>
+                                    <p id="settings-export-desc">تحميل نسخة احتياطية</p>
                                 </div>
                                 <button class="btn btn-primary btn-sm" onclick="exportData()">
-                                    <i class="material-icons">download</i><span data-i18n="export">تصدير</span>
+                                    <i class="material-icons">download</i><span id="btn-export">تصدير</span>
                                 </button>
                             </div>
                             
                             <div class="settings-item">
                                 <div class="settings-item-info">
-                                    <h5 data-i18n="importData">استيراد البيانات</h5>
-                                    <p data-i18n="importDesc">استعادة من نسخة احتياطية</p>
+                                    <h5 id="settings-import">استيراد البيانات</h5>
+                                    <p id="settings-import-desc">استعادة من نسخة احتياطية</p>
                                 </div>
                                 <button class="btn btn-secondary btn-sm" onclick="importData()">
-                                    <i class="material-icons">upload</i><span data-i18n="import">استيراد</span>
+                                    <i class="material-icons">upload</i><span id="btn-import">استيراد</span>
                                 </button>
                             </div>
                             
                             <div class="settings-item">
                                 <div class="settings-item-info">
-                                    <h5 data-i18n="deleteAllData">حذف جميع البيانات</h5>
-                                    <p data-i18n="deleteAllDesc">حذف كل شيء نهائياً</p>
+                                    <h5 id="settings-delete-all">حذف جميع البيانات</h5>
+                                    <p id="settings-delete-all-desc">حذف كل شيء نهائياً</p>
                                 </div>
                                 <button class="btn btn-danger btn-sm" onclick="clearAllData()">
-                                    <i class="material-icons">delete_forever</i><span data-i18n="delete">حذف</span>
+                                    <i class="material-icons">delete_forever</i><span id="btn-delete">حذف</span>
                                 </button>
                             </div>
                         </div>
@@ -1913,28 +1870,28 @@
     <div class="modal-overlay" id="note-modal">
         <div class="modal">
             <div class="modal-header">
-                <h3 class="modal-title" data-i18n="addNote">إضافة ملاحظة</h3>
+                <h3 class="modal-title" id="modal-title-note">إضافة ملاحظة</h3>
                 <button class="modal-close" onclick="closeModal('note-modal')">&times;</button>
             </div>
             <form id="note-form">
                 <div class="form-group">
-                    <label class="form-label" data-i18n="title">العنوان</label>
+                    <label class="form-label" id="label-note-title">العنوان</label>
                     <input type="text" class="form-input" id="note-title" required>
                 </div>
                 <div class="form-group">
-                    <label class="form-label" data-i18n="content">المحتوى</label>
+                    <label class="form-label" id="label-note-content">المحتوى</label>
                     <textarea class="form-input form-textarea" id="note-content" required></textarea>
                 </div>
                 <div class="form-group">
-                    <label class="form-label" data-i18n="priority">الأولوية</label>
+                    <label class="form-label" id="label-note-priority">الأولوية</label>
                     <select class="form-input" id="note-priority">
-                        <option value="low" data-i18n="priorityLow">منخفضة</option>
-                        <option value="medium" selected data-i18n="priorityMedium">متوسطة</option>
-                        <option value="high" data-i18n="priorityHigh">عالية</option>
+                        <option value="low" id="priority-low">منخفضة</option>
+                        <option value="medium" selected id="priority-medium">متوسطة</option>
+                        <option value="high" id="priority-high">عالية</option>
                     </select>
                 </div>
                 <button type="submit" class="btn btn-primary btn-lg" style="width: 100%;">
-                    <i class="material-icons">save</i><span data-i18n="save">حفظ</span>
+                    <i class="material-icons">save</i><span id="btn-save">حفظ</span>
                 </button>
             </form>
         </div>
@@ -1943,27 +1900,27 @@
     <div class="modal-overlay" id="debt-modal">
         <div class="modal">
             <div class="modal-header">
-                <h3 class="modal-title" data-i18n="addDebt">إضافة دين</h3>
+                <h3 class="modal-title" id="modal-title-debt">إضافة دين</h3>
                 <button class="modal-close" onclick="closeModal('debt-modal')">&times;</button>
             </div>
             <form id="debt-form">
                 <div class="form-group">
-                    <label class="form-label" data-i18n="selectClient">اختر العميل *</label>
+                    <label class="form-label" id="label-select-client">اختر العميل *</label>
                     <select class="form-select" id="debt-client" required>
-                        <option value="" data-i18n="selectClientFirst">اختر العميل أولاً</option>
+                        <option value="" id="option-select-client">اختر العميل أولاً</option>
                     </select>
-                    <p style="font-size: 12px; color: var(--text-tertiary); margin-top: 8px;" data-i18n="clientRequired">يجب إضافة عميل أولاً من قسم العملاء</p>
+                    <p style="font-size: 12px; color: var(--text-tertiary); margin-top: 8px;" id="msg-client-required">يجب إضافة عميل أولاً من قسم العملاء</p>
                 </div>
                 <div class="form-group">
-                    <label class="form-label" data-i18n="amount">المبلغ</label>
+                    <label class="form-label" id="label-amount">المبلغ</label>
                     <input type="number" class="form-input" id="debt-amount" required>
                 </div>
                 <div class="form-group">
-                    <label class="form-label" data-i18n="notes">ملاحظات</label>
+                    <label class="form-label" id="label-notes">ملاحظات</label>
                     <textarea class="form-input form-textarea" id="debt-notes"></textarea>
                 </div>
                 <button type="submit" class="btn btn-primary btn-lg" style="width: 100%;">
-                    <i class="material-icons">save</i><span data-i18n="save">حفظ</span>
+                    <i class="material-icons">save</i><span id="btn-save-debt">حفظ</span>
                 </button>
             </form>
         </div>
@@ -1972,26 +1929,26 @@
     <div class="modal-overlay" id="payment-modal">
         <div class="modal">
             <div class="modal-header">
-                <h3 class="modal-title" data-i18n="partialPayment">دفع مبلغ جزئي</h3>
+                <h3 class="modal-title" id="modal-title-payment">دفع مبلغ جزئي</h3>
                 <button class="modal-close" onclick="closeModal('payment-modal')">&times;</button>
             </div>
             <div style="padding: 16px; background: var(--bg-tertiary); border-radius: var(--radius-md); margin-bottom: 20px;">
-                <p><strong data-i18n="originalAmount">المبلغ الأصلي:</strong> <span id="payment-original">0</span></p>
-                <p><strong data-i18n="paidAmount">المدفوع:</strong> <span id="payment-paid">0</span></p>
-                <p><strong data-i18n="remainingAmount">المتبقي:</strong> <span id="payment-remaining" style="color: var(--danger-color);">0</span></p>
+                <p><strong id="label-original-amount">المبلغ الأصلي:</strong> <span id="payment-original">0</span></p>
+                <p><strong id="label-paid-amount">المدفوع:</strong> <span id="payment-paid">0</span></p>
+                <p><strong id="label-remaining-amount">المتبقي:</strong> <span id="payment-remaining" style="color: var(--danger-color);">0</span></p>
             </div>
             <form id="payment-form">
                 <input type="hidden" id="payment-debt-id">
                 <div class="form-group">
-                    <label class="form-label" data-i18n="paymentAmount">المبلغ</label>
+                    <label class="form-label" id="label-payment-amount">المبلغ</label>
                     <input type="number" class="form-input" id="payment-amount" required>
                 </div>
                 <div style="display: flex; gap: 12px;">
                     <button type="submit" class="btn btn-success btn-lg" style="flex: 1;">
-                        <i class="material-icons">payment</i><span data-i18n="confirm">تأكيد</span>
+                        <i class="material-icons">payment</i><span id="btn-confirm">تأكيد</span>
                     </button>
                     <button type="button" class="btn btn-secondary btn-lg" onclick="payFullAmount()" style="flex: 1;">
-                        <i class="material-icons">check_circle</i><span data-i18n="payFull">دفع كامل</span>
+                        <i class="material-icons">check_circle</i><span id="btn-pay-full">دفع كامل</span>
                     </button>
                 </div>
             </form>
@@ -2001,28 +1958,20 @@
     <div class="modal-overlay" id="client-modal">
         <div class="modal">
             <div class="modal-header">
-                <h3 class="modal-title" data-i18n="addClient">إضافة عميل</h3>
+                <h3 class="modal-title" id="modal-title-client">إضافة عميل</h3>
                 <button class="modal-close" onclick="closeModal('client-modal')">&times;</button>
             </div>
             <form id="client-form">
                 <div class="form-group">
-                    <label class="form-label" data-i18n="fullName">الاسم الكامل *</label>
+                    <label class="form-label" id="label-client-name">الاسم الكامل *</label>
                     <input type="text" class="form-input" id="client-name" required>
                 </div>
                 <div class="form-group">
-                    <label class="form-label" data-i18n="phone">رقم الهاتف</label>
-                    <input type="tel" class="form-input" id="client-phone">
-                </div>
-                <div class="form-group">
-                    <label class="form-label" data-i18n="address">العنوان</label>
-                    <input type="text" class="form-input" id="client-address">
-                </div>
-                <div class="form-group">
-                    <label class="form-label" data-i18n="notes">ملاحظات</label>
+                    <label class="form-label" id="label-client-notes">ملاحظات</label>
                     <textarea class="form-input form-textarea" id="client-notes"></textarea>
                 </div>
                 <button type="submit" class="btn btn-primary btn-lg" style="width: 100%;">
-                    <i class="material-icons">save</i><span data-i18n="save">حفظ</span>
+                    <i class="material-icons">save</i><span id="btn-save-client">حفظ</span>
                 </button>
             </form>
         </div>
@@ -2031,14 +1980,14 @@
     <div class="modal-overlay" id="review-modal">
         <div class="modal">
             <div class="modal-header">
-                <h3 class="modal-title" data-i18n="review">مراجعة</h3>
+                <h3 class="modal-title" id="modal-title-review">مراجعة</h3>
                 <button class="modal-close" onclick="closeModal('review-modal')">&times;</button>
             </div>
             <div id="review-content"></div>
             <div style="display: flex; gap: 12px; margin-top: 24px;">
-                <button class="btn btn-danger btn-lg" onclick="reviewNote('forgot')" style="flex: 1;" data-i18n="forgot">نسيت</button>
-                <button class="btn btn-warning btn-lg" onclick="reviewNote('hard')" style="flex: 1;" data-i18n="hard">صعب</button>
-                <button class="btn btn-success btn-lg" onclick="reviewNote('easy')" style="flex: 1;" data-i18n="easy">سهل</button>
+                <button class="btn btn-danger btn-lg" onclick="reviewNote('forgot')" style="flex: 1;" id="btn-forgot">نسيت</button>
+                <button class="btn btn-warning btn-lg" onclick="reviewNote('hard')" style="flex: 1;" id="btn-hard">صعب</button>
+                <button class="btn btn-success btn-lg" onclick="reviewNote('easy')" style="flex: 1;" id="btn-easy">سهل</button>
             </div>
         </div>
     </div>
@@ -2145,12 +2094,25 @@
                 confirm: 'تأكيد',
                 payFull: 'دفع كامل',
                 fullName: 'الاسم الكامل *',
-                phone: 'رقم الهاتف',
-                address: 'العنوان',
                 review: 'مراجعة',
                 forgot: 'نسيت',
                 hard: 'صعب',
-                easy: 'سهل'
+                easy: 'سهل',
+                clientNotes: 'ملاحظات',
+                debts: 'ديون',
+                remaining: 'متبقي',
+                paid: 'مدفوع',
+                original: 'الأصلي',
+                totalDebtsLabel: 'إجمالي الديون',
+                totalPaidLabel: 'إجمالي المدفوع',
+                remainingLabel: 'المتبقي',
+                debtsCount: 'عدد الديون',
+                paymentsHistory: 'سجل المدفوعات',
+                paidStatus: 'مدفوع',
+                unpaidStatus: 'غير مدفوع',
+                reviewLabel: 'مراجعة',
+                reviewCount: 'عدد المراجعات',
+                debtsBook: 'دفتر الديون'
             },
             en: {
                 appTitle: 'Client Ledger',
@@ -2244,12 +2206,25 @@
                 confirm: 'Confirm',
                 payFull: 'Pay Full',
                 fullName: 'Full Name *',
-                phone: 'Phone',
-                address: 'Address',
                 review: 'Review',
                 forgot: 'Forgot',
                 hard: 'Hard',
-                easy: 'Easy'
+                easy: 'Easy',
+                clientNotes: 'Notes',
+                debts: 'Debts',
+                remaining: 'Remaining',
+                paid: 'Paid',
+                original: 'Original',
+                totalDebtsLabel: 'Total Debts',
+                totalPaidLabel: 'Total Paid',
+                remainingLabel: 'Remaining',
+                debtsCount: 'Number of Debts',
+                paymentsHistory: 'Payments History',
+                paidStatus: 'Paid',
+                unpaidStatus: 'Unpaid',
+                reviewLabel: 'Review',
+                reviewCount: 'Number of Reviews',
+                debtsBook: 'Debts Book'
             },
             zh: {
                 appTitle: '客户账本',
@@ -2343,12 +2318,25 @@
                 confirm: '确认',
                 payFull: '全额支付',
                 fullName: '全名 *',
-                phone: '电话',
-                address: '地址',
                 review: '复习',
                 forgot: '忘了',
                 hard: '困难',
-                easy: '简单'
+                easy: '简单',
+                clientNotes: '备注',
+                debts: '债务',
+                remaining: '剩余',
+                paid: '已付',
+                original: '原始',
+                totalDebtsLabel: '债务总额',
+                totalPaidLabel: '已付总额',
+                remainingLabel: '剩余',
+                debtsCount: '债务数量',
+                paymentsHistory: '付款记录',
+                paidStatus: '已付',
+                unpaidStatus: '未付',
+                reviewLabel: '复习',
+                reviewCount: '复习次数',
+                debtsBook: '债务簿'
             }
         };
         
@@ -2359,17 +2347,39 @@
             EUR: { symbol: '€', name: 'Euro', position: 'after' },
             GBP: { symbol: '£', name: 'British Pound', position: 'before' },
             CNY: { symbol: '¥', name: '人民币', position: 'before' },
-            SAR: { symbol: 'ر.س', name: 'ريال سعودي', position: 'after' },
-            AED: { symbol: 'د.إ', name: 'درهم إماراتي', position: 'after' },
-            EGP: { symbol: 'ج.م', name: 'جنيه مصري', position: 'after' }
+            SAR: { symbol: 'ر.س', name: 'ريال سعودي', position: 'after' }
         };
         
-        // Default currency by language
         const defaultCurrencyByLang = {
             ar: 'DZD',
             en: 'USD',
             zh: 'CNY'
         };
+        
+        // Data
+        let notes = [];
+        let debts = [];
+        let clients = [];
+        let settings = { darkMode: false, color: '', lang: 'ar', bgImage: null, currency: 'DZD' };
+        let currentReviewNote = null;
+        let currentReviewIndex = 0;
+        let reviewQueue = [];
+        let currentDebtId = null;
+        
+        // Load data from localStorage
+        function loadData() {
+            const savedNotes = localStorage.getItem('notes');
+            const savedDebts = localStorage.getItem('debts');
+            const savedClients = localStorage.getItem('clients');
+            const savedSettings = localStorage.getItem('settings');
+            
+            if (savedNotes) notes = JSON.parse(savedNotes);
+            if (savedDebts) debts = JSON.parse(savedDebts);
+            if (savedClients) clients = JSON.parse(savedClients);
+            if (savedSettings) {
+                settings = {...settings, ...JSON.parse(savedSettings)};
+            }
+        }
         
         // Format currency
         function formatCurrency(amount) {
@@ -2383,26 +2393,199 @@
             }
         }
         
-        // Data
-        let notes = JSON.parse(localStorage.getItem('notes')) || [];
-        let debts = JSON.parse(localStorage.getItem('debts')) || [];
-        let clients = JSON.parse(localStorage.getItem('clients')) || [];
-        let settings = JSON.parse(localStorage.getItem('settings')) || { 
-            darkMode: false, 
-            color: '',
-            lang: 'ar',
-            bgImage: null,
-            currency: 'DZD'
-        };
+        // Update UI language
+        function updateLanguageUI() {
+            const t = translations[settings.lang];
+            
+            // Sidebar
+            document.getElementById('app-title').textContent = t.appTitle;
+            document.getElementById('app-subtitle').textContent = t.appSubtitle;
+            document.getElementById('quick-actions-title').textContent = t.quickActions;
+            document.getElementById('quick-new-note').textContent = t.quickNewNote;
+            document.getElementById('quick-new-debt').textContent = t.quickNewDebt;
+            document.getElementById('quick-new-client').textContent = t.quickNewClient;
+            document.getElementById('lang-selector-title').textContent = t.language;
+            document.getElementById('export-data').textContent = t.exportData;
+            
+            // Navigation
+            document.querySelectorAll('.nav-item').forEach(item => {
+                const section = item.dataset.section;
+                const textEl = item.querySelector('.nav-text');
+                if (textEl && section) {
+                    const keys = {
+                        dashboard: 'navDashboard',
+                        notes: 'navNotes',
+                        repetition: 'navRepetition',
+                        debts: 'navDebts',
+                        clients: 'navClients',
+                        settings: 'navSettings'
+                    };
+                    if (keys[section]) textEl.textContent = t[keys[section]];
+                }
+            });
+            
+            // Search
+            document.getElementById('global-search').placeholder = t.searchPlaceholder;
+            document.getElementById('notes-search').placeholder = t.searchNotes;
+            document.getElementById('debts-search').placeholder = t.searchName;
+            document.getElementById('clients-search').placeholder = t.searchClients;
+            
+            // Dashboard
+            document.getElementById('label-total-notes').textContent = t.totalNotes;
+            document.getElementById('label-review-today').textContent = t.reviewsToday;
+            document.getElementById('label-total-debts').textContent = t.totalDebts;
+            document.getElementById('label-total-clients').textContent = t.totalClients;
+            document.getElementById('title-upcoming-reviews').textContent = t.upcomingReviews;
+            document.getElementById('title-recent-debts').textContent = t.recentDebts;
+            
+            // Sections
+            document.getElementById('section-title-notes').textContent = t.navNotes;
+            document.getElementById('section-title-repetition').textContent = t.navRepetition;
+            document.getElementById('section-title-debts').textContent = t.navDebts;
+            document.getElementById('section-title-clients').textContent = t.navClients;
+            document.getElementById('section-title-settings').textContent = t.navSettings;
+            
+            // Buttons
+            document.getElementById('btn-add-note').textContent = t.addNote;
+            document.getElementById('btn-start-review').textContent = t.startReview;
+            document.getElementById('btn-add-debt').textContent = t.addDebt;
+            document.getElementById('btn-add-client').textContent = t.addClient;
+            
+            // Filters
+            document.getElementById('filter-all').textContent = t.filterAll;
+            document.getElementById('filter-unpaid').textContent = t.filterUnpaid;
+            document.getElementById('filter-paid').textContent = t.filterPaid;
+            
+            // Debts
+            document.getElementById('label-unpaid-debts').textContent = t.unpaidDebts;
+            document.getElementById('label-paid-debts').textContent = t.paidDebts;
+            document.getElementById('th-name').textContent = t.tableName;
+            document.getElementById('th-original').textContent = t.tableOriginal;
+            document.getElementById('th-paid').textContent = t.tablePaid;
+            document.getElementById('th-remaining').textContent = t.tableRemaining;
+            document.getElementById('th-date').textContent = t.tableDate;
+            document.getElementById('th-status').textContent = t.tableStatus;
+            document.getElementById('th-actions').textContent = t.tableActions;
+            document.getElementById('msg-no-debts').textContent = t.noDebts;
+            
+            // Settings
+            document.getElementById('title-choose-theme').textContent = t.chooseTheme;
+            document.getElementById('theme-default').textContent = t.themeDefault;
+            document.getElementById('theme-purple').textContent = t.themePurple;
+            document.getElementById('theme-blue').textContent = t.themeBlue;
+            document.getElementById('theme-green').textContent = t.themeGreen;
+            document.getElementById('theme-rose').textContent = t.themeRose;
+            document.getElementById('theme-orange').textContent = t.themeOrange;
+            document.getElementById('title-appearance').textContent = t.appearance;
+            document.getElementById('settings-dark-mode').textContent = t.darkMode;
+            document.getElementById('settings-dark-mode-desc').textContent = t.darkModeDesc;
+            document.getElementById('title-currency-settings').textContent = t.currencySettings;
+            document.getElementById('settings-select-currency').textContent = t.selectCurrency;
+            document.getElementById('settings-select-currency-desc').textContent = t.selectCurrencyDesc;
+            document.getElementById('title-bg-image').textContent = t.backgroundImage;
+            document.getElementById('settings-custom-bg').textContent = t.customBg;
+            document.getElementById('settings-custom-bg-desc').textContent = t.customBgDesc;
+            document.getElementById('btn-choose').textContent = t.choose;
+            document.getElementById('btn-remove').textContent = t.remove;
+            document.getElementById('title-data').textContent = t.data;
+            document.getElementById('settings-export').textContent = t.exportData;
+            document.getElementById('settings-export-desc').textContent = t.exportDesc;
+            document.getElementById('btn-export').textContent = t.export;
+            document.getElementById('settings-import').textContent = t.importData;
+            document.getElementById('settings-import-desc').textContent = t.importDesc;
+            document.getElementById('btn-import').textContent = t.import;
+            document.getElementById('settings-delete-all').textContent = t.deleteAllData;
+            document.getElementById('settings-delete-all-desc').textContent = t.deleteAllDesc;
+            document.getElementById('btn-delete').textContent = t.delete;
+            
+            // Modals
+            document.getElementById('modal-title-note').textContent = t.addNote;
+            document.getElementById('label-note-title').textContent = t.title;
+            document.getElementById('label-note-content').textContent = t.content;
+            document.getElementById('label-note-priority').textContent = t.priority;
+            document.getElementById('priority-low').textContent = t.priorityLow;
+            document.getElementById('priority-medium').textContent = t.priorityMedium;
+            document.getElementById('priority-high').textContent = t.priorityHigh;
+            document.getElementById('btn-save').textContent = t.save;
+            
+            document.getElementById('modal-title-debt').textContent = t.addDebt;
+            document.getElementById('label-select-client').textContent = t.selectClient;
+            document.getElementById('option-select-client').textContent = t.selectClientFirst;
+            document.getElementById('msg-client-required').textContent = t.clientRequired;
+            document.getElementById('label-amount').textContent = t.amount;
+            document.getElementById('label-notes').textContent = t.notes;
+            document.getElementById('btn-save-debt').textContent = t.save;
+            
+            document.getElementById('modal-title-payment').textContent = t.partialPayment;
+            document.getElementById('label-original-amount').textContent = t.originalAmount;
+            document.getElementById('label-paid-amount').textContent = t.paidAmount;
+            document.getElementById('label-remaining-amount').textContent = t.remainingAmount;
+            document.getElementById('label-payment-amount').textContent = t.paymentAmount;
+            document.getElementById('btn-confirm').textContent = t.confirm;
+            document.getElementById('btn-pay-full').textContent = t.payFull;
+            
+            document.getElementById('modal-title-client').textContent = t.addClient;
+            document.getElementById('label-client-name').textContent = t.fullName;
+            document.getElementById('label-client-notes').textContent = t.notes;
+            document.getElementById('btn-save-client').textContent = t.save;
+            
+            document.getElementById('modal-title-review').textContent = t.review;
+            document.getElementById('btn-forgot').textContent = t.forgot;
+            document.getElementById('btn-hard').textContent = t.hard;
+            document.getElementById('btn-easy').textContent = t.easy;
+        }
         
-        let currentReviewNote = null;
-        let currentReviewIndex = 0;
-        let reviewQueue = [];
-        let currentDebtId = null;
+        // Set language
+        function setLanguage(lang) {
+            settings.lang = lang;
+            if (!settings.currency || settings.currency === 'DZD' || settings.currency === 'USD' || settings.currency === 'CNY') {
+                settings.currency = defaultCurrencyByLang[lang];
+            }
+            saveSettings();
+            
+            document.documentElement.lang = lang;
+            document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
+            
+            document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+            
+            updateLanguageUI();
+            updateCurrencyButtons();
+            renderDebts();
+            updateDashboard();
+            renderClients();
+            
+            const t = translations[lang];
+            showToast(t.language + ' ✓');
+        }
+        
+        // Currency
+        function selectCurrency(currency) {
+            settings.currency = currency;
+            saveSettings();
+            updateCurrencyButtons();
+            renderDebts();
+            updateDashboard();
+            renderClients();
+            
+            const currencyData = currencySymbols[currency];
+            showToast(`${currencyData.name} (${currencyData.symbol})`);
+        }
+        
+        function updateCurrencyButtons() {
+            document.querySelectorAll('.currency-btn').forEach(btn => {
+                btn.classList.remove('active');
+                if (btn.dataset.currency === settings.currency) {
+                    btn.classList.add('active');
+                }
+            });
+        }
         
         // Initialize
         document.addEventListener('DOMContentLoaded', function() {
+            loadData();
             loadSettings();
+            updateLanguageUI();
             updateDashboard();
             renderNotes();
             renderDebts();
@@ -2423,70 +2606,6 @@
             });
         });
         
-        // Language
-        function setLanguage(lang) {
-            settings.lang = lang;
-            
-            // Set default currency for language if not already set
-            if (!settings.currency || settings.currency === 'DZD' || settings.currency === 'USD' || settings.currency === 'CNY') {
-                settings.currency = defaultCurrencyByLang[lang];
-            }
-            
-            saveSettings();
-            
-            document.documentElement.lang = lang;
-            document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
-            
-            document.querySelectorAll('[data-i18n]').forEach(el => {
-                const key = el.getAttribute('data-i18n');
-                if (translations[lang][key]) {
-                    el.textContent = translations[lang][key];
-                }
-            });
-            
-            document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
-                const key = el.getAttribute('data-i18n-placeholder');
-                if (translations[lang][key]) {
-                    el.placeholder = translations[lang][key];
-                }
-            });
-            
-            document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
-            event.target.classList.add('active');
-            
-            // Update currency button
-            updateCurrencyButtons();
-            
-            // Re-render to update currency display
-            renderDebts();
-            updateDashboard();
-            
-            showToast(translations[lang].language + ' ✓');
-        }
-        
-        // Currency
-        function selectCurrency(currency) {
-            settings.currency = currency;
-            saveSettings();
-            updateCurrencyButtons();
-            
-            // Re-render to update currency display
-            renderDebts();
-            updateDashboard();
-            
-            const currencyData = currencySymbols[currency];
-            showToast(`${currencyData.name} (${currencyData.symbol})`);
-        }
-        
-        function updateCurrencyButtons() {
-            document.querySelectorAll('.currency-btn').forEach(btn => {
-                btn.classList.remove('active');
-                if (btn.dataset.currency === settings.currency) {
-                    btn.classList.add('active');
-                }
-            });
-        }
-        
         // Global Search
         function performGlobalSearch() {
             const query = document.getElementById('global-search').value.toLowerCase();
@@ -2498,6 +2617,7 @@
             }
             
             let results = [];
+            const t = translations[settings.lang];
             
             notes.forEach(note => {
                 if (note.title.toLowerCase().includes(query) || note.content.toLowerCase().includes(query)) {
@@ -2524,11 +2644,11 @@
             });
             
             clients.forEach(client => {
-                if (client.name.toLowerCase().includes(query) || (client.phone && client.phone.includes(query))) {
+                if (client.name.toLowerCase().includes(query)) {
                     results.push({
                         type: 'client',
                         title: client.name,
-                        subtitle: client.phone || 'لا يوجد هاتف',
+                        subtitle: t.debts + ': ' + debts.filter(d => d.clientId === client.id).length,
                         icon: 'person',
                         action: () => { openClientProfile(client.id); }
                     });
@@ -2545,7 +2665,7 @@
                             <h4>${result.title}</h4>
                             <p>${result.subtitle}</p>
                         </div>
-                        <span class="search-result-type">${result.type === 'note' ? 'ملاحظة' : result.type === 'debt' ? 'دين' : 'عميل'}</span>
+                        <span class="search-result-type">${result.type}</span>
                     </div>
                 `).join('');
                 window.searchResults = results;
@@ -2570,6 +2690,8 @@
         });
         
         function navigateTo(section) {
+            const t = translations[settings.lang];
+            
             document.querySelectorAll('.nav-item').forEach(item => item.classList.remove('active'));
             document.querySelector(`[data-section="${section}"]`)?.classList.add('active');
             
@@ -2577,13 +2699,13 @@
             document.getElementById(section + '-section')?.classList.add('active');
             
             const titles = { 
-                dashboard: translations[settings.lang].navDashboard, 
-                notes: translations[settings.lang].navNotes, 
-                repetition: translations[settings.lang].navRepetition, 
-                debts: translations[settings.lang].navDebts, 
-                clients: translations[settings.lang].navClients, 
-                'client-profile': translations[settings.lang].navClients, 
-                settings: translations[settings.lang].navSettings 
+                dashboard: t.navDashboard, 
+                notes: t.navNotes, 
+                repetition: t.navRepetition, 
+                debts: t.navDebts, 
+                clients: t.navClients, 
+                'client-profile': t.navClients, 
+                settings: t.navSettings 
             };
             document.getElementById('page-title').textContent = titles[section] || section;
             
@@ -2612,14 +2734,17 @@
                 document.getElementById('custom-bg').style.backgroundImage = `url(${settings.bgImage})`;
             }
             
-            // Load currency
             if (!settings.currency) {
                 settings.currency = defaultCurrencyByLang[settings.lang || 'ar'];
             }
             updateCurrencyButtons();
             
-            // Set language
-            setLanguage(settings.lang || 'ar');
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.classList.remove('active');
+                if (btn.textContent.includes(settings.lang === 'ar' ? 'العربية' : settings.lang === 'en' ? 'English' : '中文')) {
+                    btn.classList.add('active');
+                }
+            });
         }
         
         function selectColor(color) {
@@ -2710,21 +2835,29 @@
         
         function renderNotes() {
             const container = document.getElementById('notes-container');
+            const t = translations[settings.lang];
+            
             if (notes.length === 0) {
-                container.innerHTML = '<div class="empty-state"><i class="material-icons">note_add</i><h3>لا توجد ملاحظات</h3></div>';
+                container.innerHTML = `<div class="empty-state"><i class="material-icons">note_add</i><h3>${t.noNotesYet}</h3></div>`;
                 return;
             }
+            
+            const priorityLabels = {
+                low: t.priorityLow,
+                medium: t.priorityMedium,
+                high: t.priorityHigh
+            };
             
             container.innerHTML = notes.map(note => `
                 <div class="card" style="padding: 20px; cursor: pointer;" onclick="startReview(${note.id})">
                     <h4 style="font-size: 18px; font-weight: 700; margin-bottom: 12px;">${note.title}</h4>
                     <p style="color: var(--text-secondary); font-size: 14px; line-height: 1.7;">${note.content.substring(0, 150)}${note.content.length > 150 ? '...' : ''}</p>
                     <div style="display: flex; justify-content: space-between; margin-top: 16px; padding-top: 16px; border-top: 1px solid var(--border-color);">
-                        <span class="badge badge-${note.priority === 'high' ? 'danger' : note.priority === 'medium' ? 'warning' : 'success'}">${note.priority === 'high' ? 'عالية' : note.priority === 'medium' ? 'متوسطة' : 'منخفضة'}</span>
+                        <span class="badge badge-${note.priority === 'high' ? 'danger' : note.priority === 'medium' ? 'warning' : 'success'}">${priorityLabels[note.priority]}</span>
                         <span style="font-size: 12px; color: var(--text-tertiary);">${formatDate(note.createdAt)}</span>
                     </div>
                     <div style="margin-top: 12px;">
-                        <button class="btn btn-danger btn-sm" onclick="event.stopPropagation(); deleteNote(${note.id})"><i class="material-icons">delete</i> حذف</button>
+                        <button class="btn btn-danger btn-sm" onclick="event.stopPropagation(); deleteNote(${note.id})"><i class="material-icons">delete</i> ${t.delete}</button>
                     </div>
                 </div>
             `).join('');
@@ -2733,7 +2866,8 @@
         }
         
         function deleteNote(id) {
-            if (confirm('هل أنت متأكد من حذف هذه الملاحظة؟')) {
+            const t = translations[settings.lang];
+            if (confirm(settings.lang === 'ar' ? 'هل أنت متأكد من حذف هذه الملاحظة؟' : 'Are you sure you want to delete this note?')) {
                 notes = notes.filter(n => n.id !== id);
                 saveNotes();
                 renderNotes();
@@ -2748,17 +2882,25 @@
             const filtered = notes.filter(note => note.title.toLowerCase().includes(search) || note.content.toLowerCase().includes(search));
             
             const container = document.getElementById('notes-container');
+            const t = translations[settings.lang];
+            
             if (filtered.length === 0) {
                 container.innerHTML = '<div class="empty-state"><i class="material-icons">search</i><h3>لا توجد نتائج</h3></div>';
                 return;
             }
+            
+            const priorityLabels = {
+                low: t.priorityLow,
+                medium: t.priorityMedium,
+                high: t.priorityHigh
+            };
             
             container.innerHTML = filtered.map(note => `
                 <div class="card" style="padding: 20px;">
                     <h4 style="font-size: 18px; font-weight: 700; margin-bottom: 12px;">${note.title}</h4>
                     <p style="color: var(--text-secondary); font-size: 14px; line-height: 1.7;">${note.content.substring(0, 150)}${note.content.length > 150 ? '...' : ''}</p>
                     <div style="display: flex; justify-content: space-between; margin-top: 16px; padding-top: 16px; border-top: 1px solid var(--border-color);">
-                        <span class="badge badge-${note.priority === 'high' ? 'danger' : note.priority === 'medium' ? 'warning' : 'success'}">${note.priority === 'high' ? 'عالية' : note.priority === 'medium' ? 'متوسطة' : 'منخفضة'}</span>
+                        <span class="badge badge-${note.priority === 'high' ? 'danger' : note.priority === 'medium' ? 'warning' : 'success'}">${priorityLabels[note.priority]}</span>
                         <span style="font-size: 12px; color: var(--text-tertiary);">${formatDate(note.createdAt)}</span>
                     </div>
                 </div>
@@ -2768,24 +2910,25 @@
         // Repetition
         function renderRepetition() {
             const container = document.getElementById('repetition-container');
+            const t = translations[settings.lang];
             const today = new Date().toDateString();
             const dueNotes = notes.filter(note => new Date(note.nextReview).toDateString() <= today);
             
             if (dueNotes.length === 0) {
-                container.innerHTML = '<div class="empty-state"><i class="material-icons">event_available</i><h3>لا توجد مراجعات اليوم 🎉</h3></div>';
+                container.innerHTML = `<div class="empty-state"><i class="material-icons">event_available</i><h3>${t.noReviews} 🎉</h3></div>`;
                 return;
             }
             
             container.innerHTML = `
                 <div style="margin-bottom: 20px; padding: 16px; background: var(--bg-tertiary); border-radius: var(--radius-md);">
-                    <p style="color: var(--text-secondary);">لديك <strong style="color: var(--primary-color);">${dueNotes.length}</strong> ملاحظة للمراجعة</p>
+                    <p style="color: var(--text-secondary);">${settings.lang === 'ar' ? 'لديك' : 'You have'} <strong style="color: var(--primary-color);">${dueNotes.length}</strong> ${settings.lang === 'ar' ? 'ملاحظة للمراجعة' : 'notes to review'}</p>
                 </div>
                 <div class="notes-grid">
                     ${dueNotes.map(note => `
                         <div class="card" style="padding: 20px; cursor: pointer;" onclick="startReview(${note.id})">
                             <h4 style="font-size: 18px; font-weight: 700; margin-bottom: 12px;">${note.title}</h4>
                             <p style="color: var(--text-secondary); font-size: 14px;">${note.content.substring(0, 100)}...</p>
-                            <div style="margin-top: 12px;"><span class="badge badge-warning">للمراجعة</span></div>
+                            <div style="margin-top: 12px;"><span class="badge badge-warning">${settings.lang === 'ar' ? 'للمراجعة' : 'To Review'}</span></div>
                         </div>
                     `).join('')}
                 </div>
@@ -2795,8 +2938,10 @@
         function startReviewSession() {
             const today = new Date().toDateString();
             reviewQueue = notes.filter(note => new Date(note.nextReview).toDateString() <= today);
+            const t = translations[settings.lang];
+            
             if (reviewQueue.length === 0) {
-                showToast('لا توجد مراجعات اليوم 🎉');
+                showToast(`${t.noReviews} 🎉`);
                 return;
             }
             currentReviewIndex = 0;
@@ -2807,13 +2952,15 @@
             currentReviewNote = notes.find(n => n.id === id);
             if (!currentReviewNote) return;
             
+            const t = translations[settings.lang];
+            
             document.getElementById('review-content').innerHTML = `
                 <div style="margin-bottom: 24px;">
                     <h4 style="font-size: 22px; font-weight: 800; margin-bottom: 16px;">${currentReviewNote.title}</h4>
                     <p style="line-height: 2; color: var(--text-secondary); font-size: 16px;">${currentReviewNote.content}</p>
                 </div>
                 <div style="background: var(--bg-tertiary); padding: 20px; border-radius: var(--radius-md);">
-                    <p style="font-size: 13px; color: var(--text-tertiary);"><strong>عدد المراجعات:</strong> ${currentReviewNote.reviews}</p>
+                    <p style="font-size: 13px; color: var(--text-tertiary);"><strong>${t.reviewCount}:</strong> ${currentReviewNote.reviews}</p>
                 </div>
             `;
             document.getElementById('review-modal').classList.add('active');
@@ -2850,14 +2997,15 @@
                 renderRepetition();
                 renderNotes();
                 updateDashboard();
-                showToast('أحسنت! تم إكمال المراجعات 🎉');
+                showToast(settings.lang === 'ar' ? 'أحسنت! تم إكمال المراجعات 🎉' : 'Great! Reviews completed 🎉');
             }
         }
         
         // Debts
         function openDebtModal() {
+            const t = translations[settings.lang];
             if (clients.length === 0) {
-                showToast('يجب إضافة عميل أولاً! 👤');
+                showToast(t.clientRequired + ' 👤');
                 navigateTo('clients');
                 return;
             }
@@ -2867,22 +3015,24 @@
         
         function updateClientSelect() {
             const select = document.getElementById('debt-client');
-            select.innerHTML = '<option value="">اختر العميل أولاً</option>' + 
+            const t = translations[settings.lang];
+            select.innerHTML = `<option value="">${t.selectClientFirst}</option>` + 
                 clients.map(c => `<option value="${c.id}">${c.name}</option>`).join('');
         }
         
         function saveDebt(e) {
             e.preventDefault();
+            const t = translations[settings.lang];
             
             const clientId = document.getElementById('debt-client').value;
             if (!clientId) {
-                showToast('يجب اختيار العميل أولاً!');
+                showToast(t.selectClientFirst);
                 return;
             }
             
             const client = clients.find(c => c.id == clientId);
             if (!client) {
-                showToast('العميل غير موجود!');
+                showToast(settings.lang === 'ar' ? 'العميل غير موجود!' : 'Client not found!');
                 return;
             }
             
@@ -2913,12 +3063,13 @@
         function renderDebts() {
             const tbody = document.getElementById('debts-tbody');
             const emptyState = document.getElementById('debts-empty');
+            const t = translations[settings.lang];
             
-            const unpaidDebts = debts.filter(d => !d.paid);
-            const paidDebts = debts.filter(d => d.paid);
+            const unpaidDebtsArr = debts.filter(d => !d.paid);
+            const paidDebtsArr = debts.filter(d => d.paid);
             
-            const unpaidTotal = unpaidDebts.reduce((sum, d) => sum + (d.amount - (d.paidAmount || 0)), 0);
-            const paidTotal = paidDebts.reduce((sum, d) => sum + d.amount, 0) + unpaidDebts.reduce((sum, d) => sum + (d.paidAmount || 0), 0);
+            const unpaidTotal = unpaidDebtsArr.reduce((sum, d) => sum + (d.amount - (d.paidAmount || 0)), 0);
+            const paidTotal = paidDebtsArr.reduce((sum, d) => sum + d.amount, 0) + unpaidDebtsArr.reduce((sum, d) => sum + (d.paidAmount || 0), 0);
             
             document.getElementById('unpaid-debts').textContent = formatCurrency(unpaidTotal);
             document.getElementById('paid-debts').textContent = formatCurrency(paidTotal);
@@ -2942,14 +3093,14 @@
                     <td style="color: var(--success-color); font-weight: 600;">${formatCurrency(debt.paidAmount || 0)}</td>
                     <td style="color: ${remaining > 0 ? 'var(--danger-color)' : 'var(--success-color)'}; font-weight: 700;">${formatCurrency(remaining)}</td>
                     <td>${formatDate(debt.date)}</td>
-                    <td><span class="badge ${debt.paid ? 'badge-success' : 'badge-warning'}">${debt.paid ? 'مدفوع' : 'غير مدفوع'}</span></td>
+                    <td><span class="badge ${debt.paid ? 'badge-success' : 'badge-warning'}">${debt.paid ? t.paidStatus : t.unpaidStatus}</span></td>
                     <td>
                         <div style="display: flex; gap: 8px; flex-wrap: wrap;">
                             ${!debt.paid ? `
-                            <button class="btn btn-warning btn-sm" onclick="openPaymentModal(${debt.id})" title="دفع جزئي"><i class="material-icons">payment</i></button>
-                            <button class="btn btn-success btn-sm" onclick="markPaid(${debt.id})" title="دفع كامل"><i class="material-icons">check</i></button>
+                            <button class="btn btn-warning btn-sm" onclick="openPaymentModal(${debt.id})"><i class="material-icons">payment</i></button>
+                            <button class="btn btn-success btn-sm" onclick="markPaid(${debt.id})"><i class="material-icons">check</i></button>
                             ` : ''}
-                            <button class="btn btn-danger btn-sm" onclick="deleteDebt(${debt.id})" title="حذف"><i class="material-icons">delete</i></button>
+                            <button class="btn btn-danger btn-sm" onclick="deleteDebt(${debt.id})"><i class="material-icons">delete</i></button>
                         </div>
                     </td>
                 </tr>
@@ -2985,7 +3136,7 @@
             const remaining = debt.amount - (debt.paidAmount || 0);
             
             if (amount > remaining) {
-                showToast('المبلغ أكبر من المتبقي!');
+                showToast(settings.lang === 'ar' ? 'المبلغ أكبر من المتبقي!' : 'Amount exceeds remaining!');
                 return;
             }
             
@@ -3006,7 +3157,7 @@
                 if (clientId) openClientProfile(parseInt(clientId));
             }
             
-            showToast(`تم دفع ${formatCurrency(amount)} 💵`);
+            showToast(`${settings.lang === 'ar' ? 'تم دفع' : 'Paid'} ${formatCurrency(amount)} 💵`);
         }
         
         function payFullAmount() {
@@ -3027,17 +3178,17 @@
                 saveDebts();
                 renderDebts();
                 updateDashboard();
-                showToast('تم تحديد الدين كمدفوع ✅');
+                showToast(settings.lang === 'ar' ? 'تم تحديد الدين كمدفوع ✅' : 'Debt marked as paid ✅');
             }
         }
         
         function deleteDebt(id) {
-            if (confirm('هل أنت متأكد من حذف هذا الدين؟')) {
+            if (confirm(settings.lang === 'ar' ? 'هل أنت متأكد من حذف هذا الدين؟' : 'Are you sure you want to delete this debt?')) {
                 debts = debts.filter(d => d.id !== id);
                 saveDebts();
                 renderDebts();
                 updateDashboard();
-                showToast('تم حذف الدين');
+                showToast(settings.lang === 'ar' ? 'تم حذف الدين' : 'Debt deleted');
             }
         }
         
@@ -3056,6 +3207,8 @@
         
         function renderFilteredDebts(filtered) {
             const tbody = document.getElementById('debts-tbody');
+            const t = translations[settings.lang];
+            
             tbody.innerHTML = filtered.map(debt => {
                 const remaining = debt.amount - (debt.paidAmount || 0);
                 return `
@@ -3065,7 +3218,7 @@
                     <td style="color: var(--success-color); font-weight: 600;">${formatCurrency(debt.paidAmount || 0)}</td>
                     <td style="color: ${remaining > 0 ? 'var(--danger-color)' : 'var(--success-color)'}; font-weight: 700;">${formatCurrency(remaining)}</td>
                     <td>${formatDate(debt.date)}</td>
-                    <td><span class="badge ${debt.paid ? 'badge-success' : 'badge-warning'}">${debt.paid ? 'مدفوع' : 'غير مدفوع'}</span></td>
+                    <td><span class="badge ${debt.paid ? 'badge-success' : 'badge-warning'}">${debt.paid ? t.paidStatus : t.unpaidStatus}</span></td>
                     <td>
                         <div style="display: flex; gap: 8px; flex-wrap: wrap;">
                             ${!debt.paid ? `
@@ -3089,8 +3242,6 @@
             clients.push({
                 id: Date.now(),
                 name: document.getElementById('client-name').value,
-                phone: document.getElementById('client-phone').value,
-                address: document.getElementById('client-address').value,
                 notes: document.getElementById('client-notes').value,
                 createdAt: new Date().toISOString()
             });
@@ -3110,8 +3261,10 @@
         
         function renderClients() {
             const container = document.getElementById('clients-container');
+            const t = translations[settings.lang];
+            
             if (clients.length === 0) {
-                container.innerHTML = '<div class="empty-state"><i class="material-icons">person_add</i><h3>لا يوجد عملاء</h3></div>';
+                container.innerHTML = `<div class="empty-state"><i class="material-icons">person_add</i><h3>${t.noClients}</h3></div>`;
                 return;
             }
             
@@ -3127,31 +3280,30 @@
                         <div class="client-avatar">${client.name.charAt(0)}</div>
                         <div class="client-info">
                             <div class="client-name">${client.name}</div>
-                            ${client.phone ? `<div class="client-details"><i class="material-icons" style="font-size: 16px;">phone</i> <span dir="ltr">${client.phone}</span></div>` : ''}
                         </div>
                     </div>
                     
                     <div class="client-stats">
                         <div class="client-stat">
                             <div class="client-stat-value">${clientDebts.length}</div>
-                            <div class="client-stat-label">ديون</div>
+                            <div class="client-stat-label">${t.debts}</div>
                         </div>
                         <div class="client-stat">
                             <div class="client-stat-value" style="color: var(--warning-color);">${formatCurrency(remaining)}</div>
-                            <div class="client-stat-label">متبقي</div>
+                            <div class="client-stat-label">${t.remaining}</div>
                         </div>
                         <div class="client-stat">
                             <div class="client-stat-value" style="color: var(--success-color);">${formatCurrency(totalPaid)}</div>
-                            <div class="client-stat-label">مدفوع</div>
+                            <div class="client-stat-label">${t.paid}</div>
                         </div>
                     </div>
                     
                     <div class="client-actions">
                         <button class="btn btn-primary" onclick="openClientProfile(${client.id})">
-                            <i class="material-icons">visibility</i>عرض الملف
+                            <i class="material-icons">visibility</i>${settings.lang === 'ar' ? 'عرض الملف' : 'View Profile'}
                         </button>
                         <button class="btn btn-danger" onclick="deleteClient(${client.id})">
-                            <i class="material-icons">delete</i>حذف
+                            <i class="material-icons">delete</i>${t.delete}
                         </button>
                     </div>
                 </div>
@@ -3164,6 +3316,7 @@
             const client = clients.find(c => c.id === clientId);
             if (!client) return;
             
+            const t = translations[settings.lang];
             const clientDebts = debts.filter(d => d.clientId === clientId);
             const totalDebt = clientDebts.reduce((sum, d) => sum + d.amount, 0);
             const totalPaid = clientDebts.reduce((sum, d) => sum + (d.paidAmount || 0), 0);
@@ -3181,7 +3334,7 @@
             
             document.getElementById('client-profile-content').innerHTML = `
                 <button class="btn btn-secondary" onclick="navigateTo('clients')" style="margin-bottom: 20px;">
-                    <i class="material-icons">arrow_back</i>العودة للعملاء
+                    <i class="material-icons">arrow_back</i>${settings.lang === 'ar' ? 'العودة للعملاء' : 'Back to Clients'}
                 </button>
                 
                 <div class="client-book">
@@ -3190,35 +3343,33 @@
                             <div class="book-avatar">${client.name.charAt(0)}</div>
                             <div>
                                 <h2 class="book-client-name">${client.name}</h2>
-                                ${client.phone ? `<div class="book-client-info"><i class="material-icons">phone</i> <span dir="ltr">${client.phone}</span></div>` : ''}
-                                ${client.address ? `<div class="book-client-info"><i class="material-icons">location_on</i> ${client.address}</div>` : ''}
                             </div>
                         </div>
                         
                         <div class="book-stats-grid">
                             <div class="book-stat-card">
                                 <div class="book-stat-value">${clientDebts.length}</div>
-                                <div class="book-stat-label">عدد الديون</div>
+                                <div class="book-stat-label">${t.debtsCount}</div>
                             </div>
                             <div class="book-stat-card">
                                 <div class="book-stat-value">${formatCurrency(totalDebt)}</div>
-                                <div class="book-stat-label">إجمالي الديون</div>
+                                <div class="book-stat-label">${t.totalDebtsLabel}</div>
                             </div>
                             <div class="book-stat-card">
                                 <div class="book-stat-value">${formatCurrency(totalPaid)}</div>
-                                <div class="book-stat-label">إجمالي المدفوع</div>
+                                <div class="book-stat-label">${t.totalPaidLabel}</div>
                             </div>
                             <div class="book-stat-card">
                                 <div class="book-stat-value">${formatCurrency(remaining)}</div>
-                                <div class="book-stat-label">المتبقي</div>
+                                <div class="book-stat-label">${t.remainingLabel}</div>
                             </div>
                         </div>
                     </div>
                     
                     <div class="book-content">
                         <div class="book-section">
-                            <h3 class="book-section-title"><i class="material-icons">account_balance_wallet</i>دفتر الديون (${clientDebts.length})</h3>
-                            ${clientDebts.length === 0 ? '<div class="empty-state" style="padding: 40px;"><i class="material-icons">check_circle</i><h3>لا توجد ديون</h3></div>' : clientDebts.map(debt => {
+                            <h3 class="book-section-title"><i class="material-icons">account_balance_wallet</i>${t.debtsBook} (${clientDebts.length})</h3>
+                            ${clientDebts.length === 0 ? `<div class="empty-state" style="padding: 40px;"><i class="material-icons">check_circle</i><h3>${t.noDebts}</h3></div>` : clientDebts.map(debt => {
                                 const debtRemaining = debt.amount - (debt.paidAmount || 0);
                                 return `
                                 <div class="debt-book-item ${debt.paid ? 'paid' : ''}">
@@ -3227,20 +3378,20 @@
                                             <div class="debt-book-amount">${formatCurrency(debt.amount)}</div>
                                             <div class="debt-book-date">${formatDate(debt.date)}</div>
                                         </div>
-                                        <span class="badge ${debt.paid ? 'badge-success' : 'badge-warning'}">${debt.paid ? 'مدفوع' : 'غير مدفوع'}</span>
+                                        <span class="badge ${debt.paid ? 'badge-success' : 'badge-warning'}">${debt.paid ? t.paidStatus : t.unpaidStatus}</span>
                                     </div>
                                     ${debt.notes ? `<p style="color: var(--text-secondary); font-size: 13px; margin-top: 8px;">${debt.notes}</p>` : ''}
                                     <div class="debt-book-details">
                                         <div class="debt-book-detail">
-                                            <div class="debt-book-detail-label">الأصلي</div>
+                                            <div class="debt-book-detail-label">${t.original}</div>
                                             <div class="debt-book-detail-value">${formatCurrency(debt.amount)}</div>
                                         </div>
                                         <div class="debt-book-detail">
-                                            <div class="debt-book-detail-label">المدفوع</div>
+                                            <div class="debt-book-detail-label">${t.paid}</div>
                                             <div class="debt-book-detail-value" style="color: var(--success-color);">${formatCurrency(debt.paidAmount || 0)}</div>
                                         </div>
                                         <div class="debt-book-detail">
-                                            <div class="debt-book-detail-label">المتبقي</div>
+                                            <div class="debt-book-detail-label">${t.remaining}</div>
                                             <div class="debt-book-detail-value" style="color: var(--danger-color);">${formatCurrency(debtRemaining)}</div>
                                         </div>
                                     </div>
@@ -3250,7 +3401,7 @@
                         
                         ${allPayments.length > 0 ? `
                         <div class="book-section">
-                            <h3 class="book-section-title"><i class="material-icons">history</i>سجل المدفوعات (${allPayments.length})</h3>
+                            <h3 class="book-section-title"><i class="material-icons">history</i>${t.paymentsHistory} (${allPayments.length})</h3>
                             ${allPayments.map(payment => `
                                 <div class="payment-book-item">
                                     <div>
@@ -3265,7 +3416,7 @@
                         
                         ${client.notes ? `
                         <div class="book-section">
-                            <h3 class="book-section-title"><i class="material-icons">note</i>ملاحظات</h3>
+                            <h3 class="book-section-title"><i class="material-icons">note</i>${t.notes}</h3>
                             <p style="color: var(--text-secondary); line-height: 1.8; padding: 16px; background: var(--bg-tertiary); border-radius: var(--radius-md);">${client.notes}</p>
                         </div>
                         ` : ''}
@@ -3278,7 +3429,7 @@
         }
         
         function deleteClient(id) {
-            if (confirm('هل أنت متأكد من حذف هذا العميل؟ سيتم حذف جميع ديونه.')) {
+            if (confirm(settings.lang === 'ar' ? 'هل أنت متأكد من حذف هذا العميل؟ سيتم حذف جميع ديونه.' : 'Are you sure? All debts will be deleted.')) {
                 debts = debts.filter(d => d.clientId !== id);
                 saveDebts();
                 clients = clients.filter(c => c.id !== id);
@@ -3286,17 +3437,14 @@
                 renderClients();
                 updateDashboard();
                 updateClientSelect();
-                showToast('تم حذف العميل');
+                showToast(settings.lang === 'ar' ? 'تم حذف العميل' : 'Client deleted');
             }
         }
         
         function filterClients() {
             const search = document.getElementById('clients-search').value.toLowerCase();
-            const filtered = clients.filter(client => 
-                client.name.toLowerCase().includes(search) ||
-                (client.phone && client.phone.includes(search)) ||
-                (client.address && client.address.toLowerCase().includes(search))
-            );
+            const filtered = clients.filter(client => client.name.toLowerCase().includes(search));
+            const t = translations[settings.lang];
             
             const container = document.getElementById('clients-container');
             if (filtered.length === 0) {
@@ -3316,31 +3464,30 @@
                         <div class="client-avatar">${client.name.charAt(0)}</div>
                         <div class="client-info">
                             <div class="client-name">${client.name}</div>
-                            ${client.phone ? `<div class="client-details"><i class="material-icons" style="font-size: 16px;">phone</i> <span dir="ltr">${client.phone}</span></div>` : ''}
                         </div>
                     </div>
                     
                     <div class="client-stats">
                         <div class="client-stat">
                             <div class="client-stat-value">${clientDebts.length}</div>
-                            <div class="client-stat-label">ديون</div>
+                            <div class="client-stat-label">${t.debts}</div>
                         </div>
                         <div class="client-stat">
                             <div class="client-stat-value" style="color: var(--warning-color);">${formatCurrency(remaining)}</div>
-                            <div class="client-stat-label">متبقي</div>
+                            <div class="client-stat-label">${t.remaining}</div>
                         </div>
                         <div class="client-stat">
                             <div class="client-stat-value" style="color: var(--success-color);">${formatCurrency(totalPaid)}</div>
-                            <div class="client-stat-label">مدفوع</div>
+                            <div class="client-stat-label">${t.paid}</div>
                         </div>
                     </div>
                     
                     <div class="client-actions">
                         <button class="btn btn-primary" onclick="openClientProfile(${client.id})">
-                            <i class="material-icons">visibility</i>عرض الملف
+                            <i class="material-icons">visibility</i>${settings.lang === 'ar' ? 'عرض الملف' : 'View Profile'}
                         </button>
                         <button class="btn btn-danger" onclick="deleteClient(${client.id})">
-                            <i class="material-icons">delete</i>حذف
+                            <i class="material-icons">delete</i>${t.delete}
                         </button>
                     </div>
                 </div>
@@ -3349,27 +3496,29 @@
         
         // Dashboard
         function updateDashboard() {
+            const t = translations[settings.lang];
+            
             document.getElementById('total-notes').textContent = notes.length;
             document.getElementById('total-clients').textContent = clients.length;
             
-            const totalDebts = debts.filter(d => !d.paid).reduce((sum, d) => sum + (d.amount - (d.paidAmount || 0)), 0);
-            document.getElementById('total-debts').textContent = formatCurrency(totalDebts);
+            const totalDebtsAmount = debts.filter(d => !d.paid).reduce((sum, d) => sum + (d.amount - (d.paidAmount || 0)), 0);
+            document.getElementById('total-debts').textContent = formatCurrency(totalDebtsAmount);
             
             const today = new Date().toDateString();
             const reviewsToday = notes.filter(note => new Date(note.nextReview).toDateString() <= today).length;
             document.getElementById('review-today').textContent = reviewsToday;
             
             const upcoming = notes.filter(note => new Date(note.nextReview).toDateString() <= today).slice(0, 5);
-            document.getElementById('upcoming-reviews').innerHTML = upcoming.length === 0 ? '<div class="empty-state"><i class="material-icons">event_available</i><h3>لا توجد مراجعات اليوم</h3></div>' : `
+            document.getElementById('upcoming-reviews').innerHTML = upcoming.length === 0 ? `<div class="empty-state"><i class="material-icons">event_available</i><h3>${t.noReviews}</h3></div>` : `
                 <div class="table-container">
                     <table class="table">
-                        <thead><tr><th>الملاحظة</th><th>المراجعات</th><th>الإجراء</th></tr></thead>
+                        <thead><tr><th>${t.title}</th><th>${t.reviewCount}</th><th>${t.tableActions}</th></tr></thead>
                         <tbody>
                             ${upcoming.map(note => `
                                 <tr>
                                     <td><strong>${note.title}</strong></td>
                                     <td>${note.reviews}</td>
-                                    <td><button class="btn btn-primary btn-sm" onclick="navigateTo('repetition'); startReview(${note.id})">مراجعة</button></td>
+                                    <td><button class="btn btn-primary btn-sm" onclick="navigateTo('repetition'); startReview(${note.id})">${t.reviewLabel}</button></td>
                                 </tr>
                             `).join('')}
                         </tbody>
@@ -3378,16 +3527,16 @@
             `;
             
             const recent = debts.slice(-5).reverse();
-            document.getElementById('recent-debts').innerHTML = recent.length === 0 ? '<div class="empty-state"><i class="material-icons">payments</i><h3>لا توجد ديون مسجلة</h3></div>' : `
+            document.getElementById('recent-debts').innerHTML = recent.length === 0 ? `<div class="empty-state"><i class="material-icons">payments</i><h3>${t.noDebts}</h3></div>` : `
                 <div class="table-container">
                     <table class="table">
-                        <thead><tr><th>الاسم</th><th>المبلغ</th><th>الحالة</th></tr></thead>
+                        <thead><tr><th>${t.tableName}</th><th>${t.amount}</th><th>${t.tableStatus}</th></tr></thead>
                         <tbody>
                             ${recent.map(debt => `
                                 <tr>
                                     <td><strong>${debt.name}</strong></td>
                                     <td>${formatCurrency(debt.amount)}</td>
-                                    <td><span class="badge ${debt.paid ? 'badge-success' : 'badge-warning'}">${debt.paid ? 'مدفوع' : 'غير مدفوع'}</span></td>
+                                    <td><span class="badge ${debt.paid ? 'badge-success' : 'badge-warning'}">${debt.paid ? t.paidStatus : t.unpaidStatus}</span></td>
                                 </tr>
                             `).join('')}
                         </tbody>
@@ -3406,7 +3555,7 @@
             a.download = `client_ledger_${new Date().toISOString().split('T')[0]}.json`;
             a.click();
             URL.revokeObjectURL(url);
-            showToast('تم تصدير البيانات 📥');
+            showToast(settings.lang === 'ar' ? 'تم تصدير البيانات 📥' : 'Data exported 📥');
         }
         
         function importData() {
@@ -3421,11 +3570,11 @@
             reader.onload = function(event) {
                 try {
                     const data = JSON.parse(event.target.result);
-                    if (confirm('سيتم استبدال جميع البيانات. هل تريد المتابعة؟')) {
+                    if (confirm(settings.lang === 'ar' ? 'سيتم استبدال جميع البيانات. هل تريد المتابعة؟' : 'All data will be replaced. Continue?')) {
                         if (data.notes) { notes = data.notes; saveNotes(); }
                         if (data.debts) { debts = data.debts; saveDebts(); }
                         if (data.clients) { clients = data.clients; saveClients(); }
-                        if (data.settings) { settings = {...settings, ...data.settings}; saveSettings(); loadSettings(); }
+                        if (data.settings) { settings = {...settings, ...data.settings}; saveSettings(); loadSettings(); updateLanguageUI(); }
                         
                         renderNotes();
                         renderDebts();
@@ -3433,10 +3582,10 @@
                         renderRepetition();
                         updateDashboard();
                         updateClientSelect();
-                        showToast('تم استيراد البيانات 📤');
+                        showToast(settings.lang === 'ar' ? 'تم استيراد البيانات 📤' : 'Data imported 📤');
                     }
                 } catch (error) {
-                    showToast('خطأ في قراءة الملف ❌');
+                    showToast(settings.lang === 'ar' ? 'خطأ في قراءة الملف ❌' : 'Error reading file ❌');
                 }
             };
             reader.readAsText(file);
@@ -3444,7 +3593,7 @@
         }
         
         function clearAllData() {
-            if (confirm('هل أنت متأكد من حذف جميع البيانات؟')) {
+            if (confirm(settings.lang === 'ar' ? 'هل أنت متأكد من حذف جميع البيانات؟' : 'Are you sure you want to delete all data?')) {
                 notes = [];
                 debts = [];
                 clients = [];
@@ -3456,7 +3605,7 @@
                 renderClients();
                 renderRepetition();
                 updateDashboard();
-                showToast('تم حذف جميع البيانات');
+                showToast(settings.lang === 'ar' ? 'تم حذف جميع البيانات' : 'All data deleted');
             }
         }
         
