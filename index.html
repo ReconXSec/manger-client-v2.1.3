@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Client Ledger</title>
+    <title>Client Ledger - نظام إدارة العملاء المحسن</title>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800;900&family=Tajawal:wght@300;400;500;700&family=Noto+Sans+SC:wght@400;500;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800;900&family=Tajawal:wght@300;400;500;700&display=swap" rel="stylesheet">
     <style>
         :root {
             --primary-color: #6366f1;
@@ -57,60 +57,6 @@
             --border-color: #334155;
         }
         
-        [data-color="purple"] {
-            --primary-color: #8b5cf6;
-            --primary-dark: #7c3aed;
-            --primary-light: #a78bfa;
-            --primary-glow: rgba(139, 92, 246, 0.3);
-            --gradient-primary: linear-gradient(135deg, #8b5cf6 0%, #a855f7 50%, #c084fc 100%);
-            --gradient-hero: linear-gradient(135deg, #8b5cf6 0%, #a855f7 100%);
-        }
-        
-        [data-color="blue"] {
-            --primary-color: #3b82f6;
-            --primary-dark: #2563eb;
-            --primary-light: #60a5fa;
-            --primary-glow: rgba(59, 130, 246, 0.3);
-            --gradient-primary: linear-gradient(135deg, #3b82f6 0%, #2563eb 50%, #1d4ed8 100%);
-            --gradient-hero: linear-gradient(135deg, #3b82f6 0%, #1e40af 100%);
-        }
-        
-        [data-color="green"] {
-            --primary-color: #10b981;
-            --primary-dark: #059669;
-            --primary-light: #34d399;
-            --primary-glow: rgba(16, 185, 129, 0.3);
-            --gradient-primary: linear-gradient(135deg, #10b981 0%, #059669 50%, #047857 100%);
-            --gradient-hero: linear-gradient(135deg, #10b981 0%, #059669 100%);
-        }
-        
-        [data-color="rose"] {
-            --primary-color: #f43f5e;
-            --primary-dark: #e11d48;
-            --primary-light: #fb7185;
-            --primary-glow: rgba(244, 63, 94, 0.3);
-            --gradient-primary: linear-gradient(135deg, #f43f5e 0%, #e11d48 50%, #be123c 100%);
-            --gradient-hero: linear-gradient(135deg, #f43f5e 0%, #e11d48 100%);
-        }
-        
-        [data-color="orange"] {
-            --primary-color: #f97316;
-            --primary-dark: #ea580c;
-            --primary-light: #fb923c;
-            --primary-glow: rgba(249, 115, 22, 0.3);
-            --gradient-primary: linear-gradient(135deg, #f97316 0%, #ea580c 50%, #c2410c 100%);
-            --gradient-hero: linear-gradient(135deg, #f97316 0%, #ea580c 100%);
-        }
-        
-        [data-color="teal"] {
-            --primary-color: #14b8a6;
-            --primary-dark: #0d9488;
-            --primary-light: #2dd4bf;
-            --primary-glow: rgba(20, 184, 166, 0.3);
-            --gradient-primary: linear-gradient(135deg, #14b8a6 0%, #0d9488 50%, #0f766e 100%);
-            --gradient-hero: linear-gradient(135deg, #14b8a6 0%, #0d9488 100%);
-        }
-        
         * {
             margin: 0;
             padding: 0;
@@ -118,36 +64,11 @@
         }
         
         body {
-            font-family: 'Cairo', 'Tajawal', 'Noto Sans SC', 'Inter', sans-serif;
+            font-family: 'Cairo', 'Tajawal', sans-serif;
             background: var(--bg-secondary);
             color: var(--text-primary);
             min-height: 100vh;
-            overflow-x: hidden;
             transition: all 0.4s ease;
-        }
-        
-        .custom-bg {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            z-index: -2;
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-            opacity: 0.15;
-        }
-        
-        .bg-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            z-index: -1;
-            background: var(--bg-secondary);
-            opacity: 0.85;
         }
         
         .bg-pattern {
@@ -278,86 +199,6 @@
             border-top: 1px solid var(--border-color);
         }
         
-        .quick-actions {
-            padding: 14px;
-        }
-        
-        .quick-actions-title {
-            font-size: 11px;
-            font-weight: 800;
-            color: var(--text-tertiary);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 10px;
-        }
-        
-        .quick-action-btn {
-            width: 100%;
-            padding: 12px;
-            border-radius: var(--radius-sm);
-            background: var(--bg-tertiary);
-            border: 2px dashed var(--border-color);
-            color: var(--text-secondary);
-            font-size: 13px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            margin-bottom: 8px;
-        }
-        
-        .quick-action-btn:hover {
-            background: var(--primary-color);
-            color: white;
-            border-style: solid;
-        }
-        
-        .lang-selector {
-            padding: 14px;
-            border-top: 1px solid var(--border-color);
-        }
-        
-        .lang-selector-title {
-            font-size: 11px;
-            font-weight: 800;
-            color: var(--text-tertiary);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 10px;
-        }
-        
-        .lang-options {
-            display: flex;
-            gap: 8px;
-        }
-        
-        .lang-btn {
-            flex: 1;
-            padding: 10px;
-            border-radius: var(--radius-sm);
-            background: var(--bg-tertiary);
-            border: 2px solid var(--border-color);
-            color: var(--text-secondary);
-            font-size: 12px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-align: center;
-        }
-        
-        .lang-btn:hover {
-            border-color: var(--primary-color);
-            color: var(--primary-color);
-        }
-        
-        .lang-btn.active {
-            background: var(--gradient-primary);
-            color: white;
-            border-color: transparent;
-        }
-        
         .main-content {
             flex: 1;
             display: flex;
@@ -376,14 +217,6 @@
             position: sticky;
             top: 0;
             z-index: 100;
-            flex-wrap: wrap;
-            gap: 12px;
-        }
-        
-        .top-bar-left {
-            display: flex;
-            align-items: center;
-            gap: 20px;
         }
         
         .menu-toggle {
@@ -406,8 +239,9 @@
         
         .top-bar-center {
             flex: 1;
-            max-width: 500px;
-            min-width: 200px;
+            max-width: 600px;
+            min-width: 300px;
+            margin: 0 20px;
         }
         
         .global-search-box {
@@ -449,7 +283,7 @@
             border-radius: var(--radius-lg);
             box-shadow: var(--shadow-xl);
             margin-top: 8px;
-            max-height: 400px;
+            max-height: 500px;
             overflow-y: auto;
             display: none;
             z-index: 1000;
@@ -464,9 +298,6 @@
             padding: 14px 18px;
             cursor: pointer;
             border-bottom: 1px solid var(--border-color);
-            display: flex;
-            align-items: center;
-            gap: 12px;
             transition: all 0.2s ease;
         }
         
@@ -474,34 +305,62 @@
             background: var(--bg-tertiary);
         }
         
+        .search-result-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 8px;
+        }
+        
         .search-result-icon {
-            width: 36px;
-            height: 36px;
+            width: 40px;
+            height: 40px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            background: var(--bg-tertiary);
-            color: var(--primary-color);
+            background: var(--gradient-primary);
+            color: white;
+            font-size: 20px;
         }
         
-        .search-result-content h4 {
-            font-size: 14px;
-            font-weight: 600;
-        }
-        
-        .search-result-content p {
-            font-size: 12px;
-            color: var(--text-tertiary);
+        .search-result-title {
+            font-size: 16px;
+            font-weight: 700;
         }
         
         .search-result-type {
             font-size: 11px;
-            padding: 2px 8px;
+            padding: 3px 10px;
             border-radius: 10px;
             background: var(--primary-glow);
             color: var(--primary-color);
             margin-right: auto;
+        }
+        
+        .search-result-details {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+            padding: 12px;
+            background: var(--bg-tertiary);
+            border-radius: var(--radius-sm);
+            margin-top: 8px;
+        }
+        
+        .search-result-detail {
+            text-align: center;
+        }
+        
+        .search-result-detail-label {
+            font-size: 11px;
+            color: var(--text-tertiary);
+            margin-bottom: 4px;
+        }
+        
+        .search-result-detail-value {
+            font-size: 14px;
+            font-weight: 700;
         }
         
         .top-bar-right {
@@ -546,7 +405,7 @@
         
         .card:hover {
             box-shadow: var(--shadow-xl);
-            transform: translateY(-4px);
+            transform: translateY(-2px);
         }
         
         .card-header {
@@ -683,7 +542,7 @@
         }
         
         .btn-sm {
-            padding: 10px 18px;
+            padding: 8px 16px;
             font-size: 13px;
         }
         
@@ -727,7 +586,12 @@
             resize: vertical;
         }
         
-        .form-select {
+        /* محسن: قائمة البحث عن العميل */
+        .client-search-container {
+            position: relative;
+        }
+        
+        .client-search-input {
             width: 100%;
             padding: 14px 18px;
             border: 2px solid var(--border-color);
@@ -737,13 +601,68 @@
             font-size: 15px;
             font-family: inherit;
             transition: all 0.3s ease;
-            cursor: pointer;
         }
         
-        .form-select:focus {
+        .client-search-input:focus {
             outline: none;
             border-color: var(--primary-color);
             box-shadow: 0 0 0 4px var(--primary-glow);
+        }
+        
+        .client-search-dropdown {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background: var(--surface);
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-xl);
+            max-height: 300px;
+            overflow-y: auto;
+            display: none;
+            z-index: 1000;
+            border: 1px solid var(--border-color);
+            margin-top: 4px;
+        }
+        
+        .client-search-dropdown.show {
+            display: block;
+        }
+        
+        .client-option {
+            padding: 14px 18px;
+            cursor: pointer;
+            border-bottom: 1px solid var(--border-color);
+            transition: all 0.2s ease;
+        }
+        
+        .client-option:hover {
+            background: var(--bg-tertiary);
+        }
+        
+        .client-option:last-child {
+            border-bottom: none;
+        }
+        
+        .client-option-name {
+            font-weight: 700;
+            font-size: 15px;
+            margin-bottom: 4px;
+        }
+        
+        .client-option-info {
+            display: flex;
+            gap: 12px;
+            font-size: 12px;
+            color: var(--text-secondary);
+        }
+        
+        .client-option-debts {
+            color: var(--warning-color);
+        }
+        
+        .client-option-paid {
+            color: var(--success-color);
         }
         
         .table-container {
@@ -801,7 +720,7 @@
             background: var(--surface);
             border-radius: var(--radius-xl);
             padding: 36px;
-            max-width: 540px;
+            max-width: 600px;
             width: 90%;
             max-height: 90vh;
             overflow-y: auto;
@@ -864,10 +783,6 @@
             margin-bottom: 14px;
             color: var(--text-secondary);
             font-weight: 700;
-        }
-        
-        .empty-state p {
-            color: var(--text-tertiary);
         }
         
         .badge {
@@ -1132,6 +1047,14 @@
             font-weight: 700;
         }
         
+        .debt-book-actions {
+            display: flex;
+            gap: 8px;
+            margin-top: 16px;
+            padding-top: 16px;
+            border-top: 1px solid var(--border-color);
+        }
+        
         .payment-book-item {
             display: flex;
             justify-content: space-between;
@@ -1256,58 +1179,6 @@
             color: white;
             border-color: transparent;
         }
-        
-        .theme-selector {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 16px;
-            margin-top: 16px;
-        }
-        
-        .theme-option {
-            padding: 20px;
-            border-radius: var(--radius-lg);
-            border: 3px solid var(--border-color);
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-align: center;
-            background: var(--surface);
-        }
-        
-        .theme-option:hover {
-            transform: translateY(-4px);
-            box-shadow: var(--shadow-lg);
-        }
-        
-        .theme-option.active {
-            border-color: var(--primary-color);
-            box-shadow: 0 0 0 3px var(--primary-glow);
-        }
-        
-        .theme-color-preview {
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            margin: 0 auto 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 24px;
-        }
-        
-        .theme-option-name {
-            font-weight: 700;
-            font-size: 14px;
-            color: var(--text-primary);
-        }
-        
-        .theme-preview-purple { background: linear-gradient(135deg, #8b5cf6, #a855f7); }
-        .theme-preview-blue { background: linear-gradient(135deg, #3b82f6, #2563eb); }
-        .theme-preview-green { background: linear-gradient(135deg, #10b981, #059669); }
-        .theme-preview-rose { background: linear-gradient(135deg, #f43f5e, #e11d48); }
-        .theme-preview-orange { background: linear-gradient(135deg, #f97316, #ea580c); }
-        .theme-preview-teal { background: linear-gradient(135deg, #14b8a6, #0d9488); }
         
         .notes-grid {
             display: grid;
@@ -1452,15 +1323,13 @@
                 grid-template-columns: 1fr;
             }
             
-            .theme-selector {
-                grid-template-columns: repeat(2, 1fr);
+            .top-bar {
+                flex-wrap: wrap;
             }
         }
     </style>
 </head>
 <body>
-    <div class="custom-bg" id="custom-bg"></div>
-    <div class="bg-overlay" id="bg-overlay"></div>
     <div class="bg-pattern"></div>
     
     <div class="app-container">
@@ -1468,82 +1337,46 @@
             <div class="sidebar-header">
                 <div class="logo">
                     <i class="material-icons">account_circle</i>
-                    <h1 id="app-title">مدونة العميل</h1>
+                    <h1>مدونة العميل</h1>
                 </div>
-                <p class="logo-subtitle" id="app-subtitle">نظام إدارة متكامل</p>
+                <p class="logo-subtitle">نظام إدارة متكامل</p>
             </div>
             
             <nav class="sidebar-nav">
                 <div class="nav-item active" data-section="dashboard">
                     <i class="material-icons">dashboard</i>
-                    <span class="nav-text">لوحة التحكم</span>
-                </div>
-                
-                <div class="nav-item" data-section="notes">
-                    <i class="material-icons">note</i>
-                    <span class="nav-text">الملاحظات</span>
-                    <span class="nav-badge" id="notes-count">0</span>
-                </div>
-                
-                <div class="nav-item" data-section="repetition">
-                    <i class="material-icons">autorenew</i>
-                    <span class="nav-text">التكرار المتباعد</span>
+                    <span>لوحة التحكم</span>
                 </div>
                 
                 <div class="nav-item" data-section="debts">
                     <i class="material-icons">account_balance_wallet</i>
-                    <span class="nav-text">ديون المحل</span>
+                    <span>ديون المحل</span>
                     <span class="nav-badge" id="debts-count">0</span>
                 </div>
                 
                 <div class="nav-item" data-section="clients">
                     <i class="material-icons">people</i>
-                    <span class="nav-text">إدارة العملاء</span>
+                    <span>إدارة العملاء</span>
                     <span class="nav-badge" id="clients-count">0</span>
                 </div>
                 
                 <div class="nav-item" data-section="settings">
                     <i class="material-icons">settings</i>
-                    <span class="nav-text">الإعدادات</span>
+                    <span>الإعدادات</span>
                 </div>
             </nav>
-            
-            <div class="quick-actions">
-                <div class="quick-actions-title" id="quick-actions-title">إجراءات سريعة</div>
-                <button class="quick-action-btn" onclick="openNoteModal()">
-                    <i class="material-icons">add_circle</i>
-                    <span id="quick-new-note">ملاحظة جديدة</span>
-                </button>
-                <button class="quick-action-btn" onclick="openDebtModal()">
-                    <i class="material-icons">add_circle</i>
-                    <span id="quick-new-debt">دين جديد</span>
-                </button>
-                <button class="quick-action-btn" onclick="openClientModal()">
-                    <i class="material-icons">add_circle</i>
-                    <span id="quick-new-client">عميل جديد</span>
-                </button>
-            </div>
-            
-            <div class="lang-selector">
-                <div class="lang-selector-title" id="lang-selector-title">اللغة</div>
-                <div class="lang-options">
-                    <button class="lang-btn active" onclick="setLanguage('ar')">العربية</button>
-                    <button class="lang-btn" onclick="setLanguage('en')">English</button>
-                    <button class="lang-btn" onclick="setLanguage('zh')">中文</button>
-                </div>
-            </div>
             
             <div class="sidebar-footer">
                 <button class="btn btn-primary" style="width: 100%;" onclick="exportData()">
                     <i class="material-icons">download</i>
-                    <span id="export-data">تصدير البيانات</span>
+                    <span>تصدير البيانات</span>
                 </button>
             </div>
         </aside>
         
         <main class="main-content">
             <header class="top-bar">
-                <div class="top-bar-left">
+                <div style="display: flex; align-items: center; gap: 20px;">
                     <button class="menu-toggle" onclick="toggleSidebar()">
                         <i class="material-icons">menu</i>
                     </button>
@@ -1565,9 +1398,6 @@
                     <button class="icon-btn" onclick="toggleDarkMode()" title="تبديل الوضع">
                         <i class="material-icons" id="theme-icon">dark_mode</i>
                     </button>
-                    <button class="icon-btn" onclick="window.print()" title="طباعة">
-                        <i class="material-icons">print</i>
-                    </button>
                 </div>
             </header>
             
@@ -1576,76 +1406,35 @@
                 <section class="section active" id="dashboard-section">
                     <div class="stats-grid">
                         <div class="stat-card">
-                            <div class="stat-icon"><i class="material-icons">note</i></div>
-                            <div class="stat-value" id="total-notes">0</div>
-                            <div class="stat-label" id="label-total-notes">إجمالي الملاحظات</div>
-                        </div>
-                        
-                        <div class="stat-card">
-                            <div class="stat-icon" style="background: var(--gradient-secondary);"><i class="material-icons">check_circle</i></div>
-                            <div class="stat-value" id="review-today">0</div>
-                            <div class="stat-label" id="label-review-today">مراجعات اليوم</div>
-                        </div>
-                        
-                        <div class="stat-card">
-                            <div class="stat-icon" style="background: var(--gradient-warning);"><i class="material-icons">payments</i></div>
+                            <div class="stat-icon"><i class="material-icons">account_balance_wallet</i></div>
                             <div class="stat-value" id="total-debts">0</div>
-                            <div class="stat-label" id="label-total-debts">إجمالي الديون</div>
+                            <div class="stat-label">إجمالي الديون</div>
+                        </div>
+                        
+                        <div class="stat-card">
+                            <div class="stat-icon" style="background: var(--gradient-warning);"><i class="material-icons">pending</i></div>
+                            <div class="stat-value" id="unpaid-debts-dashboard">0</div>
+                            <div class="stat-label">ديون غير مدفوعة</div>
+                        </div>
+                        
+                        <div class="stat-card">
+                            <div class="stat-icon" style="background: var(--gradient-success);"><i class="material-icons">paid</i></div>
+                            <div class="stat-value" id="paid-debts-dashboard">0</div>
+                            <div class="stat-label">ديون مدفوعة</div>
                         </div>
                         
                         <div class="stat-card">
                             <div class="stat-icon" style="background: var(--gradient-danger);"><i class="material-icons">people</i></div>
                             <div class="stat-value" id="total-clients">0</div>
-                            <div class="stat-label" id="label-total-clients">العملاء</div>
+                            <div class="stat-label">العملاء</div>
                         </div>
                     </div>
                     
-                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
-                        <div class="card">
-                            <div class="card-header">
-                                <h3 class="card-title"><i class="material-icons">schedule</i><span id="title-upcoming-reviews">المراجعات القادمة</span></h3>
-                            </div>
-                            <div id="upcoming-reviews"></div>
-                        </div>
-                        
-                        <div class="card">
-                            <div class="card-header">
-                                <h3 class="card-title"><i class="material-icons">account_balance_wallet</i><span id="title-recent-debts">آخر الديون</span></h3>
-                            </div>
-                            <div id="recent-debts"></div>
-                        </div>
-                    </div>
-                </section>
-                
-                <!-- Notes -->
-                <section class="section" id="notes-section">
                     <div class="card">
                         <div class="card-header">
-                            <h3 class="card-title"><i class="material-icons">note</i><span id="section-title-notes">الملاحظات</span></h3>
-                            <button class="btn btn-primary" onclick="openNoteModal()">
-                                <i class="material-icons">add</i><span id="btn-add-note">إضافة ملاحظة</span>
-                            </button>
+                            <h3 class="card-title"><i class="material-icons">account_balance_wallet</i>آخر الديون</h3>
                         </div>
-                        
-                        <div class="search-box">
-                            <input type="text" id="notes-search" placeholder="البحث في الملاحظات..." oninput="filterNotes()">
-                            <i class="material-icons">search</i>
-                        </div>
-                        
-                        <div class="notes-grid" id="notes-container"></div>
-                    </div>
-                </section>
-                
-                <!-- Repetition -->
-                <section class="section" id="repetition-section">
-                    <div class="card">
-                        <div class="card-header">
-                            <h3 class="card-title"><i class="material-icons">autorenew</i><span id="section-title-repetition">التكرار المتباعد</span></h3>
-                            <button class="btn btn-primary" onclick="startReviewSession()">
-                                <i class="material-icons">play_arrow</i><span id="btn-start-review">بدء المراجعة</span>
-                            </button>
-                        </div>
-                        <div id="repetition-container"></div>
+                        <div id="recent-debts"></div>
                     </div>
                 </section>
                 
@@ -1653,9 +1442,9 @@
                 <section class="section" id="debts-section">
                     <div class="card">
                         <div class="card-header">
-                            <h3 class="card-title"><i class="material-icons">account_balance_wallet</i><span id="section-title-debts">ديون المحل</span></h3>
+                            <h3 class="card-title"><i class="material-icons">account_balance_wallet</i>ديون المحل</h3>
                             <button class="btn btn-primary" onclick="openDebtModal()">
-                                <i class="material-icons">add</i><span id="btn-add-debt">إضافة دين</span>
+                                <i class="material-icons">add</i>إضافة دين
                             </button>
                         </div>
                         
@@ -1665,21 +1454,21 @@
                         </div>
                         
                         <div class="filter-bar">
-                            <button class="filter-btn active" onclick="filterDebtsByStatus('all')"><i class="material-icons">apps</i><span id="filter-all">الكل</span></button>
-                            <button class="filter-btn" onclick="filterDebtsByStatus('unpaid')"><i class="material-icons">money_off</i><span id="filter-unpaid">غير مدفوع</span></button>
-                            <button class="filter-btn" onclick="filterDebtsByStatus('paid')"><i class="material-icons">check_circle</i><span id="filter-paid">مدفوع</span></button>
+                            <button class="filter-btn active" onclick="filterDebtsByStatus('all')"><i class="material-icons">apps</i>الكل</button>
+                            <button class="filter-btn" onclick="filterDebtsByStatus('unpaid')"><i class="material-icons">money_off</i>غير مدفوع</button>
+                            <button class="filter-btn" onclick="filterDebtsByStatus('paid')"><i class="material-icons">check_circle</i>مدفوع</button>
                         </div>
                         
                         <div class="stats-grid" style="margin-bottom: 20px;">
                             <div class="stat-card">
                                 <div class="stat-icon" style="background: var(--gradient-warning);"><i class="material-icons">pending</i></div>
                                 <div class="stat-value" id="unpaid-debts">0</div>
-                                <div class="stat-label" id="label-unpaid-debts">ديون غير مدفوعة</div>
+                                <div class="stat-label">ديون غير مدفوعة</div>
                             </div>
                             <div class="stat-card">
                                 <div class="stat-icon" style="background: var(--gradient-success);"><i class="material-icons">paid</i></div>
                                 <div class="stat-value" id="paid-debts">0</div>
-                                <div class="stat-label" id="label-paid-debts">ديون مدفوعة</div>
+                                <div class="stat-label">ديون مدفوعة</div>
                             </div>
                         </div>
                         
@@ -1687,13 +1476,13 @@
                             <table class="table" id="debts-table">
                                 <thead>
                                     <tr>
-                                        <th id="th-name">الاسم</th>
-                                        <th id="th-original">المبلغ الأصلي</th>
-                                        <th id="th-paid">المدفوع</th>
-                                        <th id="th-remaining">المتبقي</th>
-                                        <th id="th-date">التاريخ</th>
-                                        <th id="th-status">الحالة</th>
-                                        <th id="th-actions">الإجراءات</th>
+                                        <th>الاسم</th>
+                                        <th>المبلغ الأصلي</th>
+                                        <th>المدفوع</th>
+                                        <th>المتبقي</th>
+                                        <th>التاريخ</th>
+                                        <th>الحالة</th>
+                                        <th>الإجراءات</th>
                                     </tr>
                                 </thead>
                                 <tbody id="debts-tbody"></tbody>
@@ -1702,7 +1491,7 @@
                         
                         <div id="debts-empty" class="empty-state" style="display: none;">
                             <i class="material-icons">payments</i>
-                            <h3 id="msg-no-debts">لا توجد ديون مسجلة</h3>
+                            <h3>لا توجد ديون مسجلة</h3>
                         </div>
                     </div>
                 </section>
@@ -1711,9 +1500,9 @@
                 <section class="section" id="clients-section">
                     <div class="card">
                         <div class="card-header">
-                            <h3 class="card-title"><i class="material-icons">people</i><span id="section-title-clients">إدارة العملاء</span></h3>
+                            <h3 class="card-title"><i class="material-icons">people</i>إدارة العملاء</h3>
                             <button class="btn btn-primary" onclick="openClientModal()">
-                                <i class="material-icons">add</i><span id="btn-add-client">إضافة عميل</span>
+                                <i class="material-icons">add</i>إضافة عميل
                             </button>
                         </div>
                         
@@ -1735,48 +1524,17 @@
                 <section class="section" id="settings-section">
                     <div class="card">
                         <div class="card-header">
-                            <h3 class="card-title"><i class="material-icons">settings</i><span id="section-title-settings">الإعدادات</span></h3>
-                        </div>
-                        
-                        <!-- Theme Selection -->
-                        <div style="margin-bottom: 30px;">
-                            <h4 style="font-size: 18px; font-weight: 700; margin-bottom: 16px;" id="title-choose-theme">اختر التصميم</h4>
-                            <div class="theme-selector" id="theme-selector">
-                                <div class="theme-option active" onclick="selectColor('')" data-color="">
-                                    <div class="theme-color-preview theme-preview-purple"><i class="material-icons">auto_awesome</i></div>
-                                    <div class="theme-option-name" id="theme-default">الافتراضي</div>
-                                </div>
-                                <div class="theme-option" onclick="selectColor('purple')" data-color="purple">
-                                    <div class="theme-color-preview theme-preview-purple"><i class="material-icons">star</i></div>
-                                    <div class="theme-option-name" id="theme-purple">بنفسجي</div>
-                                </div>
-                                <div class="theme-option" onclick="selectColor('blue')" data-color="blue">
-                                    <div class="theme-color-preview theme-preview-blue"><i class="material-icons">water_drop</i></div>
-                                    <div class="theme-option-name" id="theme-blue">أزرق</div>
-                                </div>
-                                <div class="theme-option" onclick="selectColor('green')" data-color="green">
-                                    <div class="theme-color-preview theme-preview-green"><i class="material-icons">eco</i></div>
-                                    <div class="theme-option-name" id="theme-green">أخضر</div>
-                                </div>
-                                <div class="theme-option" onclick="selectColor('rose')" data-color="rose">
-                                    <div class="theme-color-preview theme-preview-rose"><i class="material-icons">favorite</i></div>
-                                    <div class="theme-option-name" id="theme-rose">وردي</div>
-                                </div>
-                                <div class="theme-option" onclick="selectColor('orange')" data-color="orange">
-                                    <div class="theme-color-preview theme-preview-orange"><i class="material-icons">wb_sunny</i></div>
-                                    <div class="theme-option-name" id="theme-orange">برتقالي</div>
-                                </div>
-                            </div>
+                            <h3 class="card-title"><i class="material-icons">settings</i>الإعدادات</h3>
                         </div>
                         
                         <!-- Dark Mode -->
                         <div style="margin-bottom: 30px;">
-                            <h4 style="font-size: 18px; font-weight: 700; margin-bottom: 16px;" id="title-appearance">المظهر</h4>
+                            <h4 style="font-size: 18px; font-weight: 700; margin-bottom: 16px;">المظهر</h4>
                             
                             <div class="settings-item">
                                 <div class="settings-item-info">
-                                    <h5 id="settings-dark-mode">الوضع المظلم</h5>
-                                    <p id="settings-dark-mode-desc">تفعيل الوضع المظلم</p>
+                                    <h5>الوضع المظلم</h5>
+                                    <p>تفعيل الوضع المظلم</p>
                                 </div>
                                 <label class="toggle">
                                     <input type="checkbox" id="dark-mode-toggle" onchange="toggleDarkMode()">
@@ -1787,76 +1545,54 @@
                         
                         <!-- Currency -->
                         <div style="margin-bottom: 30px;">
-                            <h4 style="font-size: 18px; font-weight: 700; margin-bottom: 16px;" id="title-currency-settings">إعدادات العملة</h4>
+                            <h4 style="font-size: 18px; font-weight: 700; margin-bottom: 16px;">إعدادات العملة</h4>
                             
                             <div class="settings-item" style="flex-direction: column; align-items: flex-start;">
                                 <div class="settings-item-info" style="margin-bottom: 12px;">
-                                    <h5 id="settings-select-currency">اختر العملة</h5>
-                                    <p id="settings-select-currency-desc">اختر العملة المستخدمة في النظام</p>
+                                    <h5>اختر العملة</h5>
+                                    <p>اختر العملة المستخدمة في النظام</p>
                                 </div>
                                 <div class="currency-options">
                                     <button class="currency-btn active" onclick="selectCurrency('DZD')" data-currency="DZD">د.ج (DZD)</button>
                                     <button class="currency-btn" onclick="selectCurrency('USD')" data-currency="USD">$ (USD)</button>
                                     <button class="currency-btn" onclick="selectCurrency('EUR')" data-currency="EUR">€ (EUR)</button>
-                                    <button class="currency-btn" onclick="selectCurrency('GBP')" data-currency="GBP">£ (GBP)</button>
                                     <button class="currency-btn" onclick="selectCurrency('CNY')" data-currency="CNY">¥ (CNY)</button>
                                     <button class="currency-btn" onclick="selectCurrency('SAR')" data-currency="SAR">ر.س (SAR)</button>
                                 </div>
                             </div>
                         </div>
                         
-                        <!-- Background Image -->
-                        <div style="margin-bottom: 30px;">
-                            <h4 style="font-size: 18px; font-weight: 700; margin-bottom: 16px;" id="title-bg-image">خلفية مخصصة</h4>
-                            
-                            <div class="settings-item">
-                                <div class="settings-item-info">
-                                    <h5 id="settings-custom-bg">صورة خلفية</h5>
-                                    <p id="settings-custom-bg-desc">اختر صورة كخلفية</p>
-                                </div>
-                                <div style="display: flex; gap: 10px;">
-                                    <button class="btn btn-primary btn-sm" onclick="document.getElementById('bg-input').click()">
-                                        <i class="material-icons">image</i><span id="btn-choose">اختيار</span>
-                                    </button>
-                                    <button class="btn btn-secondary btn-sm" onclick="clearBackground()">
-                                        <i class="material-icons">clear</i><span id="btn-remove">إزالة</span>
-                                    </button>
-                                </div>
-                            </div>
-                            <input type="file" id="bg-input" accept="image/*" style="display: none;" onchange="setBackgroundImage(event)">
-                        </div>
-                        
                         <!-- Data -->
                         <div>
-                            <h4 style="font-size: 18px; font-weight: 700; margin-bottom: 16px;" id="title-data">البيانات</h4>
+                            <h4 style="font-size: 18px; font-weight: 700; margin-bottom: 16px;">البيانات</h4>
                             
                             <div class="settings-item">
                                 <div class="settings-item-info">
-                                    <h5 id="settings-export">تصدير البيانات</h5>
-                                    <p id="settings-export-desc">تحميل نسخة احتياطية</p>
+                                    <h5>تصدير البيانات</h5>
+                                    <p>تحميل نسخة احتياطية</p>
                                 </div>
                                 <button class="btn btn-primary btn-sm" onclick="exportData()">
-                                    <i class="material-icons">download</i><span id="btn-export">تصدير</span>
+                                    <i class="material-icons">download</i>تصدير
                                 </button>
                             </div>
                             
                             <div class="settings-item">
                                 <div class="settings-item-info">
-                                    <h5 id="settings-import">استيراد البيانات</h5>
-                                    <p id="settings-import-desc">استعادة من نسخة احتياطية</p>
+                                    <h5>استيراد البيانات</h5>
+                                    <p>استعادة من نسخة احتياطية</p>
                                 </div>
                                 <button class="btn btn-secondary btn-sm" onclick="importData()">
-                                    <i class="material-icons">upload</i><span id="btn-import">استيراد</span>
+                                    <i class="material-icons">upload</i>استيراد
                                 </button>
                             </div>
                             
                             <div class="settings-item">
                                 <div class="settings-item-info">
-                                    <h5 id="settings-delete-all">حذف جميع البيانات</h5>
-                                    <p id="settings-delete-all-desc">حذف كل شيء نهائياً</p>
+                                    <h5>حذف جميع البيانات</h5>
+                                    <p>حذف كل شيء نهائياً</p>
                                 </div>
                                 <button class="btn btn-danger btn-sm" onclick="clearAllData()">
-                                    <i class="material-icons">delete_forever</i><span id="btn-delete">حذف</span>
+                                    <i class="material-icons">delete_forever</i>حذف
                                 </button>
                             </div>
                         </div>
@@ -1867,60 +1603,59 @@
     </div>
     
     <!-- Modals -->
-    <div class="modal-overlay" id="note-modal">
+    <div class="modal-overlay" id="debt-modal">
         <div class="modal">
             <div class="modal-header">
-                <h3 class="modal-title" id="modal-title-note">إضافة ملاحظة</h3>
-                <button class="modal-close" onclick="closeModal('note-modal')">&times;</button>
+                <h3 class="modal-title">إضافة دين</h3>
+                <button class="modal-close" onclick="closeModal('debt-modal')">&times;</button>
             </div>
-            <form id="note-form">
+            <form id="debt-form">
                 <div class="form-group">
-                    <label class="form-label" id="label-note-title">العنوان</label>
-                    <input type="text" class="form-input" id="note-title" required>
+                    <label class="form-label">اختر العميل *</label>
+                    <div class="client-search-container">
+                        <input type="text" class="client-search-input" id="client-search-input" placeholder="ابحث عن العميل..." autocomplete="off" oninput="searchClientForDebt()">
+                        <input type="hidden" id="debt-client-id">
+                        <div class="client-search-dropdown" id="client-search-dropdown"></div>
+                    </div>
+                    <p style="font-size: 12px; color: var(--text-tertiary); margin-top: 8px;">يجب إضافة عميل أولاً من قسم العملاء</p>
                 </div>
                 <div class="form-group">
-                    <label class="form-label" id="label-note-content">المحتوى</label>
-                    <textarea class="form-input form-textarea" id="note-content" required></textarea>
+                    <label class="form-label">المبلغ</label>
+                    <input type="number" class="form-input" id="debt-amount" required>
                 </div>
                 <div class="form-group">
-                    <label class="form-label" id="label-note-priority">الأولوية</label>
-                    <select class="form-input" id="note-priority">
-                        <option value="low" id="priority-low">منخفضة</option>
-                        <option value="medium" selected id="priority-medium">متوسطة</option>
-                        <option value="high" id="priority-high">عالية</option>
-                    </select>
+                    <label class="form-label">ملاحظات</label>
+                    <textarea class="form-input form-textarea" id="debt-notes"></textarea>
                 </div>
                 <button type="submit" class="btn btn-primary btn-lg" style="width: 100%;">
-                    <i class="material-icons">save</i><span id="btn-save">حفظ</span>
+                    <i class="material-icons">save</i>حفظ
                 </button>
             </form>
         </div>
     </div>
     
-    <div class="modal-overlay" id="debt-modal">
+    <div class="modal-overlay" id="edit-debt-modal">
         <div class="modal">
             <div class="modal-header">
-                <h3 class="modal-title" id="modal-title-debt">إضافة دين</h3>
-                <button class="modal-close" onclick="closeModal('debt-modal')">&times;</button>
+                <h3 class="modal-title">تعديل الدين</h3>
+                <button class="modal-close" onclick="closeModal('edit-debt-modal')">&times;</button>
             </div>
-            <form id="debt-form">
+            <form id="edit-debt-form">
+                <input type="hidden" id="edit-debt-id">
                 <div class="form-group">
-                    <label class="form-label" id="label-select-client">اختر العميل *</label>
-                    <select class="form-select" id="debt-client" required>
-                        <option value="" id="option-select-client">اختر العميل أولاً</option>
-                    </select>
-                    <p style="font-size: 12px; color: var(--text-tertiary); margin-top: 8px;" id="msg-client-required">يجب إضافة عميل أولاً من قسم العملاء</p>
+                    <label class="form-label">المبلغ الأصلي</label>
+                    <input type="number" class="form-input" id="edit-debt-amount" required>
                 </div>
                 <div class="form-group">
-                    <label class="form-label" id="label-amount">المبلغ</label>
-                    <input type="number" class="form-input" id="debt-amount" required>
+                    <label class="form-label">المبلغ المدفوع</label>
+                    <input type="number" class="form-input" id="edit-debt-paid" required>
                 </div>
                 <div class="form-group">
-                    <label class="form-label" id="label-notes">ملاحظات</label>
-                    <textarea class="form-input form-textarea" id="debt-notes"></textarea>
+                    <label class="form-label">ملاحظات</label>
+                    <textarea class="form-input form-textarea" id="edit-debt-notes"></textarea>
                 </div>
                 <button type="submit" class="btn btn-primary btn-lg" style="width: 100%;">
-                    <i class="material-icons">save</i><span id="btn-save-debt">حفظ</span>
+                    <i class="material-icons">save</i>حفظ التعديلات
                 </button>
             </form>
         </div>
@@ -1929,26 +1664,26 @@
     <div class="modal-overlay" id="payment-modal">
         <div class="modal">
             <div class="modal-header">
-                <h3 class="modal-title" id="modal-title-payment">دفع مبلغ جزئي</h3>
+                <h3 class="modal-title">دفع مبلغ جزئي</h3>
                 <button class="modal-close" onclick="closeModal('payment-modal')">&times;</button>
             </div>
             <div style="padding: 16px; background: var(--bg-tertiary); border-radius: var(--radius-md); margin-bottom: 20px;">
-                <p><strong id="label-original-amount">المبلغ الأصلي:</strong> <span id="payment-original">0</span></p>
-                <p><strong id="label-paid-amount">المدفوع:</strong> <span id="payment-paid">0</span></p>
-                <p><strong id="label-remaining-amount">المتبقي:</strong> <span id="payment-remaining" style="color: var(--danger-color);">0</span></p>
+                <p><strong>المبلغ الأصلي:</strong> <span id="payment-original">0</span></p>
+                <p><strong>المدفوع:</strong> <span id="payment-paid">0</span></p>
+                <p><strong>المتبقي:</strong> <span id="payment-remaining" style="color: var(--danger-color);">0</span></p>
             </div>
             <form id="payment-form">
                 <input type="hidden" id="payment-debt-id">
                 <div class="form-group">
-                    <label class="form-label" id="label-payment-amount">المبلغ</label>
+                    <label class="form-label">المبلغ</label>
                     <input type="number" class="form-input" id="payment-amount" required>
                 </div>
                 <div style="display: flex; gap: 12px;">
                     <button type="submit" class="btn btn-success btn-lg" style="flex: 1;">
-                        <i class="material-icons">payment</i><span id="btn-confirm">تأكيد</span>
+                        <i class="material-icons">payment</i>تأكيد
                     </button>
                     <button type="button" class="btn btn-secondary btn-lg" onclick="payFullAmount()" style="flex: 1;">
-                        <i class="material-icons">check_circle</i><span id="btn-pay-full">دفع كامل</span>
+                        <i class="material-icons">check_circle</i>دفع كامل
                     </button>
                 </div>
             </form>
@@ -1958,37 +1693,22 @@
     <div class="modal-overlay" id="client-modal">
         <div class="modal">
             <div class="modal-header">
-                <h3 class="modal-title" id="modal-title-client">إضافة عميل</h3>
+                <h3 class="modal-title">إضافة عميل</h3>
                 <button class="modal-close" onclick="closeModal('client-modal')">&times;</button>
             </div>
             <form id="client-form">
                 <div class="form-group">
-                    <label class="form-label" id="label-client-name">الاسم الكامل *</label>
+                    <label class="form-label">الاسم الكامل *</label>
                     <input type="text" class="form-input" id="client-name" required>
                 </div>
                 <div class="form-group">
-                    <label class="form-label" id="label-client-notes">ملاحظات</label>
+                    <label class="form-label">ملاحظات</label>
                     <textarea class="form-input form-textarea" id="client-notes"></textarea>
                 </div>
                 <button type="submit" class="btn btn-primary btn-lg" style="width: 100%;">
-                    <i class="material-icons">save</i><span id="btn-save-client">حفظ</span>
+                    <i class="material-icons">save</i>حفظ
                 </button>
             </form>
-        </div>
-    </div>
-    
-    <div class="modal-overlay" id="review-modal">
-        <div class="modal">
-            <div class="modal-header">
-                <h3 class="modal-title" id="modal-title-review">مراجعة</h3>
-                <button class="modal-close" onclick="closeModal('review-modal')">&times;</button>
-            </div>
-            <div id="review-content"></div>
-            <div style="display: flex; gap: 12px; margin-top: 24px;">
-                <button class="btn btn-danger btn-lg" onclick="reviewNote('forgot')" style="flex: 1;" id="btn-forgot">نسيت</button>
-                <button class="btn btn-warning btn-lg" onclick="reviewNote('hard')" style="flex: 1;" id="btn-hard">صعب</button>
-                <button class="btn btn-success btn-lg" onclick="reviewNote('easy')" style="flex: 1;" id="btn-easy">سهل</button>
-            </div>
         </div>
     </div>
     
@@ -2000,346 +1720,6 @@
     <input type="file" id="import-input" accept=".json" style="display: none;">
     
     <script>
-        // Translations
-        const translations = {
-            ar: {
-                appTitle: 'مدونة العميل',
-                appSubtitle: 'نظام إدارة متكامل',
-                navDashboard: 'لوحة التحكم',
-                navNotes: 'الملاحظات',
-                navRepetition: 'التكرار المتباعد',
-                navDebts: 'ديون المحل',
-                navClients: 'إدارة العملاء',
-                navSettings: 'الإعدادات',
-                quickActions: 'إجراءات سريعة',
-                quickNewNote: 'ملاحظة جديدة',
-                quickNewDebt: 'دين جديد',
-                quickNewClient: 'عميل جديد',
-                language: 'اللغة',
-                exportData: 'تصدير البيانات',
-                searchPlaceholder: 'البحث في كامل النظام...',
-                totalNotes: 'إجمالي الملاحظات',
-                reviewsToday: 'مراجعات اليوم',
-                totalDebts: 'إجمالي الديون',
-                totalClients: 'العملاء',
-                upcomingReviews: 'المراجعات القادمة',
-                recentDebts: 'آخر الديون',
-                noReviews: 'لا توجد مراجعات اليوم',
-                noDebts: 'لا توجد ديون مسجلة',
-                addNote: 'إضافة ملاحظة',
-                searchNotes: 'البحث في الملاحظات...',
-                noNotesYet: 'لا توجد ملاحظات',
-                startReview: 'بدء المراجعة',
-                addDebt: 'إضافة دين',
-                searchName: 'البحث بالاسم...',
-                filterAll: 'الكل',
-                filterUnpaid: 'غير مدفوع',
-                filterPaid: 'مدفوع',
-                unpaidDebts: 'ديون غير مدفوعة',
-                paidDebts: 'ديون مدفوعة',
-                tableName: 'الاسم',
-                tableOriginal: 'المبلغ الأصلي',
-                tablePaid: 'المدفوع',
-                tableRemaining: 'المتبقي',
-                tableDate: 'التاريخ',
-                tableStatus: 'الحالة',
-                tableActions: 'الإجراءات',
-                addClient: 'إضافة عميل',
-                searchClients: 'البحث في العملاء...',
-                noClients: 'لا يوجد عملاء',
-                chooseTheme: 'اختر التصميم',
-                themeDefault: 'الافتراضي',
-                themePurple: 'بنفسجي',
-                themeBlue: 'أزرق',
-                themeGreen: 'أخضر',
-                themeRose: 'وردي',
-                themeOrange: 'برتقالي',
-                appearance: 'المظهر',
-                darkMode: 'الوضع المظلم',
-                darkModeDesc: 'تفعيل الوضع المظلم',
-                currencySettings: 'إعدادات العملة',
-                selectCurrency: 'اختر العملة',
-                selectCurrencyDesc: 'اختر العملة المستخدمة في النظام',
-                backgroundImage: 'خلفية مخصصة',
-                customBg: 'صورة خلفية',
-                customBgDesc: 'اختر صورة كخلفية',
-                choose: 'اختيار',
-                remove: 'إزالة',
-                data: 'البيانات',
-                exportDesc: 'تحميل نسخة احتياطية',
-                export: 'تصدير',
-                importData: 'استيراد البيانات',
-                importDesc: 'استعادة من نسخة احتياطية',
-                import: 'استيراد',
-                deleteAllData: 'حذف جميع البيانات',
-                deleteAllDesc: 'حذف كل شيء نهائياً',
-                delete: 'حذف',
-                title: 'العنوان',
-                content: 'المحتوى',
-                priority: 'الأولوية',
-                priorityLow: 'منخفضة',
-                priorityMedium: 'متوسطة',
-                priorityHigh: 'عالية',
-                save: 'حفظ',
-                selectClient: 'اختر العميل *',
-                selectClientFirst: 'اختر العميل أولاً',
-                clientRequired: 'يجب إضافة عميل أولاً من قسم العملاء',
-                amount: 'المبلغ',
-                notes: 'ملاحظات',
-                partialPayment: 'دفع مبلغ جزئي',
-                originalAmount: 'المبلغ الأصلي',
-                paidAmount: 'المدفوع',
-                remainingAmount: 'المتبقي',
-                paymentAmount: 'المبلغ',
-                confirm: 'تأكيد',
-                payFull: 'دفع كامل',
-                fullName: 'الاسم الكامل *',
-                review: 'مراجعة',
-                forgot: 'نسيت',
-                hard: 'صعب',
-                easy: 'سهل',
-                clientNotes: 'ملاحظات',
-                debts: 'ديون',
-                remaining: 'متبقي',
-                paid: 'مدفوع',
-                original: 'الأصلي',
-                totalDebtsLabel: 'إجمالي الديون',
-                totalPaidLabel: 'إجمالي المدفوع',
-                remainingLabel: 'المتبقي',
-                debtsCount: 'عدد الديون',
-                paymentsHistory: 'سجل المدفوعات',
-                paidStatus: 'مدفوع',
-                unpaidStatus: 'غير مدفوع',
-                reviewLabel: 'مراجعة',
-                reviewCount: 'عدد المراجعات',
-                debtsBook: 'دفتر الديون'
-            },
-            en: {
-                appTitle: 'Client Ledger',
-                appSubtitle: 'Integrated Management System',
-                navDashboard: 'Dashboard',
-                navNotes: 'Notes',
-                navRepetition: 'Spaced Repetition',
-                navDebts: 'Shop Debts',
-                navClients: 'Clients',
-                navSettings: 'Settings',
-                quickActions: 'Quick Actions',
-                quickNewNote: 'New Note',
-                quickNewDebt: 'New Debt',
-                quickNewClient: 'New Client',
-                language: 'Language',
-                exportData: 'Export Data',
-                searchPlaceholder: 'Search the entire system...',
-                totalNotes: 'Total Notes',
-                reviewsToday: 'Reviews Today',
-                totalDebts: 'Total Debts',
-                totalClients: 'Clients',
-                upcomingReviews: 'Upcoming Reviews',
-                recentDebts: 'Recent Debts',
-                noReviews: 'No reviews today',
-                noDebts: 'No debts recorded',
-                addNote: 'Add Note',
-                searchNotes: 'Search notes...',
-                noNotesYet: 'No notes yet',
-                startReview: 'Start Review',
-                addDebt: 'Add Debt',
-                searchName: 'Search by name...',
-                filterAll: 'All',
-                filterUnpaid: 'Unpaid',
-                filterPaid: 'Paid',
-                unpaidDebts: 'Unpaid Debts',
-                paidDebts: 'Paid Debts',
-                tableName: 'Name',
-                tableOriginal: 'Original Amount',
-                tablePaid: 'Paid',
-                tableRemaining: 'Remaining',
-                tableDate: 'Date',
-                tableStatus: 'Status',
-                tableActions: 'Actions',
-                addClient: 'Add Client',
-                searchClients: 'Search clients...',
-                noClients: 'No clients yet',
-                chooseTheme: 'Choose Theme',
-                themeDefault: 'Default',
-                themePurple: 'Purple',
-                themeBlue: 'Blue',
-                themeGreen: 'Green',
-                themeRose: 'Rose',
-                themeOrange: 'Orange',
-                appearance: 'Appearance',
-                darkMode: 'Dark Mode',
-                darkModeDesc: 'Enable dark mode',
-                currencySettings: 'Currency Settings',
-                selectCurrency: 'Select Currency',
-                selectCurrencyDesc: 'Choose the currency used in the system',
-                backgroundImage: 'Custom Background',
-                customBg: 'Background Image',
-                customBgDesc: 'Choose an image as background',
-                choose: 'Choose',
-                remove: 'Remove',
-                data: 'Data',
-                exportDesc: 'Download backup',
-                export: 'Export',
-                importData: 'Import Data',
-                importDesc: 'Restore from backup',
-                import: 'Import',
-                deleteAllData: 'Delete All Data',
-                deleteAllDesc: 'Delete everything permanently',
-                delete: 'Delete',
-                title: 'Title',
-                content: 'Content',
-                priority: 'Priority',
-                priorityLow: 'Low',
-                priorityMedium: 'Medium',
-                priorityHigh: 'High',
-                save: 'Save',
-                selectClient: 'Select Client *',
-                selectClientFirst: 'Select client first',
-                clientRequired: 'You must add a client first from Clients section',
-                amount: 'Amount',
-                notes: 'Notes',
-                partialPayment: 'Partial Payment',
-                originalAmount: 'Original Amount',
-                paidAmount: 'Paid',
-                remainingAmount: 'Remaining',
-                paymentAmount: 'Amount',
-                confirm: 'Confirm',
-                payFull: 'Pay Full',
-                fullName: 'Full Name *',
-                review: 'Review',
-                forgot: 'Forgot',
-                hard: 'Hard',
-                easy: 'Easy',
-                clientNotes: 'Notes',
-                debts: 'Debts',
-                remaining: 'Remaining',
-                paid: 'Paid',
-                original: 'Original',
-                totalDebtsLabel: 'Total Debts',
-                totalPaidLabel: 'Total Paid',
-                remainingLabel: 'Remaining',
-                debtsCount: 'Number of Debts',
-                paymentsHistory: 'Payments History',
-                paidStatus: 'Paid',
-                unpaidStatus: 'Unpaid',
-                reviewLabel: 'Review',
-                reviewCount: 'Number of Reviews',
-                debtsBook: 'Debts Book'
-            },
-            zh: {
-                appTitle: '客户账本',
-                appSubtitle: '综合管理系统',
-                navDashboard: '仪表板',
-                navNotes: '笔记',
-                navRepetition: '间隔重复',
-                navDebts: '店铺债务',
-                navClients: '客户管理',
-                navSettings: '设置',
-                quickActions: '快速操作',
-                quickNewNote: '新建笔记',
-                quickNewDebt: '新债务',
-                quickNewClient: '新客户',
-                language: '语言',
-                exportData: '导出数据',
-                searchPlaceholder: '搜索整个系统...',
-                totalNotes: '笔记总数',
-                reviewsToday: '今日复习',
-                totalDebts: '债务总额',
-                totalClients: '客户',
-                upcomingReviews: '即将复习',
-                recentDebts: '最近债务',
-                noReviews: '今天没有复习',
-                noDebts: '没有记录债务',
-                addNote: '添加笔记',
-                searchNotes: '搜索笔记...',
-                noNotesYet: '暂无笔记',
-                startReview: '开始复习',
-                addDebt: '添加债务',
-                searchName: '按名称搜索...',
-                filterAll: '全部',
-                filterUnpaid: '未付款',
-                filterPaid: '已付款',
-                unpaidDebts: '未付债务',
-                paidDebts: '已付债务',
-                tableName: '姓名',
-                tableOriginal: '原始金额',
-                tablePaid: '已付',
-                tableRemaining: '剩余',
-                tableDate: '日期',
-                tableStatus: '状态',
-                tableActions: '操作',
-                addClient: '添加客户',
-                searchClients: '搜索客户...',
-                noClients: '暂无客户',
-                chooseTheme: '选择主题',
-                themeDefault: '默认',
-                themePurple: '紫色',
-                themeBlue: '蓝色',
-                themeGreen: '绿色',
-                themeRose: '玫瑰',
-                themeOrange: '橙色',
-                appearance: '外观',
-                darkMode: '深色模式',
-                darkModeDesc: '启用深色模式',
-                currencySettings: '货币设置',
-                selectCurrency: '选择货币',
-                selectCurrencyDesc: '选择系统中使用的货币',
-                backgroundImage: '自定义背景',
-                customBg: '背景图片',
-                customBgDesc: '选择图片作为背景',
-                choose: '选择',
-                remove: '移除',
-                data: '数据',
-                exportDesc: '下载备份',
-                export: '导出',
-                importData: '导入数据',
-                importDesc: '从备份恢复',
-                import: '导入',
-                deleteAllData: '删除所有数据',
-                deleteAllDesc: '永久删除所有内容',
-                delete: '删除',
-                title: '标题',
-                content: '内容',
-                priority: '优先级',
-                priorityLow: '低',
-                priorityMedium: '中',
-                priorityHigh: '高',
-                save: '保存',
-                selectClient: '选择客户 *',
-                selectClientFirst: '先选择客户',
-                clientRequired: '必须先从客户部分添加客户',
-                amount: '金额',
-                notes: '备注',
-                partialPayment: '部分付款',
-                originalAmount: '原始金额',
-                paidAmount: '已付',
-                remainingAmount: '剩余',
-                paymentAmount: '金额',
-                confirm: '确认',
-                payFull: '全额支付',
-                fullName: '全名 *',
-                review: '复习',
-                forgot: '忘了',
-                hard: '困难',
-                easy: '简单',
-                clientNotes: '备注',
-                debts: '债务',
-                remaining: '剩余',
-                paid: '已付',
-                original: '原始',
-                totalDebtsLabel: '债务总额',
-                totalPaidLabel: '已付总额',
-                remainingLabel: '剩余',
-                debtsCount: '债务数量',
-                paymentsHistory: '付款记录',
-                paidStatus: '已付',
-                unpaidStatus: '未付',
-                reviewLabel: '复习',
-                reviewCount: '复习次数',
-                debtsBook: '债务簿'
-            }
-        };
-        
         // Currency symbols
         const currencySymbols = {
             DZD: { symbol: 'د.ج', name: 'دينار جزائري', position: 'after' },
@@ -2350,30 +1730,18 @@
             SAR: { symbol: 'ر.س', name: 'ريال سعودي', position: 'after' }
         };
         
-        const defaultCurrencyByLang = {
-            ar: 'DZD',
-            en: 'USD',
-            zh: 'CNY'
-        };
-        
         // Data
-        let notes = [];
         let debts = [];
         let clients = [];
-        let settings = { darkMode: false, color: '', lang: 'ar', bgImage: null, currency: 'DZD' };
-        let currentReviewNote = null;
-        let currentReviewIndex = 0;
-        let reviewQueue = [];
+        let settings = { darkMode: false, currency: 'DZD' };
         let currentDebtId = null;
         
         // Load data from localStorage
         function loadData() {
-            const savedNotes = localStorage.getItem('notes');
             const savedDebts = localStorage.getItem('debts');
             const savedClients = localStorage.getItem('clients');
             const savedSettings = localStorage.getItem('settings');
             
-            if (savedNotes) notes = JSON.parse(savedNotes);
             if (savedDebts) debts = JSON.parse(savedDebts);
             if (savedClients) clients = JSON.parse(savedClients);
             if (savedSettings) {
@@ -2393,173 +1761,231 @@
             }
         }
         
-        // Update UI language
-        function updateLanguageUI() {
-            const t = translations[settings.lang];
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            loadData();
+            loadSettings();
+            updateDashboard();
+            renderDebts();
+            renderClients();
             
-            // Sidebar
-            document.getElementById('app-title').textContent = t.appTitle;
-            document.getElementById('app-subtitle').textContent = t.appSubtitle;
-            document.getElementById('quick-actions-title').textContent = t.quickActions;
-            document.getElementById('quick-new-note').textContent = t.quickNewNote;
-            document.getElementById('quick-new-debt').textContent = t.quickNewDebt;
-            document.getElementById('quick-new-client').textContent = t.quickNewClient;
-            document.getElementById('lang-selector-title').textContent = t.language;
-            document.getElementById('export-data').textContent = t.exportData;
+            document.getElementById('debt-form').addEventListener('submit', saveDebt);
+            document.getElementById('edit-debt-form').addEventListener('submit', saveDebtEdit);
+            document.getElementById('client-form').addEventListener('submit', saveClient);
+            document.getElementById('payment-form').addEventListener('submit', processPartialPayment);
+            document.getElementById('import-input').addEventListener('change', handleImport);
             
-            // Navigation
-            document.querySelectorAll('.nav-item').forEach(item => {
-                const section = item.dataset.section;
-                const textEl = item.querySelector('.nav-text');
-                if (textEl && section) {
-                    const keys = {
-                        dashboard: 'navDashboard',
-                        notes: 'navNotes',
-                        repetition: 'navRepetition',
-                        debts: 'navDebts',
-                        clients: 'navClients',
-                        settings: 'navSettings'
-                    };
-                    if (keys[section]) textEl.textContent = t[keys[section]];
+            document.addEventListener('click', function(e) {
+                if (!e.target.closest('.global-search-box')) {
+                    document.getElementById('search-results').classList.remove('show');
+                }
+                if (!e.target.closest('.client-search-container')) {
+                    document.getElementById('client-search-dropdown').classList.remove('show');
+                }
+            });
+        });
+        
+        // محسن: البحث العام مع عرض معلومات الدين
+        function performGlobalSearch() {
+            const query = document.getElementById('global-search').value.toLowerCase();
+            const resultsContainer = document.getElementById('search-results');
+            
+            if (query.length < 2) {
+                resultsContainer.classList.remove('show');
+                return;
+            }
+            
+            let results = [];
+            
+            // البحث في العملاء
+            clients.forEach(client => {
+                if (client.name.toLowerCase().includes(query)) {
+                    const clientDebts = debts.filter(d => d.clientId === client.id);
+                    const totalDebt = clientDebts.reduce((sum, d) => sum + d.amount, 0);
+                    const totalPaid = clientDebts.reduce((sum, d) => sum + (d.paidAmount || 0), 0);
+                    const remaining = totalDebt - totalPaid;
+                    
+                    results.push({
+                        type: 'client',
+                        icon: 'person',
+                        title: client.name,
+                        subtitle: `عدد الديون: ${clientDebts.length}`,
+                        details: {
+                            totalDebt: formatCurrency(totalDebt),
+                            paid: formatCurrency(totalPaid),
+                            remaining: formatCurrency(remaining)
+                        },
+                        action: () => { openClientProfile(client.id); }
+                    });
                 }
             });
             
-            // Search
-            document.getElementById('global-search').placeholder = t.searchPlaceholder;
-            document.getElementById('notes-search').placeholder = t.searchNotes;
-            document.getElementById('debts-search').placeholder = t.searchName;
-            document.getElementById('clients-search').placeholder = t.searchClients;
+            // البحث في الديون
+            debts.forEach(debt => {
+                if (debt.name.toLowerCase().includes(query)) {
+                    const remaining = debt.amount - (debt.paidAmount || 0);
+                    results.push({
+                        type: 'debt',
+                        icon: 'account_balance_wallet',
+                        title: debt.name,
+                        subtitle: formatCurrency(debt.amount),
+                        details: {
+                            totalDebt: formatCurrency(debt.amount),
+                            paid: formatCurrency(debt.paidAmount || 0),
+                            remaining: formatCurrency(remaining)
+                        },
+                        action: () => { 
+                            navigateTo('debts'); 
+                            document.getElementById('debts-search').value = debt.name;
+                            filterDebts(); 
+                        }
+                    });
+                }
+            });
             
-            // Dashboard
-            document.getElementById('label-total-notes').textContent = t.totalNotes;
-            document.getElementById('label-review-today').textContent = t.reviewsToday;
-            document.getElementById('label-total-debts').textContent = t.totalDebts;
-            document.getElementById('label-total-clients').textContent = t.totalClients;
-            document.getElementById('title-upcoming-reviews').textContent = t.upcomingReviews;
-            document.getElementById('title-recent-debts').textContent = t.recentDebts;
-            
-            // Sections
-            document.getElementById('section-title-notes').textContent = t.navNotes;
-            document.getElementById('section-title-repetition').textContent = t.navRepetition;
-            document.getElementById('section-title-debts').textContent = t.navDebts;
-            document.getElementById('section-title-clients').textContent = t.navClients;
-            document.getElementById('section-title-settings').textContent = t.navSettings;
-            
-            // Buttons
-            document.getElementById('btn-add-note').textContent = t.addNote;
-            document.getElementById('btn-start-review').textContent = t.startReview;
-            document.getElementById('btn-add-debt').textContent = t.addDebt;
-            document.getElementById('btn-add-client').textContent = t.addClient;
-            
-            // Filters
-            document.getElementById('filter-all').textContent = t.filterAll;
-            document.getElementById('filter-unpaid').textContent = t.filterUnpaid;
-            document.getElementById('filter-paid').textContent = t.filterPaid;
-            
-            // Debts
-            document.getElementById('label-unpaid-debts').textContent = t.unpaidDebts;
-            document.getElementById('label-paid-debts').textContent = t.paidDebts;
-            document.getElementById('th-name').textContent = t.tableName;
-            document.getElementById('th-original').textContent = t.tableOriginal;
-            document.getElementById('th-paid').textContent = t.tablePaid;
-            document.getElementById('th-remaining').textContent = t.tableRemaining;
-            document.getElementById('th-date').textContent = t.tableDate;
-            document.getElementById('th-status').textContent = t.tableStatus;
-            document.getElementById('th-actions').textContent = t.tableActions;
-            document.getElementById('msg-no-debts').textContent = t.noDebts;
-            
-            // Settings
-            document.getElementById('title-choose-theme').textContent = t.chooseTheme;
-            document.getElementById('theme-default').textContent = t.themeDefault;
-            document.getElementById('theme-purple').textContent = t.themePurple;
-            document.getElementById('theme-blue').textContent = t.themeBlue;
-            document.getElementById('theme-green').textContent = t.themeGreen;
-            document.getElementById('theme-rose').textContent = t.themeRose;
-            document.getElementById('theme-orange').textContent = t.themeOrange;
-            document.getElementById('title-appearance').textContent = t.appearance;
-            document.getElementById('settings-dark-mode').textContent = t.darkMode;
-            document.getElementById('settings-dark-mode-desc').textContent = t.darkModeDesc;
-            document.getElementById('title-currency-settings').textContent = t.currencySettings;
-            document.getElementById('settings-select-currency').textContent = t.selectCurrency;
-            document.getElementById('settings-select-currency-desc').textContent = t.selectCurrencyDesc;
-            document.getElementById('title-bg-image').textContent = t.backgroundImage;
-            document.getElementById('settings-custom-bg').textContent = t.customBg;
-            document.getElementById('settings-custom-bg-desc').textContent = t.customBgDesc;
-            document.getElementById('btn-choose').textContent = t.choose;
-            document.getElementById('btn-remove').textContent = t.remove;
-            document.getElementById('title-data').textContent = t.data;
-            document.getElementById('settings-export').textContent = t.exportData;
-            document.getElementById('settings-export-desc').textContent = t.exportDesc;
-            document.getElementById('btn-export').textContent = t.export;
-            document.getElementById('settings-import').textContent = t.importData;
-            document.getElementById('settings-import-desc').textContent = t.importDesc;
-            document.getElementById('btn-import').textContent = t.import;
-            document.getElementById('settings-delete-all').textContent = t.deleteAllData;
-            document.getElementById('settings-delete-all-desc').textContent = t.deleteAllDesc;
-            document.getElementById('btn-delete').textContent = t.delete;
-            
-            // Modals
-            document.getElementById('modal-title-note').textContent = t.addNote;
-            document.getElementById('label-note-title').textContent = t.title;
-            document.getElementById('label-note-content').textContent = t.content;
-            document.getElementById('label-note-priority').textContent = t.priority;
-            document.getElementById('priority-low').textContent = t.priorityLow;
-            document.getElementById('priority-medium').textContent = t.priorityMedium;
-            document.getElementById('priority-high').textContent = t.priorityHigh;
-            document.getElementById('btn-save').textContent = t.save;
-            
-            document.getElementById('modal-title-debt').textContent = t.addDebt;
-            document.getElementById('label-select-client').textContent = t.selectClient;
-            document.getElementById('option-select-client').textContent = t.selectClientFirst;
-            document.getElementById('msg-client-required').textContent = t.clientRequired;
-            document.getElementById('label-amount').textContent = t.amount;
-            document.getElementById('label-notes').textContent = t.notes;
-            document.getElementById('btn-save-debt').textContent = t.save;
-            
-            document.getElementById('modal-title-payment').textContent = t.partialPayment;
-            document.getElementById('label-original-amount').textContent = t.originalAmount;
-            document.getElementById('label-paid-amount').textContent = t.paidAmount;
-            document.getElementById('label-remaining-amount').textContent = t.remainingAmount;
-            document.getElementById('label-payment-amount').textContent = t.paymentAmount;
-            document.getElementById('btn-confirm').textContent = t.confirm;
-            document.getElementById('btn-pay-full').textContent = t.payFull;
-            
-            document.getElementById('modal-title-client').textContent = t.addClient;
-            document.getElementById('label-client-name').textContent = t.fullName;
-            document.getElementById('label-client-notes').textContent = t.notes;
-            document.getElementById('btn-save-client').textContent = t.save;
-            
-            document.getElementById('modal-title-review').textContent = t.review;
-            document.getElementById('btn-forgot').textContent = t.forgot;
-            document.getElementById('btn-hard').textContent = t.hard;
-            document.getElementById('btn-easy').textContent = t.easy;
-        }
-        
-        // Set language
-        function setLanguage(lang) {
-            settings.lang = lang;
-            if (!settings.currency || settings.currency === 'DZD' || settings.currency === 'USD' || settings.currency === 'CNY') {
-                settings.currency = defaultCurrencyByLang[lang];
+            if (results.length === 0) {
+                resultsContainer.innerHTML = '<div style="padding: 20px; text-align: center; color: var(--text-tertiary);">لا توجد نتائج</div>';
+            } else {
+                resultsContainer.innerHTML = results.slice(0, 10).map((result, index) => `
+                    <div class="search-result-item" onclick="searchResultsClick(${index})">
+                        <div class="search-result-header">
+                            <div class="search-result-icon"><i class="material-icons">${result.icon}</i></div>
+                            <div class="search-result-title">${result.title}</div>
+                            <span class="search-result-type">${result.type === 'client' ? 'عميل' : 'دين'}</span>
+                        </div>
+                        <div style="color: var(--text-secondary); font-size: 13px;">${result.subtitle}</div>
+                        ${result.details ? `
+                        <div class="search-result-details">
+                            <div class="search-result-detail">
+                                <div class="search-result-detail-label">إجمالي الديون</div>
+                                <div class="search-result-detail-value">${result.details.totalDebt}</div>
+                            </div>
+                            <div class="search-result-detail">
+                                <div class="search-result-detail-label">المدفوع</div>
+                                <div class="search-result-detail-value" style="color: var(--success-color);">${result.details.paid}</div>
+                            </div>
+                            <div class="search-result-detail">
+                                <div class="search-result-detail-label">المتبقي</div>
+                                <div class="search-result-detail-value" style="color: var(--danger-color);">${result.details.remaining}</div>
+                            </div>
+                        </div>
+                        ` : ''}
+                    </div>
+                `).join('');
+                window.searchResults = results;
             }
-            saveSettings();
             
-            document.documentElement.lang = lang;
-            document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
-            
-            document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
-            event.target.classList.add('active');
-            
-            updateLanguageUI();
-            updateCurrencyButtons();
-            renderDebts();
-            updateDashboard();
-            renderClients();
-            
-            const t = translations[lang];
-            showToast(t.language + ' ✓');
+            resultsContainer.classList.add('show');
         }
         
-        // Currency
+        function searchResultsClick(index) {
+            document.getElementById('search-results').classList.remove('show');
+            document.getElementById('global-search').value = '';
+            if (window.searchResults && window.searchResults[index]) {
+                window.searchResults[index].action();
+            }
+        }
+        
+        // محسن: البحث عن العميل عند إضافة دين
+        function searchClientForDebt() {
+            const query = document.getElementById('client-search-input').value.toLowerCase();
+            const dropdown = document.getElementById('client-search-dropdown');
+            
+            if (query.length === 0) {
+                dropdown.classList.remove('show');
+                return;
+            }
+            
+            const filtered = clients.filter(c => c.name.toLowerCase().includes(query));
+            
+            if (filtered.length === 0) {
+                dropdown.innerHTML = '<div style="padding: 14px; text-align: center; color: var(--text-tertiary);">لا يوجد عملاء</div>';
+            } else {
+                dropdown.innerHTML = filtered.map(client => {
+                    const clientDebts = debts.filter(d => d.clientId === client.id);
+                    const totalDebt = clientDebts.reduce((sum, d) => sum + d.amount, 0);
+                    const totalPaid = clientDebts.reduce((sum, d) => sum + (d.paidAmount || 0), 0);
+                    const remaining = totalDebt - totalPaid;
+                    
+                    return `
+                        <div class="client-option" onclick="selectClientForDebt(${client.id}, '${client.name}')">
+                            <div class="client-option-name">${client.name}</div>
+                            <div class="client-option-info">
+                                <span class="client-option-debts">الديون: ${formatCurrency(totalDebt)}</span>
+                                <span class="client-option-paid">المدفوع: ${formatCurrency(totalPaid)}</span>
+                                <span>المتبقي: ${formatCurrency(remaining)}</span>
+                            </div>
+                        </div>
+                    `;
+                }).join('');
+            }
+            
+            dropdown.classList.add('show');
+        }
+        
+        function selectClientForDebt(clientId, clientName) {
+            document.getElementById('debt-client-id').value = clientId;
+            document.getElementById('client-search-input').value = clientName;
+            document.getElementById('client-search-dropdown').classList.remove('show');
+        }
+        
+        // Navigation
+        document.querySelectorAll('.nav-item').forEach(item => {
+            item.addEventListener('click', function() {
+                navigateTo(this.dataset.section);
+            });
+        });
+        
+        function navigateTo(section) {
+            document.querySelectorAll('.nav-item').forEach(item => item.classList.remove('active'));
+            document.querySelector(`[data-section="${section}"]`)?.classList.add('active');
+            
+            document.querySelectorAll('.section').forEach(sec => sec.classList.remove('active'));
+            document.getElementById(section + '-section')?.classList.add('active');
+            
+            const titles = { 
+                dashboard: 'لوحة التحكم', 
+                debts: 'ديون المحل', 
+                clients: 'إدارة العملاء', 
+                'client-profile': 'ملف العميل', 
+                settings: 'الإعدادات' 
+            };
+            document.getElementById('page-title').textContent = titles[section] || section;
+            
+            document.getElementById('sidebar').classList.remove('active');
+        }
+        
+        function toggleSidebar() {
+            document.getElementById('sidebar').classList.toggle('active');
+        }
+        
+        // Settings
+        function loadSettings() {
+            if (settings.darkMode) {
+                document.documentElement.setAttribute('data-mode', 'dark');
+                document.getElementById('dark-mode-toggle').checked = true;
+                document.getElementById('theme-icon').textContent = 'light_mode';
+            }
+            
+            if (!settings.currency) {
+                settings.currency = 'DZD';
+            }
+            updateCurrencyButtons();
+        }
+        
+        function toggleDarkMode() {
+            settings.darkMode = !settings.darkMode;
+            
+            document.documentElement.removeAttribute('data-mode');
+            if (settings.darkMode) {
+                document.documentElement.setAttribute('data-mode', 'dark');
+            }
+            
+            document.getElementById('dark-mode-toggle').checked = settings.darkMode;
+            document.getElementById('theme-icon').textContent = settings.darkMode ? 'light_mode' : 'dark_mode';
+            saveSettings();
+        }
+        
         function selectCurrency(currency) {
             settings.currency = currency;
             saveSettings();
@@ -2581,458 +2007,34 @@
             });
         }
         
-        // Initialize
-        document.addEventListener('DOMContentLoaded', function() {
-            loadData();
-            loadSettings();
-            updateLanguageUI();
-            updateDashboard();
-            renderNotes();
-            renderDebts();
-            renderClients();
-            renderRepetition();
-            updateClientSelect();
-            
-            document.getElementById('note-form').addEventListener('submit', saveNote);
-            document.getElementById('debt-form').addEventListener('submit', saveDebt);
-            document.getElementById('client-form').addEventListener('submit', saveClient);
-            document.getElementById('payment-form').addEventListener('submit', processPartialPayment);
-            document.getElementById('import-input').addEventListener('change', handleImport);
-            
-            document.addEventListener('click', function(e) {
-                if (!e.target.closest('.global-search-box')) {
-                    document.getElementById('search-results').classList.remove('show');
-                }
-            });
-        });
-        
-        // Global Search
-        function performGlobalSearch() {
-            const query = document.getElementById('global-search').value.toLowerCase();
-            const resultsContainer = document.getElementById('search-results');
-            
-            if (query.length < 2) {
-                resultsContainer.classList.remove('show');
-                return;
-            }
-            
-            let results = [];
-            const t = translations[settings.lang];
-            
-            notes.forEach(note => {
-                if (note.title.toLowerCase().includes(query) || note.content.toLowerCase().includes(query)) {
-                    results.push({
-                        type: 'note',
-                        title: note.title,
-                        subtitle: note.content.substring(0, 50) + '...',
-                        icon: 'note',
-                        action: () => { navigateTo('notes'); filterNotes(query); }
-                    });
-                }
-            });
-            
-            debts.forEach(debt => {
-                if (debt.name.toLowerCase().includes(query)) {
-                    results.push({
-                        type: 'debt',
-                        title: debt.name,
-                        subtitle: formatCurrency(debt.amount),
-                        icon: 'account_balance_wallet',
-                        action: () => { navigateTo('debts'); filterDebts(query); }
-                    });
-                }
-            });
-            
-            clients.forEach(client => {
-                if (client.name.toLowerCase().includes(query)) {
-                    results.push({
-                        type: 'client',
-                        title: client.name,
-                        subtitle: t.debts + ': ' + debts.filter(d => d.clientId === client.id).length,
-                        icon: 'person',
-                        action: () => { openClientProfile(client.id); }
-                    });
-                }
-            });
-            
-            if (results.length === 0) {
-                resultsContainer.innerHTML = '<div style="padding: 20px; text-align: center; color: var(--text-tertiary);">لا توجد نتائج</div>';
-            } else {
-                resultsContainer.innerHTML = results.slice(0, 10).map((result, index) => `
-                    <div class="search-result-item" onclick="searchResultsClick(${index})">
-                        <div class="search-result-icon"><i class="material-icons">${result.icon}</i></div>
-                        <div class="search-result-content">
-                            <h4>${result.title}</h4>
-                            <p>${result.subtitle}</p>
-                        </div>
-                        <span class="search-result-type">${result.type}</span>
-                    </div>
-                `).join('');
-                window.searchResults = results;
-            }
-            
-            resultsContainer.classList.add('show');
-        }
-        
-        function searchResultsClick(index) {
-            document.getElementById('search-results').classList.remove('show');
-            document.getElementById('global-search').value = '';
-            if (window.searchResults && window.searchResults[index]) {
-                window.searchResults[index].action();
-            }
-        }
-        
-        // Navigation
-        document.querySelectorAll('.nav-item').forEach(item => {
-            item.addEventListener('click', function() {
-                navigateTo(this.dataset.section);
-            });
-        });
-        
-        function navigateTo(section) {
-            const t = translations[settings.lang];
-            
-            document.querySelectorAll('.nav-item').forEach(item => item.classList.remove('active'));
-            document.querySelector(`[data-section="${section}"]`)?.classList.add('active');
-            
-            document.querySelectorAll('.section').forEach(sec => sec.classList.remove('active'));
-            document.getElementById(section + '-section')?.classList.add('active');
-            
-            const titles = { 
-                dashboard: t.navDashboard, 
-                notes: t.navNotes, 
-                repetition: t.navRepetition, 
-                debts: t.navDebts, 
-                clients: t.navClients, 
-                'client-profile': t.navClients, 
-                settings: t.navSettings 
-            };
-            document.getElementById('page-title').textContent = titles[section] || section;
-            
-            document.getElementById('sidebar').classList.remove('active');
-        }
-        
-        function toggleSidebar() {
-            document.getElementById('sidebar').classList.toggle('active');
-        }
-        
-        // Settings
-        function loadSettings() {
-            if (settings.darkMode) {
-                document.documentElement.setAttribute('data-mode', 'dark');
-                document.getElementById('dark-mode-toggle').checked = true;
-                document.getElementById('theme-icon').textContent = 'light_mode';
-            }
-            
-            if (settings.color) {
-                document.documentElement.setAttribute('data-color', settings.color);
-                document.querySelectorAll('.theme-option').forEach(opt => opt.classList.remove('active'));
-                document.querySelector(`[data-color="${settings.color}"]`)?.classList.add('active');
-            }
-            
-            if (settings.bgImage) {
-                document.getElementById('custom-bg').style.backgroundImage = `url(${settings.bgImage})`;
-            }
-            
-            if (!settings.currency) {
-                settings.currency = defaultCurrencyByLang[settings.lang || 'ar'];
-            }
-            updateCurrencyButtons();
-            
-            document.querySelectorAll('.lang-btn').forEach(btn => {
-                btn.classList.remove('active');
-                if (btn.textContent.includes(settings.lang === 'ar' ? 'العربية' : settings.lang === 'en' ? 'English' : '中文')) {
-                    btn.classList.add('active');
-                }
-            });
-        }
-        
-        function selectColor(color) {
-            settings.color = color;
-            document.documentElement.removeAttribute('data-color');
-            
-            if (color) {
-                document.documentElement.setAttribute('data-color', color);
-            }
-            
-            document.querySelectorAll('.theme-option').forEach(opt => opt.classList.remove('active'));
-            document.querySelector(`[data-color="${color}"]`)?.classList.add('active');
-            
-            saveSettings();
-            showToast('تم تغيير التصميم 🎨');
-        }
-        
-        function toggleDarkMode() {
-            settings.darkMode = !settings.darkMode;
-            
-            document.documentElement.removeAttribute('data-mode');
-            if (settings.darkMode) {
-                document.documentElement.setAttribute('data-mode', 'dark');
-            }
-            
-            document.getElementById('dark-mode-toggle').checked = settings.darkMode;
-            document.getElementById('theme-icon').textContent = settings.darkMode ? 'light_mode' : 'dark_mode';
-            saveSettings();
-        }
-        
-        function setBackgroundImage(event) {
-            const file = event.target.files[0];
-            if (!file) return;
-            
-            const reader = new FileReader();
-            reader.onload = function(e) {
-                settings.bgImage = e.target.result;
-                document.getElementById('custom-bg').style.backgroundImage = `url(${e.target.result})`;
-                document.getElementById('bg-overlay').style.opacity = '0.85';
-                saveSettings();
-                showToast('تم تغيير الخلفية 🖼️');
-            };
-            reader.readAsDataURL(file);
-        }
-        
-        function clearBackground() {
-            settings.bgImage = null;
-            document.getElementById('custom-bg').style.backgroundImage = '';
-            document.getElementById('bg-overlay').style.opacity = '0.85';
-            saveSettings();
-            showToast('تم إزالة الخلفية');
-        }
-        
         function saveSettings() {
             localStorage.setItem('settings', JSON.stringify(settings));
         }
         
-        // Notes
-        function openNoteModal() {
-            document.getElementById('note-modal').classList.add('active');
-        }
-        
-        function saveNote(e) {
-            e.preventDefault();
-            notes.push({
-                id: Date.now(),
-                title: document.getElementById('note-title').value,
-                content: document.getElementById('note-content').value,
-                priority: document.getElementById('note-priority').value,
-                createdAt: new Date().toISOString(),
-                nextReview: new Date().toISOString(),
-                repetitionLevel: 0,
-                reviews: 0
-            });
-            saveNotes();
-            closeModal('note-modal');
-            document.getElementById('note-form').reset();
-            renderNotes();
-            updateDashboard();
-            renderRepetition();
-            showToast('تم إضافة الملاحظة ✨');
-        }
-        
-        function saveNotes() {
-            localStorage.setItem('notes', JSON.stringify(notes));
-            document.getElementById('notes-count').textContent = notes.length;
-        }
-        
-        function renderNotes() {
-            const container = document.getElementById('notes-container');
-            const t = translations[settings.lang];
-            
-            if (notes.length === 0) {
-                container.innerHTML = `<div class="empty-state"><i class="material-icons">note_add</i><h3>${t.noNotesYet}</h3></div>`;
-                return;
-            }
-            
-            const priorityLabels = {
-                low: t.priorityLow,
-                medium: t.priorityMedium,
-                high: t.priorityHigh
-            };
-            
-            container.innerHTML = notes.map(note => `
-                <div class="card" style="padding: 20px; cursor: pointer;" onclick="startReview(${note.id})">
-                    <h4 style="font-size: 18px; font-weight: 700; margin-bottom: 12px;">${note.title}</h4>
-                    <p style="color: var(--text-secondary); font-size: 14px; line-height: 1.7;">${note.content.substring(0, 150)}${note.content.length > 150 ? '...' : ''}</p>
-                    <div style="display: flex; justify-content: space-between; margin-top: 16px; padding-top: 16px; border-top: 1px solid var(--border-color);">
-                        <span class="badge badge-${note.priority === 'high' ? 'danger' : note.priority === 'medium' ? 'warning' : 'success'}">${priorityLabels[note.priority]}</span>
-                        <span style="font-size: 12px; color: var(--text-tertiary);">${formatDate(note.createdAt)}</span>
-                    </div>
-                    <div style="margin-top: 12px;">
-                        <button class="btn btn-danger btn-sm" onclick="event.stopPropagation(); deleteNote(${note.id})"><i class="material-icons">delete</i> ${t.delete}</button>
-                    </div>
-                </div>
-            `).join('');
-            
-            document.getElementById('notes-count').textContent = notes.length;
-        }
-        
-        function deleteNote(id) {
-            const t = translations[settings.lang];
-            if (confirm(settings.lang === 'ar' ? 'هل أنت متأكد من حذف هذه الملاحظة؟' : 'Are you sure you want to delete this note?')) {
-                notes = notes.filter(n => n.id !== id);
-                saveNotes();
-                renderNotes();
-                renderRepetition();
-                updateDashboard();
-                showToast('تم حذف الملاحظة');
-            }
-        }
-        
-        function filterNotes(searchQuery = null) {
-            const search = searchQuery || document.getElementById('notes-search').value.toLowerCase();
-            const filtered = notes.filter(note => note.title.toLowerCase().includes(search) || note.content.toLowerCase().includes(search));
-            
-            const container = document.getElementById('notes-container');
-            const t = translations[settings.lang];
-            
-            if (filtered.length === 0) {
-                container.innerHTML = '<div class="empty-state"><i class="material-icons">search</i><h3>لا توجد نتائج</h3></div>';
-                return;
-            }
-            
-            const priorityLabels = {
-                low: t.priorityLow,
-                medium: t.priorityMedium,
-                high: t.priorityHigh
-            };
-            
-            container.innerHTML = filtered.map(note => `
-                <div class="card" style="padding: 20px;">
-                    <h4 style="font-size: 18px; font-weight: 700; margin-bottom: 12px;">${note.title}</h4>
-                    <p style="color: var(--text-secondary); font-size: 14px; line-height: 1.7;">${note.content.substring(0, 150)}${note.content.length > 150 ? '...' : ''}</p>
-                    <div style="display: flex; justify-content: space-between; margin-top: 16px; padding-top: 16px; border-top: 1px solid var(--border-color);">
-                        <span class="badge badge-${note.priority === 'high' ? 'danger' : note.priority === 'medium' ? 'warning' : 'success'}">${priorityLabels[note.priority]}</span>
-                        <span style="font-size: 12px; color: var(--text-tertiary);">${formatDate(note.createdAt)}</span>
-                    </div>
-                </div>
-            `).join('');
-        }
-        
-        // Repetition
-        function renderRepetition() {
-            const container = document.getElementById('repetition-container');
-            const t = translations[settings.lang];
-            const today = new Date().toDateString();
-            const dueNotes = notes.filter(note => new Date(note.nextReview).toDateString() <= today);
-            
-            if (dueNotes.length === 0) {
-                container.innerHTML = `<div class="empty-state"><i class="material-icons">event_available</i><h3>${t.noReviews} 🎉</h3></div>`;
-                return;
-            }
-            
-            container.innerHTML = `
-                <div style="margin-bottom: 20px; padding: 16px; background: var(--bg-tertiary); border-radius: var(--radius-md);">
-                    <p style="color: var(--text-secondary);">${settings.lang === 'ar' ? 'لديك' : 'You have'} <strong style="color: var(--primary-color);">${dueNotes.length}</strong> ${settings.lang === 'ar' ? 'ملاحظة للمراجعة' : 'notes to review'}</p>
-                </div>
-                <div class="notes-grid">
-                    ${dueNotes.map(note => `
-                        <div class="card" style="padding: 20px; cursor: pointer;" onclick="startReview(${note.id})">
-                            <h4 style="font-size: 18px; font-weight: 700; margin-bottom: 12px;">${note.title}</h4>
-                            <p style="color: var(--text-secondary); font-size: 14px;">${note.content.substring(0, 100)}...</p>
-                            <div style="margin-top: 12px;"><span class="badge badge-warning">${settings.lang === 'ar' ? 'للمراجعة' : 'To Review'}</span></div>
-                        </div>
-                    `).join('')}
-                </div>
-            `;
-        }
-        
-        function startReviewSession() {
-            const today = new Date().toDateString();
-            reviewQueue = notes.filter(note => new Date(note.nextReview).toDateString() <= today);
-            const t = translations[settings.lang];
-            
-            if (reviewQueue.length === 0) {
-                showToast(`${t.noReviews} 🎉`);
-                return;
-            }
-            currentReviewIndex = 0;
-            startReview(reviewQueue[currentReviewIndex].id);
-        }
-        
-        function startReview(id) {
-            currentReviewNote = notes.find(n => n.id === id);
-            if (!currentReviewNote) return;
-            
-            const t = translations[settings.lang];
-            
-            document.getElementById('review-content').innerHTML = `
-                <div style="margin-bottom: 24px;">
-                    <h4 style="font-size: 22px; font-weight: 800; margin-bottom: 16px;">${currentReviewNote.title}</h4>
-                    <p style="line-height: 2; color: var(--text-secondary); font-size: 16px;">${currentReviewNote.content}</p>
-                </div>
-                <div style="background: var(--bg-tertiary); padding: 20px; border-radius: var(--radius-md);">
-                    <p style="font-size: 13px; color: var(--text-tertiary);"><strong>${t.reviewCount}:</strong> ${currentReviewNote.reviews}</p>
-                </div>
-            `;
-            document.getElementById('review-modal').classList.add('active');
-        }
-        
-        function reviewNote(quality) {
-            if (!currentReviewNote) return;
-            
-            const intervals = [1, 3, 7, 14, 30];
-            const noteIndex = notes.findIndex(n => n.id === currentReviewNote.id);
-            
-            if (quality === 'forgot') {
-                notes[noteIndex].repetitionLevel = 0;
-                notes[noteIndex].nextReview = new Date().toISOString();
-            } else if (quality === 'hard') {
-                const level = Math.max(0, notes[noteIndex].repetitionLevel - 1);
-                notes[noteIndex].repetitionLevel = level;
-                notes[noteIndex].nextReview = new Date(Date.now() + intervals[level] * 24 * 60 * 60 * 1000).toISOString();
-            } else {
-                const level = Math.min(4, notes[noteIndex].repetitionLevel + 1);
-                notes[noteIndex].repetitionLevel = level;
-                notes[noteIndex].nextReview = new Date(Date.now() + intervals[level] * 24 * 60 * 60 * 1000).toISOString();
-            }
-            
-            notes[noteIndex].reviews++;
-            saveNotes();
-            
-            currentReviewIndex++;
-            if (currentReviewIndex < reviewQueue.length) {
-                closeModal('review-modal');
-                setTimeout(() => startReview(reviewQueue[currentReviewIndex].id), 300);
-            } else {
-                closeModal('review-modal');
-                renderRepetition();
-                renderNotes();
-                updateDashboard();
-                showToast(settings.lang === 'ar' ? 'أحسنت! تم إكمال المراجعات 🎉' : 'Great! Reviews completed 🎉');
-            }
-        }
-        
         // Debts
         function openDebtModal() {
-            const t = translations[settings.lang];
             if (clients.length === 0) {
-                showToast(t.clientRequired + ' 👤');
+                showToast('يجب إضافة عميل أولاً من قسم العملاء 👤');
                 navigateTo('clients');
                 return;
             }
-            updateClientSelect();
+            document.getElementById('client-search-input').value = '';
+            document.getElementById('debt-client-id').value = '';
             document.getElementById('debt-modal').classList.add('active');
-        }
-        
-        function updateClientSelect() {
-            const select = document.getElementById('debt-client');
-            const t = translations[settings.lang];
-            select.innerHTML = `<option value="">${t.selectClientFirst}</option>` + 
-                clients.map(c => `<option value="${c.id}">${c.name}</option>`).join('');
         }
         
         function saveDebt(e) {
             e.preventDefault();
-            const t = translations[settings.lang];
             
-            const clientId = document.getElementById('debt-client').value;
+            const clientId = document.getElementById('debt-client-id').value;
             if (!clientId) {
-                showToast(t.selectClientFirst);
+                showToast('يجب اختيار عميل أولاً');
                 return;
             }
             
             const client = clients.find(c => c.id == clientId);
             if (!client) {
-                showToast(settings.lang === 'ar' ? 'العميل غير موجود!' : 'Client not found!');
+                showToast('العميل غير موجود!');
                 return;
             }
             
@@ -3063,7 +2065,6 @@
         function renderDebts() {
             const tbody = document.getElementById('debts-tbody');
             const emptyState = document.getElementById('debts-empty');
-            const t = translations[settings.lang];
             
             const unpaidDebtsArr = debts.filter(d => !d.paid);
             const paidDebtsArr = debts.filter(d => d.paid);
@@ -3093,13 +2094,14 @@
                     <td style="color: var(--success-color); font-weight: 600;">${formatCurrency(debt.paidAmount || 0)}</td>
                     <td style="color: ${remaining > 0 ? 'var(--danger-color)' : 'var(--success-color)'}; font-weight: 700;">${formatCurrency(remaining)}</td>
                     <td>${formatDate(debt.date)}</td>
-                    <td><span class="badge ${debt.paid ? 'badge-success' : 'badge-warning'}">${debt.paid ? t.paidStatus : t.unpaidStatus}</span></td>
+                    <td><span class="badge ${debt.paid ? 'badge-success' : 'badge-warning'}">${debt.paid ? 'مدفوع' : 'غير مدفوع'}</span></td>
                     <td>
                         <div style="display: flex; gap: 8px; flex-wrap: wrap;">
                             ${!debt.paid ? `
                             <button class="btn btn-warning btn-sm" onclick="openPaymentModal(${debt.id})"><i class="material-icons">payment</i></button>
                             <button class="btn btn-success btn-sm" onclick="markPaid(${debt.id})"><i class="material-icons">check</i></button>
                             ` : ''}
+                            <button class="btn btn-secondary btn-sm" onclick="openEditDebtModal(${debt.id})"><i class="material-icons">edit</i></button>
                             <button class="btn btn-danger btn-sm" onclick="deleteDebt(${debt.id})"><i class="material-icons">delete</i></button>
                         </div>
                     </td>
@@ -3107,6 +2109,50 @@
             `}).join('');
             
             document.getElementById('debts-count').textContent = debts.length;
+        }
+        
+        // محسن: تعديل الدين
+        function openEditDebtModal(debtId) {
+            currentDebtId = debtId;
+            const debt = debts.find(d => d.id === debtId);
+            if (!debt) return;
+            
+            document.getElementById('edit-debt-id').value = debtId;
+            document.getElementById('edit-debt-amount').value = debt.amount;
+            document.getElementById('edit-debt-paid').value = debt.paidAmount || 0;
+            document.getElementById('edit-debt-notes').value = debt.notes || '';
+            
+            document.getElementById('edit-debt-modal').classList.add('active');
+        }
+        
+        function saveDebtEdit(e) {
+            e.preventDefault();
+            
+            const debtId = parseInt(document.getElementById('edit-debt-id').value);
+            const debtIndex = debts.findIndex(d => d.id === debtId);
+            
+            if (debtIndex === -1) return;
+            
+            const newAmount = parseFloat(document.getElementById('edit-debt-amount').value);
+            const newPaid = parseFloat(document.getElementById('edit-debt-paid').value);
+            
+            debts[debtIndex].amount = newAmount;
+            debts[debtIndex].paidAmount = newPaid;
+            debts[debtIndex].notes = document.getElementById('edit-debt-notes').value;
+            debts[debtIndex].paid = newPaid >= newAmount;
+            
+            saveDebts();
+            closeModal('edit-debt-modal');
+            renderDebts();
+            updateDashboard();
+            
+            const clientProfile = document.getElementById('client-profile-section');
+            if (clientProfile.classList.contains('active')) {
+                const clientId = clientProfile.dataset.clientId;
+                if (clientId) openClientProfile(parseInt(clientId));
+            }
+            
+            showToast('تم تحديث الدين ✓');
         }
         
         function openPaymentModal(debtId) {
@@ -3136,7 +2182,7 @@
             const remaining = debt.amount - (debt.paidAmount || 0);
             
             if (amount > remaining) {
-                showToast(settings.lang === 'ar' ? 'المبلغ أكبر من المتبقي!' : 'Amount exceeds remaining!');
+                showToast('المبلغ أكبر من المتبقي!');
                 return;
             }
             
@@ -3157,7 +2203,7 @@
                 if (clientId) openClientProfile(parseInt(clientId));
             }
             
-            showToast(`${settings.lang === 'ar' ? 'تم دفع' : 'Paid'} ${formatCurrency(amount)} 💵`);
+            showToast(`تم دفع ${formatCurrency(amount)} 💵`);
         }
         
         function payFullAmount() {
@@ -3178,17 +2224,17 @@
                 saveDebts();
                 renderDebts();
                 updateDashboard();
-                showToast(settings.lang === 'ar' ? 'تم تحديد الدين كمدفوع ✅' : 'Debt marked as paid ✅');
+                showToast('تم تحديد الدين كمدفوع ✅');
             }
         }
         
         function deleteDebt(id) {
-            if (confirm(settings.lang === 'ar' ? 'هل أنت متأكد من حذف هذا الدين؟' : 'Are you sure you want to delete this debt?')) {
+            if (confirm('هل أنت متأكد من حذف هذا الدين؟')) {
                 debts = debts.filter(d => d.id !== id);
                 saveDebts();
                 renderDebts();
                 updateDashboard();
-                showToast(settings.lang === 'ar' ? 'تم حذف الدين' : 'Debt deleted');
+                showToast('تم حذف الدين');
             }
         }
         
@@ -3207,7 +2253,6 @@
         
         function renderFilteredDebts(filtered) {
             const tbody = document.getElementById('debts-tbody');
-            const t = translations[settings.lang];
             
             tbody.innerHTML = filtered.map(debt => {
                 const remaining = debt.amount - (debt.paidAmount || 0);
@@ -3218,13 +2263,14 @@
                     <td style="color: var(--success-color); font-weight: 600;">${formatCurrency(debt.paidAmount || 0)}</td>
                     <td style="color: ${remaining > 0 ? 'var(--danger-color)' : 'var(--success-color)'}; font-weight: 700;">${formatCurrency(remaining)}</td>
                     <td>${formatDate(debt.date)}</td>
-                    <td><span class="badge ${debt.paid ? 'badge-success' : 'badge-warning'}">${debt.paid ? t.paidStatus : t.unpaidStatus}</span></td>
+                    <td><span class="badge ${debt.paid ? 'badge-success' : 'badge-warning'}">${debt.paid ? 'مدفوع' : 'غير مدفوع'}</span></td>
                     <td>
                         <div style="display: flex; gap: 8px; flex-wrap: wrap;">
                             ${!debt.paid ? `
                             <button class="btn btn-warning btn-sm" onclick="openPaymentModal(${debt.id})"><i class="material-icons">payment</i></button>
                             <button class="btn btn-success btn-sm" onclick="markPaid(${debt.id})"><i class="material-icons">check</i></button>
                             ` : ''}
+                            <button class="btn btn-secondary btn-sm" onclick="openEditDebtModal(${debt.id})"><i class="material-icons">edit</i></button>
                             <button class="btn btn-danger btn-sm" onclick="deleteDebt(${debt.id})"><i class="material-icons">delete</i></button>
                         </div>
                     </td>
@@ -3250,7 +2296,6 @@
             document.getElementById('client-form').reset();
             renderClients();
             updateDashboard();
-            updateClientSelect();
             showToast('تم إضافة العميل 👤');
         }
         
@@ -3261,10 +2306,9 @@
         
         function renderClients() {
             const container = document.getElementById('clients-container');
-            const t = translations[settings.lang];
             
             if (clients.length === 0) {
-                container.innerHTML = `<div class="empty-state"><i class="material-icons">person_add</i><h3>${t.noClients}</h3></div>`;
+                container.innerHTML = '<div class="empty-state"><i class="material-icons">person_add</i><h3>لا يوجد عملاء</h3></div>';
                 return;
             }
             
@@ -3286,24 +2330,24 @@
                     <div class="client-stats">
                         <div class="client-stat">
                             <div class="client-stat-value">${clientDebts.length}</div>
-                            <div class="client-stat-label">${t.debts}</div>
+                            <div class="client-stat-label">ديون</div>
                         </div>
                         <div class="client-stat">
                             <div class="client-stat-value" style="color: var(--warning-color);">${formatCurrency(remaining)}</div>
-                            <div class="client-stat-label">${t.remaining}</div>
+                            <div class="client-stat-label">متبقي</div>
                         </div>
                         <div class="client-stat">
                             <div class="client-stat-value" style="color: var(--success-color);">${formatCurrency(totalPaid)}</div>
-                            <div class="client-stat-label">${t.paid}</div>
+                            <div class="client-stat-label">مدفوع</div>
                         </div>
                     </div>
                     
                     <div class="client-actions">
                         <button class="btn btn-primary" onclick="openClientProfile(${client.id})">
-                            <i class="material-icons">visibility</i>${settings.lang === 'ar' ? 'عرض الملف' : 'View Profile'}
+                            <i class="material-icons">visibility</i>عرض الملف
                         </button>
                         <button class="btn btn-danger" onclick="deleteClient(${client.id})">
-                            <i class="material-icons">delete</i>${t.delete}
+                            <i class="material-icons">delete</i>حذف
                         </button>
                     </div>
                 </div>
@@ -3316,7 +2360,6 @@
             const client = clients.find(c => c.id === clientId);
             if (!client) return;
             
-            const t = translations[settings.lang];
             const clientDebts = debts.filter(d => d.clientId === clientId);
             const totalDebt = clientDebts.reduce((sum, d) => sum + d.amount, 0);
             const totalPaid = clientDebts.reduce((sum, d) => sum + (d.paidAmount || 0), 0);
@@ -3334,7 +2377,7 @@
             
             document.getElementById('client-profile-content').innerHTML = `
                 <button class="btn btn-secondary" onclick="navigateTo('clients')" style="margin-bottom: 20px;">
-                    <i class="material-icons">arrow_back</i>${settings.lang === 'ar' ? 'العودة للعملاء' : 'Back to Clients'}
+                    <i class="material-icons">arrow_back</i>العودة للعملاء
                 </button>
                 
                 <div class="client-book">
@@ -3349,27 +2392,27 @@
                         <div class="book-stats-grid">
                             <div class="book-stat-card">
                                 <div class="book-stat-value">${clientDebts.length}</div>
-                                <div class="book-stat-label">${t.debtsCount}</div>
+                                <div class="book-stat-label">عدد الديون</div>
                             </div>
                             <div class="book-stat-card">
                                 <div class="book-stat-value">${formatCurrency(totalDebt)}</div>
-                                <div class="book-stat-label">${t.totalDebtsLabel}</div>
+                                <div class="book-stat-label">إجمالي الديون</div>
                             </div>
                             <div class="book-stat-card">
                                 <div class="book-stat-value">${formatCurrency(totalPaid)}</div>
-                                <div class="book-stat-label">${t.totalPaidLabel}</div>
+                                <div class="book-stat-label">إجمالي المدفوع</div>
                             </div>
                             <div class="book-stat-card">
                                 <div class="book-stat-value">${formatCurrency(remaining)}</div>
-                                <div class="book-stat-label">${t.remainingLabel}</div>
+                                <div class="book-stat-label">المتبقي</div>
                             </div>
                         </div>
                     </div>
                     
                     <div class="book-content">
                         <div class="book-section">
-                            <h3 class="book-section-title"><i class="material-icons">account_balance_wallet</i>${t.debtsBook} (${clientDebts.length})</h3>
-                            ${clientDebts.length === 0 ? `<div class="empty-state" style="padding: 40px;"><i class="material-icons">check_circle</i><h3>${t.noDebts}</h3></div>` : clientDebts.map(debt => {
+                            <h3 class="book-section-title"><i class="material-icons">account_balance_wallet</i>دفتر الديون (${clientDebts.length})</h3>
+                            ${clientDebts.length === 0 ? '<div class="empty-state" style="padding: 40px;"><i class="material-icons">check_circle</i><h3>لا توجد ديون مسجلة</h3></div>' : clientDebts.map(debt => {
                                 const debtRemaining = debt.amount - (debt.paidAmount || 0);
                                 return `
                                 <div class="debt-book-item ${debt.paid ? 'paid' : ''}">
@@ -3378,22 +2421,30 @@
                                             <div class="debt-book-amount">${formatCurrency(debt.amount)}</div>
                                             <div class="debt-book-date">${formatDate(debt.date)}</div>
                                         </div>
-                                        <span class="badge ${debt.paid ? 'badge-success' : 'badge-warning'}">${debt.paid ? t.paidStatus : t.unpaidStatus}</span>
+                                        <span class="badge ${debt.paid ? 'badge-success' : 'badge-warning'}">${debt.paid ? 'مدفوع' : 'غير مدفوع'}</span>
                                     </div>
                                     ${debt.notes ? `<p style="color: var(--text-secondary); font-size: 13px; margin-top: 8px;">${debt.notes}</p>` : ''}
                                     <div class="debt-book-details">
                                         <div class="debt-book-detail">
-                                            <div class="debt-book-detail-label">${t.original}</div>
+                                            <div class="debt-book-detail-label">الأصلي</div>
                                             <div class="debt-book-detail-value">${formatCurrency(debt.amount)}</div>
                                         </div>
                                         <div class="debt-book-detail">
-                                            <div class="debt-book-detail-label">${t.paid}</div>
+                                            <div class="debt-book-detail-label">المدفوع</div>
                                             <div class="debt-book-detail-value" style="color: var(--success-color);">${formatCurrency(debt.paidAmount || 0)}</div>
                                         </div>
                                         <div class="debt-book-detail">
-                                            <div class="debt-book-detail-label">${t.remaining}</div>
+                                            <div class="debt-book-detail-label">المتبقي</div>
                                             <div class="debt-book-detail-value" style="color: var(--danger-color);">${formatCurrency(debtRemaining)}</div>
                                         </div>
+                                    </div>
+                                    <div class="debt-book-actions">
+                                        ${!debt.paid ? `
+                                        <button class="btn btn-warning btn-sm" onclick="openPaymentModal(${debt.id})"><i class="material-icons">payment</i>دفع</button>
+                                        <button class="btn btn-success btn-sm" onclick="markPaid(${debt.id})"><i class="material-icons">check</i>إكمال</button>
+                                        ` : ''}
+                                        <button class="btn btn-secondary btn-sm" onclick="openEditDebtModal(${debt.id})"><i class="material-icons">edit</i>تعديل</button>
+                                        <button class="btn btn-danger btn-sm" onclick="deleteDebt(${debt.id})"><i class="material-icons">delete</i>حذف</button>
                                     </div>
                                 </div>
                             `}).join('')}
@@ -3401,7 +2452,7 @@
                         
                         ${allPayments.length > 0 ? `
                         <div class="book-section">
-                            <h3 class="book-section-title"><i class="material-icons">history</i>${t.paymentsHistory} (${allPayments.length})</h3>
+                            <h3 class="book-section-title"><i class="material-icons">history</i>سجل المدفوعات (${allPayments.length})</h3>
                             ${allPayments.map(payment => `
                                 <div class="payment-book-item">
                                     <div>
@@ -3416,7 +2467,7 @@
                         
                         ${client.notes ? `
                         <div class="book-section">
-                            <h3 class="book-section-title"><i class="material-icons">note</i>${t.notes}</h3>
+                            <h3 class="book-section-title"><i class="material-icons">note</i>ملاحظات</h3>
                             <p style="color: var(--text-secondary); line-height: 1.8; padding: 16px; background: var(--bg-tertiary); border-radius: var(--radius-md);">${client.notes}</p>
                         </div>
                         ` : ''}
@@ -3429,22 +2480,20 @@
         }
         
         function deleteClient(id) {
-            if (confirm(settings.lang === 'ar' ? 'هل أنت متأكد من حذف هذا العميل؟ سيتم حذف جميع ديونه.' : 'Are you sure? All debts will be deleted.')) {
+            if (confirm('هل أنت متأكد من حذف هذا العميل؟ سيتم حذف جميع ديونه.')) {
                 debts = debts.filter(d => d.clientId !== id);
                 saveDebts();
                 clients = clients.filter(c => c.id !== id);
                 saveClients();
                 renderClients();
                 updateDashboard();
-                updateClientSelect();
-                showToast(settings.lang === 'ar' ? 'تم حذف العميل' : 'Client deleted');
+                showToast('تم حذف العميل');
             }
         }
         
         function filterClients() {
             const search = document.getElementById('clients-search').value.toLowerCase();
             const filtered = clients.filter(client => client.name.toLowerCase().includes(search));
-            const t = translations[settings.lang];
             
             const container = document.getElementById('clients-container');
             if (filtered.length === 0) {
@@ -3470,24 +2519,24 @@
                     <div class="client-stats">
                         <div class="client-stat">
                             <div class="client-stat-value">${clientDebts.length}</div>
-                            <div class="client-stat-label">${t.debts}</div>
+                            <div class="client-stat-label">ديون</div>
                         </div>
                         <div class="client-stat">
                             <div class="client-stat-value" style="color: var(--warning-color);">${formatCurrency(remaining)}</div>
-                            <div class="client-stat-label">${t.remaining}</div>
+                            <div class="client-stat-label">متبقي</div>
                         </div>
                         <div class="client-stat">
                             <div class="client-stat-value" style="color: var(--success-color);">${formatCurrency(totalPaid)}</div>
-                            <div class="client-stat-label">${t.paid}</div>
+                            <div class="client-stat-label">مدفوع</div>
                         </div>
                     </div>
                     
                     <div class="client-actions">
                         <button class="btn btn-primary" onclick="openClientProfile(${client.id})">
-                            <i class="material-icons">visibility</i>${settings.lang === 'ar' ? 'عرض الملف' : 'View Profile'}
+                            <i class="material-icons">visibility</i>عرض الملف
                         </button>
                         <button class="btn btn-danger" onclick="deleteClient(${client.id})">
-                            <i class="material-icons">delete</i>${t.delete}
+                            <i class="material-icons">delete</i>حذف
                         </button>
                     </div>
                 </div>
@@ -3496,47 +2545,28 @@
         
         // Dashboard
         function updateDashboard() {
-            const t = translations[settings.lang];
-            
-            document.getElementById('total-notes').textContent = notes.length;
             document.getElementById('total-clients').textContent = clients.length;
             
             const totalDebtsAmount = debts.filter(d => !d.paid).reduce((sum, d) => sum + (d.amount - (d.paidAmount || 0)), 0);
             document.getElementById('total-debts').textContent = formatCurrency(totalDebtsAmount);
             
-            const today = new Date().toDateString();
-            const reviewsToday = notes.filter(note => new Date(note.nextReview).toDateString() <= today).length;
-            document.getElementById('review-today').textContent = reviewsToday;
+            const unpaidDebtsAmount = debts.filter(d => !d.paid).reduce((sum, d) => sum + (d.amount - (d.paidAmount || 0)), 0);
+            document.getElementById('unpaid-debts-dashboard').textContent = formatCurrency(unpaidDebtsAmount);
             
-            const upcoming = notes.filter(note => new Date(note.nextReview).toDateString() <= today).slice(0, 5);
-            document.getElementById('upcoming-reviews').innerHTML = upcoming.length === 0 ? `<div class="empty-state"><i class="material-icons">event_available</i><h3>${t.noReviews}</h3></div>` : `
-                <div class="table-container">
-                    <table class="table">
-                        <thead><tr><th>${t.title}</th><th>${t.reviewCount}</th><th>${t.tableActions}</th></tr></thead>
-                        <tbody>
-                            ${upcoming.map(note => `
-                                <tr>
-                                    <td><strong>${note.title}</strong></td>
-                                    <td>${note.reviews}</td>
-                                    <td><button class="btn btn-primary btn-sm" onclick="navigateTo('repetition'); startReview(${note.id})">${t.reviewLabel}</button></td>
-                                </tr>
-                            `).join('')}
-                        </tbody>
-                    </table>
-                </div>
-            `;
+            const paidDebtsAmount = debts.filter(d => d.paid).reduce((sum, d) => sum + d.amount, 0) + debts.filter(d => !d.paid).reduce((sum, d) => sum + (d.paidAmount || 0), 0);
+            document.getElementById('paid-debts-dashboard').textContent = formatCurrency(paidDebtsAmount);
             
             const recent = debts.slice(-5).reverse();
-            document.getElementById('recent-debts').innerHTML = recent.length === 0 ? `<div class="empty-state"><i class="material-icons">payments</i><h3>${t.noDebts}</h3></div>` : `
+            document.getElementById('recent-debts').innerHTML = recent.length === 0 ? '<div class="empty-state"><i class="material-icons">payments</i><h3>لا توجد ديون مسجلة</h3></div>' : `
                 <div class="table-container">
                     <table class="table">
-                        <thead><tr><th>${t.tableName}</th><th>${t.amount}</th><th>${t.tableStatus}</th></tr></thead>
+                        <thead><tr><th>الاسم</th><th>المبلغ</th><th>الحالة</th></tr></thead>
                         <tbody>
                             ${recent.map(debt => `
                                 <tr>
                                     <td><strong>${debt.name}</strong></td>
                                     <td>${formatCurrency(debt.amount)}</td>
-                                    <td><span class="badge ${debt.paid ? 'badge-success' : 'badge-warning'}">${debt.paid ? t.paidStatus : t.unpaidStatus}</span></td>
+                                    <td><span class="badge ${debt.paid ? 'badge-success' : 'badge-warning'}">${debt.paid ? 'مدفوع' : 'غير مدفوع'}</span></td>
                                 </tr>
                             `).join('')}
                         </tbody>
@@ -3547,7 +2577,7 @@
         
         // Export/Import
         function exportData() {
-            const data = { notes, debts, clients, settings, exportDate: new Date().toISOString() };
+            const data = { debts, clients, settings, exportDate: new Date().toISOString() };
             const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
             const url = URL.createObjectURL(blob);
             const a = document.createElement('a');
@@ -3555,7 +2585,7 @@
             a.download = `client_ledger_${new Date().toISOString().split('T')[0]}.json`;
             a.click();
             URL.revokeObjectURL(url);
-            showToast(settings.lang === 'ar' ? 'تم تصدير البيانات 📥' : 'Data exported 📥');
+            showToast('تم تصدير البيانات 📥');
         }
         
         function importData() {
@@ -3570,22 +2600,18 @@
             reader.onload = function(event) {
                 try {
                     const data = JSON.parse(event.target.result);
-                    if (confirm(settings.lang === 'ar' ? 'سيتم استبدال جميع البيانات. هل تريد المتابعة؟' : 'All data will be replaced. Continue?')) {
-                        if (data.notes) { notes = data.notes; saveNotes(); }
+                    if (confirm('سيتم استبدال جميع البيانات. هل تريد المتابعة؟')) {
                         if (data.debts) { debts = data.debts; saveDebts(); }
                         if (data.clients) { clients = data.clients; saveClients(); }
-                        if (data.settings) { settings = {...settings, ...data.settings}; saveSettings(); loadSettings(); updateLanguageUI(); }
+                        if (data.settings) { settings = {...settings, ...data.settings}; saveSettings(); loadSettings(); }
                         
-                        renderNotes();
                         renderDebts();
                         renderClients();
-                        renderRepetition();
                         updateDashboard();
-                        updateClientSelect();
-                        showToast(settings.lang === 'ar' ? 'تم استيراد البيانات 📤' : 'Data imported 📤');
+                        showToast('تم استيراد البيانات 📤');
                     }
                 } catch (error) {
-                    showToast(settings.lang === 'ar' ? 'خطأ في قراءة الملف ❌' : 'Error reading file ❌');
+                    showToast('خطأ في قراءة الملف ❌');
                 }
             };
             reader.readAsText(file);
@@ -3593,19 +2619,15 @@
         }
         
         function clearAllData() {
-            if (confirm(settings.lang === 'ar' ? 'هل أنت متأكد من حذف جميع البيانات؟' : 'Are you sure you want to delete all data?')) {
-                notes = [];
+            if (confirm('هل أنت متأكد من حذف جميع البيانات؟')) {
                 debts = [];
                 clients = [];
-                localStorage.removeItem('notes');
                 localStorage.removeItem('debts');
                 localStorage.removeItem('clients');
-                renderNotes();
                 renderDebts();
                 renderClients();
-                renderRepetition();
                 updateDashboard();
-                showToast(settings.lang === 'ar' ? 'تم حذف جميع البيانات' : 'All data deleted');
+                showToast('تم حذف جميع البيانات');
             }
         }
         
@@ -3615,11 +2637,11 @@
         }
         
         function formatDate(dateString) {
-            return new Date(dateString).toLocaleDateString(settings.lang === 'ar' ? 'ar-DZ' : settings.lang === 'zh' ? 'zh-CN' : 'en-US', { year: 'numeric', month: 'short', day: 'numeric' });
+            return new Date(dateString).toLocaleDateString('ar-DZ', { year: 'numeric', month: 'short', day: 'numeric' });
         }
         
         function formatDateTime(dateString) {
-            return new Date(dateString).toLocaleDateString(settings.lang === 'ar' ? 'ar-DZ' : settings.lang === 'zh' ? 'zh-CN' : 'en-US', { year: 'numeric', month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit' });
+            return new Date(dateString).toLocaleDateString('ar-DZ', { year: 'numeric', month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit' });
         }
         
         function showToast(message) {
