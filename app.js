@@ -13,6 +13,16 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 // Initialize Firebase
+// ربط الدوال بنافذة المتصفح لكي تعمل جميع أزرار الموقع بسلاسة
+Object.assign(window, {
+    exportData, toggleSidebar, performGlobalSearch, importData,
+    toggleDarkMode, openDebtModal, filterDebts, filterDebtsByStatus,
+    openClientModal, filterClients, selectCurrency, clearAllData,
+    closeModal, searchClientForDebt, saveDebt, saveDebtEdit,
+    saveClient, processPartialPayment, handleImport, selectClientForDebt,
+    searchResultsClick, openClientProfile, deleteClient, deleteDebt,
+    markPaid, openPaymentModal, payFullAmount, openEditDebtModal
+});
 const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
         // Currency symbols
