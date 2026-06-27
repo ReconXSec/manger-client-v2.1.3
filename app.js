@@ -10,8 +10,16 @@ const firebaseConfig = {
   appId: "1:1066012262715:web:3e48e3b0885ea81503b71e"
 };
 
-const app = initializeApp(firebaseConfig);
-const db = getFirestore(app);
+// ✅ Initialize Firebase مع معالجة الأخطاء
+let app, db;
+try {
+    app = initializeApp(firebaseConfig);
+    db = getFirestore(app);
+    console.log("✅ Firebase initialized successfully!");
+} catch (error) {
+    console.error("❌ Firebase initialization error:", error);
+    console.warn("⚠️ App will work with localStorage only - Firebase is not available");
+}
 
 // Currency symbols
 const currencySymbols = {
