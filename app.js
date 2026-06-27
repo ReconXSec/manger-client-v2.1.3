@@ -14,15 +14,6 @@ const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 // Initialize Firebase
 // ربط الدوال بنافذة المتصفح لكي تعمل جميع أزرار الموقع بسلاسة
-Object.assign(window, {
-    exportData, toggleSidebar, performGlobalSearch, importData,
-    toggleDarkMode, openDebtModal, filterDebts, filterDebtsByStatus,
-    openClientModal, filterClients, selectCurrency, clearAllData,
-    closeModal, searchClientForDebt, saveDebt, saveDebtEdit,
-    saveClient, processPartialPayment, handleImport, selectClientForDebt,
-    searchResultsClick, openClientProfile, deleteClient, deleteDebt,
-    markPaid, openPaymentModal, payFullAmount, openEditDebtModal
-});
 const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
         // Currency symbols
@@ -961,3 +952,65 @@ const analytics = getAnalytics(app);
                 if (e.target === this) this.classList.remove('active');
             });
         });
+// ربط جميع دوال النظام بنافذة المتصفح لكي تعمل الأزرار والتنقل بسلاسة
+Object.assign(window, {
+    // دوال التنقل والقائمة الجانبية والمظهر
+    toggleSidebar,
+    toggleDarkMode,
+    
+    // دوال إدارة العملاء (Clients)
+    openClientModal,
+    saveClient,
+    filterClients,
+    openClientProfile,
+    deleteClient,
+    
+    // دوال إدارة الديون (Debts)
+    openDebtModal,
+    saveDebt,
+    filterDebts,
+    filterDebtsByStatus,
+    searchClientForDebt,
+    selectClientForDebt,
+    openEditDebtModal,
+    saveDebtEdit,
+    deleteDebt,
+    
+    // دوال عمليات الدفع (Payments)
+    openPaymentModal,
+    processPartialPayment,
+    payFullAmount,
+    markPaid,
+    
+    // دوال البحث والإعدادات والبيانات
+    performGlobalSearch,
+    searchResultsClick,
+    selectCurrency,
+    exportData,
+    importData,
+    handleImport,
+    clearAllData,
+    closeModal
+});
+
+// كود تفعيل التنقل بين الأقسام (Sections) عند الضغط على أزرار القائمة الجانبية
+document.querySelectorAll('.nav-item').forEach(item => {
+    item.addEventListener('click', function() {
+        // إزالة الحساب النشط من الأزرار الأخرى
+        document.querySelectorAll('.nav-item').forEach(i => i.classList.remove('active'));
+        this.classList.add('active');
+        
+        // إخفاء جميع الأقسام وإظهار القسم المطلوب
+        const sectionId = this.getAttribute('data-section');
+        document.querySelectorAll('.section').forEach(sec => sec.classList.remove('active'));
+        
+        const targetSection = document.getElementById(`${sectionId}-section`);
+        if (targetSection) {
+            targetSection.classList.add('active');
+        }
+        
+        // تحديث عنوان الصفحة في الأعلى
+        const pageTitle = this.querySelector('span').textContent;
+        document.getElementById('page-title').textContent = pageTitle;
+    });
+});
