@@ -5,7 +5,7 @@ const firebaseConfig = {
   apiKey: "AIzaSyBKBfZ6ieEAOiCXTZ1vw5AtM68b9-1I9UI",
   authDomain: "manger-388f0.firebaseapp.com",
   projectId: "manger-388f0",
-  storageBucket: "manger-388f0.firebasestorage.app",
+  storageBucket: "manger-388f0.appspot.com",
   messagingSenderId: "1066012262715",
   appId: "1:1066012262715:web:3e48e3b0885ea81503b71e"
 };
