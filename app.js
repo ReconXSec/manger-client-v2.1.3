@@ -1,5 +1,5 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
-import { getFirestore, collection, addDoc, getDocs } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
+import { getFirestore, collection, setDoc, getDoc, doc, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
 
 const firebaseConfig = {
   apiKey: "AIzaSyBKBfZ6ieEAOiCXTZ1vw5AtM68b9-1I9UI",
@@ -12,14 +12,55 @@ const firebaseConfig = {
 
 // ✅ Initialize Firebase مع معالجة الأخطاء
 let app, db;
+let firebaseAvailable = false;
+
 try {
     app = initializeApp(firebaseConfig);
     db = getFirestore(app);
+    firebaseAvailable = true;
     console.log("✅ Firebase initialized successfully!");
 } catch (error) {
     console.error("❌ Firebase initialization error:", error);
     console.warn("⚠️ App will work with localStorage only - Firebase is not available");
 }
+
+// 🔄 نظام الحفظ التلقائي
+const DataSync = {
+    async saveToFirebase(dataType, data) {
+        if (!firebaseAvailable || !db) return false;
+        
+        try {
+            const docRef = doc(db, "appData", dataType);
+            await setDoc(docRef, {
+                data: data,
+                lastUpdated: serverTimestamp()
+            });
+            console.log(`✅ ${dataType} saved to Firebase`);
+            return true;
+        } catch (error) {
+            console.error(`❌ Error saving ${dataType} to Firebase:`, error);
+            return false;
+        }
+    },
+    
+    async loadFromFirebase(dataType) {
+        if (!firebaseAvailable || !db) return null;
+        
+        try {
+            const docRef = doc(db, "appData", dataType);
+            const docSnap = await getDoc(docRef);
+            
+            if (docSnap.exists()) {
+                console.log(`✅ ${dataType} loaded from Firebase`);
+                return docSnap.data().data;
+            }
+            return null;
+        } catch (error) {
+            console.error(`❌ Error loading ${dataType} from Firebase:`, error);
+            return null;
+        }
+    }
+};
 
 // Currency symbols
 const currencySymbols = {
@@ -37,16 +78,32 @@ let clients = [];
 let settings = { darkMode: false, currency: 'DZD' };
 let currentDebtId = null;
 
-// Load data from localStorage
-function loadData() {
-    const savedDebts = localStorage.getItem('debts');
-    const savedClients = localStorage.getItem('clients');
-    const savedSettings = localStorage.getItem('settings');
+// Load data from localStorage أو Firebase
+async function loadData() {
+    // حاول تحميل من Firebase أولاً
+    const firebaseDebts = await DataSync.loadFromFirebase('debts');
+    const firebaseClients = await DataSync.loadFromFirebase('clients');
+    const firebaseSettings = await DataSync.loadFromFirebase('settings');
     
-    if (savedDebts) debts = JSON.parse(savedDebts);
-    if (savedClients) clients = JSON.parse(savedClients);
-    if (savedSettings) {
-        settings = {...settings, ...JSON.parse(savedSettings)};
+    // إذا كانت البيانات موجودة في Firebase، استخدمها
+    if (firebaseDebts) debts = firebaseDebts;
+    else {
+        const savedDebts = localStorage.getItem('debts');
+        if (savedDebts) debts = JSON.parse(savedDebts);
+    }
+    
+    if (firebaseClients) clients = firebaseClients;
+    else {
+        const savedClients = localStorage.getItem('clients');
+        if (savedClients) clients = JSON.parse(savedClients);
+    }
+    
+    if (firebaseSettings) settings = {...settings, ...firebaseSettings};
+    else {
+        const savedSettings = localStorage.getItem('settings');
+        if (savedSettings) {
+            settings = {...settings, ...JSON.parse(savedSettings)};
+        }
     }
 }
 
@@ -63,8 +120,8 @@ function formatCurrency(amount) {
 }
 
 // Initialize
-document.addEventListener('DOMContentLoaded', function() {
-    loadData();
+document.addEventListener('DOMContentLoaded', async function() {
+    await loadData();
     loadSettings();
     updateDashboard();
     renderDebts();
@@ -313,6 +370,7 @@ function updateCurrencyButtons() {
 
 function saveSettings() {
     localStorage.setItem('settings', JSON.stringify(settings));
+    DataSync.saveToFirebase('settings', settings);
 }
 
 // Debts
@@ -363,6 +421,7 @@ function saveDebt(e) {
 
 function saveDebts() {
     localStorage.setItem('debts', JSON.stringify(debts));
+    DataSync.saveToFirebase('debts', debts);
     document.getElementById('debts-count').textContent = debts.length;
 }
 
@@ -605,6 +664,7 @@ function saveClient(e) {
 
 function saveClients() {
     localStorage.setItem('clients', JSON.stringify(clients));
+    DataSync.saveToFirebase('clients', clients);
     document.getElementById('clients-count').textContent = clients.length;
 }
 
@@ -928,6 +988,8 @@ function clearAllData() {
         clients = [];
         localStorage.removeItem('debts');
         localStorage.removeItem('clients');
+        DataSync.saveToFirebase('debts', []);
+        DataSync.saveToFirebase('clients', []);
         renderDebts();
         renderClients();
         updateDashboard();
